@@ -65,6 +65,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       let xrImmersiveRefSpace = null;
       let inlineViewerHelper = null;
 
+      let temp = null;
+
       // WebGL scene globals.
       let gl = null;
       let renderer = null;
@@ -139,6 +141,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
         session.updateRenderState({ baseLayer: new XRWebGLLayer(session, gl) });
 
+
         let refSpaceType = session.isImmersive ? 'local' : 'viewer';
         session.requestReferenceSpace(refSpaceType).then((refSpace) => {
           if (session.isImmersive) {
@@ -160,14 +163,50 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         }
       }
 
+      // Teleport the user a certain number of meters along the X, Y, and Z axes,
+      // for example deltaX=1 means the virtual world view changes as if the user had
+      // taken a 1m step to the right, so the new reference space pose should
+      // have its X value increased by 1m.
+      function teleportRelative(deltaX, deltaY, deltaZ) {
+        // Move the user by moving the reference space in the opposite direction,
+        // adjusting originOffset's position by the inverse delta.
+        xrImmersiveRefSpace = xrImmersiveRefSpace.getOffsetReferenceSpace(
+            new XRRigidTransform({ x: -deltaX, y: -deltaY, z: -deltaZ }));
+      }
+
+      function rotateZ(angle) {
+        // Move the user by moving the reference space in the opposite direction,
+        // adjusting originOffset's position by the inverse delta.
+
+        let s = Math.sin(angle * 0.5);
+        let c = Math.cos(angle * 0.5);
+        xrImmersiveRefSpace = xrImmersiveRefSpace.getOffsetReferenceSpace(
+          new XRRigidTransform(null, { x: 0, y: s, z: 0, w: c }));
+      }
+
       // Called every time a XRSession requests that a new frame be drawn.
       function onXRFrame(t, frame) {
         let session = frame.session;
+
+        if (session.isImmersive){
+          //console.log(xrImmersiveRefSpace);
+
+          //teleportRelative(-0.01,0,0);
+          rotateZ(0.01);
+        }
+
         let refSpace = session.isImmersive ?
                          xrImmersiveRefSpace :
                          inlineViewerHelper.referenceSpace;
         let pose = frame.getViewerPose(refSpace);
+        let temp_new = pose.views[0].transform.matrix;
+        if (JSON.stringify(temp_new)!==JSON.stringify(temp)) {
+          temp = temp_new;
+          //console.log(temp);
+        }
+        
 
+        //console.log(refSpace);
         scene.startFrame();
 
         session.requestAnimationFrame(onXRFrame);
