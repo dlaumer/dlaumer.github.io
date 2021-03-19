@@ -40,7 +40,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             This sample demonstrates extremely simple use of an "immersive-ar"
             session with no library dependencies, with an optional DOM overlay.
             It doesn't render anything exciting, just draws a rectangle with a
-            slowly changing color to prove it's working.
+            slowly changing color to prove it's working. lala
             <a class="back" href="./index.html">Back</a>
           </p>
           <div id="session-info"></div>
@@ -78,8 +78,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           let message = "WebXR unavailable due to insecure context";
           document.getElementById("warning-zone").innerText = message;
         }
-
+        document.getElementById("warning-zone").innerText = "Hello"
         if (navigator.xr) {
+          document.getElementById("warning-zone").innerText = document.getElementById("warning-zone").innerText  + " Hello2"
           xrButton.addEventListener('click', onButtonClicked);
           navigator.xr.addEventListener('devicechange', checkSupportedState);
           checkSupportedState();
