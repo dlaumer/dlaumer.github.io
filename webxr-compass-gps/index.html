@@ -33,18 +33,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   </head>
   <body>
     <header>
-      <details open>
-        <summary>Immersive AR Session</summary>
-        <p>
-          This sample demonstrates how to use an 'immersive-ar' XRSession to
-          present a simple WebGL scene to an transparent or passthrough XR
-          device. The logic is largely the same as the corresponding VR sample,
-          with the primary difference being that no background is rendered and
-          the model is scaled down for easier viewing in a real-world space.
-          <a class="back" href="./">Back</a>
-        </p>
-      </details>
+      
     </header>
+    <div id="overlay">
+      <div id="info">Das ist eine Test Info</div>
+    </div>
     <script type="module">
       import {WebXRButton} from './js/util/webxr-button.js';
       import {Scene} from './js/render/scenes/scene.js';
@@ -52,6 +45,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       import {InlineViewerHelper} from './js/util/inline-viewer-helper.js';
       import {Gltf2Node} from './js/render/nodes/gltf2.js';
       import {QueryArgs} from './js/util/query-args.js';
+      //import * as THREE from 'https://unpkg.com/three@0.126.1/build/three.js'
+      import * as THREE from './test/build/three.module.js';
+
+      const info = document.getElementById('info');
 
       // If requested, use the polyfill to provide support for mobile devices
       // and devices which only support WebVR.
@@ -66,6 +63,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       let inlineViewerHelper = null;
 
       let temp = null;
+      let RefMatrix = null;
 
       // WebGL scene globals.
       let gl = null;
@@ -104,7 +102,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         // environment will be visible either via video passthrough or a
         // transparent display. This may be presented either in a headset or
         // fullscreen on a mobile device.
-        return navigator.xr.requestSession('immersive-ar')
+        return navigator.xr.requestSession('immersive-ar', {
+                optionalFeatures: ['dom-overlay'],
+                domOverlay: {root: document.getElementById('overlay')}})
             .then((session) => {
               xrButton.setSession(session);
               session.isImmersive = true;
@@ -135,6 +135,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
       function onSessionStarted(session) {
         session.addEventListener('end', onSessionEnded);
+
+      // Show which type of DOM Overlay got enabled (if any)
+      if (session.domOverlayState) {
+        info.innerHTML = 'DOM Overlay type: ' + session.domOverlayState.type;
+      }
 
 
         initGL();
@@ -192,17 +197,43 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           //console.log(xrImmersiveRefSpace);
 
           //teleportRelative(-0.01,0,0);
-          rotateZ(0.01);
+          //rotateZ(0.01);
         }
 
         let refSpace = session.isImmersive ?
                          xrImmersiveRefSpace :
                          inlineViewerHelper.referenceSpace;
         let pose = frame.getViewerPose(refSpace);
-        let temp_new = pose.views[0].transform.matrix;
+        let temp_new = pose.transform.matrix;
+
+        if (RefMatrix == null) {
+          RefMatrix = new THREE.Matrix4();
+          RefMatrix.fromArray(temp_new);
+        }
         if (JSON.stringify(temp_new)!==JSON.stringify(temp)) {
           temp = temp_new;
-          //console.log(temp);
+          //console.log(new Array(temp))
+          const m = new THREE.Matrix4();
+          m.fromArray(temp)
+          const a = new THREE.Euler()
+          a.setFromRotationMatrix(m);
+
+
+          let position = new THREE.Vector3();
+          let quat = new THREE.Quaternion();
+          let scale = new THREE.Vector3();
+          m.decompose(position, quat, scale)
+
+          let orient = pose.transform.orientation
+
+          const vector = new THREE.Vector3( 0, 0, 1 );
+          vector.applyQuaternion( orient );
+          let vec = vector.projectOnPlane(new THREE.Vector3(0,1,0))
+          console.log(Math.atan2(vec.z,vec.x) * 180 / Math.PI) //YESSSSSS
+          //console.log(vec);
+          //console.log(quat.toArray().map(function(x) { return x * 180 / Math.PI; }));
+          //console.log(orient.toArray().map(function(x) { return x * 180 / Math.PI; }));
+          //console.log(m.extractRotation(RefMatrix))
         }
         
 
