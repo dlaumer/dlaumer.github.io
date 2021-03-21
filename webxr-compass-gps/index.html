@@ -229,7 +229,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           const vector = new THREE.Vector3( 0, 0, 1 );
           vector.applyQuaternion( orient );
           let vec = vector.projectOnPlane(new THREE.Vector3(0,1,0))
-          console.log(Math.atan2(vec.z,vec.x) * 180 / Math.PI) //YESSSSSS
+          let orientDeg = Math.atan2(vec.z,vec.x) * 180 / Math.PI;
+
+          info.innerHTML = MMath.floor(orientDeg).toString();
+          console.log(Math.floor(orientDeg).toString()) //YESSSSSS
+
           //console.log(vec);
           //console.log(quat.toArray().map(function(x) { return x * 180 / Math.PI; }));
           //console.log(orient.toArray().map(function(x) { return x * 180 / Math.PI; }));
