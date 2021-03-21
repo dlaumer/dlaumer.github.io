@@ -51,7 +51,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       import * as THREE from './test/build/three.module.js';
 
       const info = document.getElementById('info');
-      const heading = document.getElementById('heading');
+      const headingDiv = document.getElementById('heading');
 
       // If requested, use the polyfill to provide support for mobile devices
       // and devices which only support WebVR.
@@ -279,21 +279,21 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         if (typeof event.webkitCompassHeading !== "undefined") {
           alpha = event.webkitCompassHeading; //iOS non-standard
           var heading = alpha
-          heading.innerHTML = heading.toFixed([0]);
+          headingDiv.innerHTML = heading.toFixed([0]);
         }
         else {
           alert("Your device is reporting relative alpha values, so this compass won't point north :(");
           var heading = 360 - alpha; //heading [0, 360)
-          heading.innerHTML = heading.toFixed([0]);
+          headingDiv.innerHTML = heading.toFixed([0]);
         }
         
         // Change backgroud colour based on heading
         // Green for North and South, black otherwise
         if (heading > 359 || heading < 1) { //Allow +- 1 degree
-          heading.innerHTML = "N"; // North
+          headingDiv.innerHTML = "N"; // North
         }
         else if (heading > 179 && heading < 181){ //Allow +- 1 degree
-          heading.innerHTML = "S"; // South
+          headingDiv.innerHTML = "S"; // South
         } 
         
       }
