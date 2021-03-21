@@ -231,7 +231,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           let vec = vector.projectOnPlane(new THREE.Vector3(0,1,0))
           let orientDeg = Math.atan2(vec.z,vec.x) * 180 / Math.PI;
 
-          info.innerHTML = MMath.floor(orientDeg).toString();
+          info.innerHTML = Math.floor(orientDeg).toString();
           console.log(Math.floor(orientDeg).toString()) //YESSSSSS
 
           //console.log(vec);
