@@ -33,12 +33,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   </head>
   <body>
     <header>
-      <button id="request">Request Permission</button>
-
+      
     </header>
     <div id="overlay">
       <div id="info">Das ist eine Test Info</div>
-      <div id="heading">Compass</div>
     </div>
     <script type="module">
       import {WebXRButton} from './js/util/webxr-button.js';
@@ -51,7 +49,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       import * as THREE from './test/build/three.module.js';
 
       const info = document.getElementById('info');
-      const heading = document.getElementById('heading');
 
       // If requested, use the polyfill to provide support for mobile devices
       // and devices which only support WebVR.
@@ -67,8 +64,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
       let temp = null;
       let RefMatrix = null;
-      
-      let btn = null;
 
       // WebGL scene globals.
       let gl = null;
@@ -256,88 +251,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         scene.endFrame();
       }
 
-      function iOS() {
-        return [
-            'iPad Simulator',
-            'iPhone Simulator',
-            'iPod Simulator',
-            'iPad',
-            'iPhone',
-            'iPod'
-        ].includes(navigator.platform)
-        // iPad on iOS 13 detection
-        || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
-      }
-
-
-      // Get event data
-      function deviceOrientationHandler(event) {
-        var alpha    = event.alpha; //z axis rotation [0,360)
-        var beta     = event.beta; //x axis rotation [-180, 180]
-        var gamma    = event.gamma; //y axis rotation [-90, 90]
-        //Check if absolute values have been sent
-        if (typeof event.webkitCompassHeading !== "undefined") {
-          alpha = event.webkitCompassHeading; //iOS non-standard
-          var heading = alpha
-          heading.innerHTML = heading.toFixed([0]);
-        }
-        else {
-          alert("Your device is reporting relative alpha values, so this compass won't point north :(");
-          var heading = 360 - alpha; //heading [0, 360)
-          heading.innerHTML = heading.toFixed([0]);
-        }
-        
-        // Change backgroud colour based on heading
-        // Green for North and South, black otherwise
-        if (heading > 359 || heading < 1) { //Allow +- 1 degree
-          heading.innerHTML = "N"; // North
-        }
-        else if (heading > 179 && heading < 181){ //Allow +- 1 degree
-          heading.innerHTML = "S"; // South
-        } 
-        
-      }
-
-      function permission () {
-      if (iOS){
-          if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
-          // (optional) Do something before API request prompt.
-          DeviceMotionEvent.requestPermission()
-              .then( response => {
-              // (optional) Do something after API prompt dismissed.
-              if ( response == "granted" ) {
-                  handler();
-              }
-          })
-          .catch( console.error )
-      } else {
-          alert( "DeviceMotionEvent is not defined" );
-      }
-      } else {
-          handler();
-      }
-
-      }
-
-      function handler() {
-          btn.style.display = "none";
-          // Check if device can provide absolute orientation data
-          if (window.DeviceOrientationAbsoluteEvent) {
-              comsole.log("Absolute Orientation existing");
-          window.addEventListener("DeviceOrientationAbsoluteEvent", deviceOrientationHandler);
-          } // If not, check if the device sends any orientation data
-          else if(window.DeviceOrientationEvent){
-              console.log("Only normal orientation existing");
-          window.addEventListener("deviceorientation", deviceOrientationHandler);
-          } // Send an alert if the device isn't compatible
-          else {
-          alert("Sorry, try again on a compatible mobile device!");
-          }
-      }
-      
-      btn = document.getElementById( "request" );
-      btn.addEventListener( "click", permission );
-      
       // Start the XR application.
       initXR();
     </script>
