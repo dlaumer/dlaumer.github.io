@@ -73,27 +73,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       // WebGL scene globals.
       let gl = null;
       let renderer = null;
-      let scene = new THREE.Scene();
-      let camera = null;
-      //let solarSystem = new Gltf2Node({url: 'media/space.gltf'});
+      let scene = new Scene();
+      let solarSystem = new Gltf2Node({url: 'media/space.gltf'});
       // The solar system is big (citation needed). Scale it down so that users
       // can move around the planets more easily.
-      //solarSystem.scale = [0.1, 0.1, 0.1];
-      //scene.addNode(solarSystem);
+      solarSystem.scale = [0.1, 0.1, 0.1];
+      scene.addNode(solarSystem);
 
-      const cubeNorth = new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshBasicMaterial( { color: 'red' } ) );
-      const cubeEast = new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshBasicMaterial( { color: 'blue' } ) );
-      const cubeSouth = new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshBasicMaterial( { color: 'yellow' } ) );
-      const cubeWest = new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshBasicMaterial( { color: 'green' } ) );
-
-      cubeNorth.position.set(0, 0, -1);
-      cubeEast.position.set(1, 0, 0);
-      cubeSouth.position.set(0, 0, 1);
-      cubeWest.position.set(-1, 0, 0);
-      scene.add( cubeNorth );
-      scene.add( cubeEast );
-      scene.add( cubeSouth );
-      scene.add( cubeWest );
 
       function initXR() {
         xrButton = new WebXRButton({
@@ -147,20 +133,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         window.addEventListener('resize', onResize);
         onResize();
 
-        // Set up the WebGLRenderer, which handles rendering to the session's base layer.
-        renderer = new THREE.WebGLRenderer({
-          alpha: true,
-          preserveDrawingBuffer: true,
-          canvas: gl.canvas,
-          context: gl
-        });
-        renderer.autoClear = false;
+        renderer = new Renderer(gl);
 
-        // The API directly updates the camera matrices.
-        // Disable matrix auto updates so three.js doesn't attempt
-        // to handle the matrices independently.
-        camera = new THREE.PerspectiveCamera();
-        camera.matrixAutoUpdate = false;
+        scene.setRenderer(renderer);
       }
 
       function onSessionStarted(session) {
@@ -272,32 +247,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         
 
         //console.log(refSpace);
-        //scene.startFrame();
+        scene.startFrame();
 
         session.requestAnimationFrame(onXRFrame);
-        // Bind the graphics framebuffer to the baseLayer's framebuffer
-        gl.bindFramebuffer(gl.FRAMEBUFFER, session.renderState.baseLayer.framebuffer)
 
-        // Retrieve the pose of the device.
-        // XRFrame.getViewerPose can return null while the session attempts to establish tracking.
-        if (pose) {
-          // In mobile AR, we only have one view.
-          const view = pose.views[0];
+        scene.drawXRFrame(frame, pose);
 
-          const viewport = session.renderState.baseLayer.getViewport(view);
-          renderer.setSize(viewport.width, viewport.height)
-
-          // Use the view's transform matrix and projection matrix to configure the THREE.camera.
-          camera.matrix.fromArray(view.transform.matrix)
-          camera.projectionMatrix.fromArray(view.projectionMatrix);
-          camera.updateMatrixWorld(true);
-
-          // Render the scene with THREE.WebGLRenderer.
-          renderer.render(scene, camera)
-        }
-
-
-        //scene.endFrame();
+        scene.endFrame();
       }
 
       function iOS() {
