@@ -39,6 +39,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <div id="overlay">
       <div id="info">Das ist eine Test Info</div>
       <div id="heading">Compass</div>
+      <div id="diff">Difference</div>
     </div>
     <script type="module">
       import {WebXRButton} from './js/util/webxr-button.js';
@@ -52,6 +53,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
       const info = document.getElementById('info');
       const headingDiv = document.getElementById('heading');
+      const diff = document.getElementById('diff');
 
       // If requested, use the polyfill to provide support for mobile devices
       // and devices which only support WebVR. Test
@@ -75,6 +77,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       let renderer = null;
       let scene = new THREE.Scene();
       let camera = null;
+
+      let orientLocal = null;
+      let orientGlobal = null;
       //let solarSystem = new Gltf2Node({url: 'media/space.gltf'});
       // The solar system is big (citation needed). Scale it down so that users
       // can move around the planets more easily.
@@ -86,10 +91,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       const cubeSouth = new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshBasicMaterial( { color: 'yellow' } ) );
       const cubeWest = new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshBasicMaterial( { color: 'green' } ) );
 
-      cubeNorth.position.set(0, 0, -1);
-      cubeEast.position.set(1, 0, 0);
-      cubeSouth.position.set(0, 0, 1);
-      cubeWest.position.set(-1, 0, 0);
+      cubeNorth.position.set(0, 0, -3);
+      cubeEast.position.set(3, 0, 0);
+      cubeSouth.position.set(0, 0, 3);
+      cubeWest.position.set(-3, 0, 0);
       scene.add( cubeNorth );
       scene.add( cubeEast );
       scene.add( cubeSouth );
@@ -260,10 +265,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           vector.applyQuaternion( orient );
           let vec = vector.projectOnPlane(new THREE.Vector3(0,1,0))
           let orientDeg = Math.atan2(vec.z,vec.x) * 180 / Math.PI;
-
-          info.innerHTML = Math.floor(orientDeg).toString();
-          console.log(Math.floor(orientDeg).toString()) //YESSSSSS
-
+          orientLocal = 90 - orientDeg;
+          if (orientLocal < 0) {orientLocal = orienLocal + 360}
+          info.innerHTML = Math.floor(orientLocal).toString();
+          console.log(Math.floor(orientLocal).toString()) //YESSSSSS
+          orientLocal = orientDeg;
           //console.log(vec);
           //console.log(quat.toArray().map(function(x) { return x * 180 / Math.PI; }));
           //console.log(orient.toArray().map(function(x) { return x * 180 / Math.PI; }));
@@ -330,6 +336,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           var heading = 360 - alpha; //heading [0, 360)
           headingDiv.innerHTML = heading.toFixed([0]);
         }
+        
+        orientGlobal = heading;
+
+        diff.innerHTML = orientGlobal - orientLocal;
         
         // Change backgroud colour based on heading
         // Green for North and South, black otherwise
