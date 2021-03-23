@@ -333,7 +333,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         }
         
         orientGlobal = heading;
-        if (session.isImmersive){
             //let difference = orientGlobal - orientLocal < 0 ?  orientGlobal - orientLocal + 360 :  orientGlobal - orientLocal;
             let difference = orientGlobal - orientLocal;
             console.log(difference);
@@ -342,7 +341,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           if (Math.abs(difference) > 10) {
             rotateZ(-difference/180 * Math.PI);
           }
-        }
 
         // Change backgroud colour based on heading
         // Green for North and South, black otherwise
