@@ -11,7 +11,7 @@ const orientLocalVis = document.getElementById('orientLocalVis');
 const orientGlobalVis = document.getElementById('orientGlobalVis');
 const diffOrientVis = document.getElementById('diffOrientVis');
 
-let btnPermissi = document.getElementById( "request" );
+let btnPermission = document.getElementById( "request" );
 btnPermission.addEventListener( "click", permission );
 
 // XR globals.
@@ -25,7 +25,7 @@ let RefMatrix = null;
 // WebGL scene globals.
 let gl = null;
 let renderer = null;
-let scene = new Scene();
+let scene = null;
 
 var orientLocal = null;
 var orientGlobal = 40;
@@ -36,7 +36,7 @@ let flower = new Gltf2Node({url: 'media/sunflower/sunflower.gltf'});
 // The solar system is big (citation needed). Scale it down so that users
 // can move around the planets more easily.
 //solarSystem.scale = [0.1, 0.1, 0.1];
-scene.addNode(flower);
+//scene.addNode(flower);
 
 /*
 const cubeNorth = new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshBasicMaterial( { color: 'red' } ) );
@@ -89,6 +89,8 @@ return navigator.xr.requestSession('immersive-ar', {
         onSessionStarted(session);
     });
 }
+scene = new Scene();
+scene.addNode(flower);
 
 function initGL() {
 if (gl)
@@ -113,7 +115,6 @@ scene.setRenderer(renderer);
 
 function onSessionStarted(session) {
 session.addEventListener('end', onSessionEnded);
-
 
 
 initGL();
@@ -204,13 +205,19 @@ if (JSON.stringify(temp_new)!==JSON.stringify(temp)) {
     orientLocalVis.innerHTML = "Local orientation: " + orientLocal.toFixed([0]).toString();
     console.log(orientLocal.toFixed([0]).toString()) //YESSSSSS
 
-
+    let difference = orientGlobal - orientLocal;
+    console.log(difference);
+    diffOrientVis.innerHTML = "Difference: " + difference.toFixed(0).toString();
+    
+    if (Math.abs(difference) > 1) {
+        rotateZ(-difference/180 * Math.PI);
+    }
     //console.log(vec);
     //console.log(quat.toArray().map(function(x) { return x * 180 / Math.PI; }));
     //console.log(orient.toArray().map(function(x) { return x * 180 / Math.PI; }));
     //console.log(m.extractRotation(RefMatrix))
 }
-
+pose = frame.getViewerPose(refSpace);
 scene.startFrame();
 
 session.requestAnimationFrame(onXRFrame);
@@ -253,13 +260,7 @@ else {
 
 orientGlobal = heading;
 //let difference = orientGlobal - orientLocal < 0 ?  orientGlobal - orientLocal + 360 :  orientGlobal - orientLocal;
-let difference = orientGlobal - orientLocal;
-console.log(difference);
-diffOrientVis.innerHTML = "Difference: " + difference.toFixed(0).toString();
 
-if (Math.abs(difference) > 1) {
-    rotateZ(-difference/180 * Math.PI);
-}
 
 }
 
