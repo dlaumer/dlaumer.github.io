@@ -31,14 +31,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   </head>
   <body>
     <header>
-      Version 3
-      <button id="request">Request Permission</button>
-
+      <button id="request" class='barebones-button'>Permission Compass</button>
     </header>
+    (Version 4)
     <div id="overlay">
-      <div id="info" class="cs_info">Das ist eine Test Info</div>
-      <div id="heading" class="cs_info">Compass</div>
-      <div id="diff" class="cs_info">Difference</div>
+      <div id="orientLocalVis" class="cs_info">Local orientation</div>
+      <div id="orientGlobalVis" class="cs_info">Global orientation</div>
+      <div id="diffOrientVis" class="cs_info">Difference</div>
     </div>
     <script type="module">
       import {WebXRButton} from './js/util/webxr-button.js';
@@ -50,9 +49,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       //import * as THREE from 'https://unpkg.com/three@0.126.1/build/three.js'
       import * as THREE from './test/build/three.module.js';
 
-      const info = document.getElementById('info');
-      const headingDiv = document.getElementById('heading');
-      const diff = document.getElementById('diff');
+      const orientLocalVis = document.getElementById('orientLocalVis');
+      const orientGlobalVis = document.getElementById('orientGlobalVis');
+      const diffOrientVis = document.getElementById('diffOrientVis');
 
       // If requested, use the polyfill to provide support for mobile devices
       // and devices which only support WebVR. Test
@@ -161,10 +160,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       function onSessionStarted(session) {
         session.addEventListener('end', onSessionEnded);
 
-      // Show which type of DOM Overlay got enabled (if any)
-      if (session.domOverlayState) {
-        info.innerHTML = 'DOM Overlay type: ' + session.domOverlayState.type;
-      }
 
 
         initGL();
@@ -252,8 +247,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           let orientDeg = Math.atan2(vec.z,vec.x) * 180 / Math.PI;
           orientLocal = 90 - orientDeg;
           if (orientLocal < 0) {orientLocal = orientLocal + 360}
-          info.innerHTML = Math.floor(orientLocal).toString();
-          console.log(Math.floor(orientLocal).toString()) //YESSSSSS
+          orientLocalVis.innerHTML = "Local orientation: " + orientLocal.toFixed([0]).toString();
+          console.log(orientLocal.toFixed([0]).toString()) //YESSSSSS
 
 
           //console.log(vec);
@@ -294,32 +289,23 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         if (typeof event.webkitCompassHeading !== "undefined") {
           alpha = event.webkitCompassHeading; //iOS non-standard
           var heading = alpha
-          headingDiv.innerHTML = heading.toFixed([0]);
+          orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed([0]).toString();
         }
         else {
           alert("Your device is reporting relative alpha values, so this compass won't point north :(");
           var heading = 360 - alpha; //heading [0, 360)
-          headingDiv.innerHTML = heading.toFixed([0]);
+          orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed([0]).toString();
         }
         
         orientGlobal = heading;
             //let difference = orientGlobal - orientLocal < 0 ?  orientGlobal - orientLocal + 360 :  orientGlobal - orientLocal;
             let difference = orientGlobal - orientLocal;
             console.log(difference);
-            diff.innerHTML = difference.toFixed(0);
+            diffOrientVis.innerHTML = "Difference: " + difference.toFixed(0).toString();
 
           if (Math.abs(difference) > 10) {
             rotateZ(-difference/180 * Math.PI);
           }
-
-        // Change backgroud colour based on heading
-        // Green for North and South, black otherwise
-        if (heading > 359 || heading < 1) { //Allow +- 1 degree
-          headingDiv.innerHTML = "N"; // North
-        }
-        else if (heading > 179 && heading < 181){ //Allow +- 1 degree
-          headingDiv.innerHTML = "S"; // South
-        } 
         
       }
 
@@ -331,21 +317,25 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
               .then( response => {
               // (optional) Do something after API prompt dismissed.
               if ( response == "granted" ) {
-                  handler();
+                  handler(true);
               }
           })
           .catch( console.error )
       } else {
-          alert( "DeviceMotionEvent is not defined" );
+          console.log( "DeviceMotionEvent is not defined" );
+          handler(false);
       }
       } else {
-          handler();
+          handler(true);
       }
 
       }
 
-      function handler() {
-          btn.style.display = "none";
+      function handler(isAvailable) {
+          btn.innerHTML = "Permission granted";
+          initXR();
+
+          if (isAvailable) {
           // Check if device can provide absolute orientation data
           if (window.DeviceOrientationAbsoluteEvent) {
               comsole.log("Absolute Orientation existing");
@@ -358,13 +348,17 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           else {
           alert("Sorry, try again on a compatible mobile device!");
           }
+          }
+          else {
+
+          }
+          
       }
       
       btn = document.getElementById( "request" );
       btn.addEventListener( "click", permission );
       
       // Start the XR application.
-      initXR();
     </script>
   </body>
 </html>

@@ -11,7 +11,7 @@ header {
   z-index: 2;
   left: 0px;
   text-align: left;
-  max-width: 420px;
+  max-width: 620px;
   padding: 0.5em;
   background-color: rgba(255, 255, 255, 0.90);
   margin-bottom: 0.5em;
@@ -81,6 +81,7 @@ canvas {
 }
 
 .cs_info {
+  font-family: "Karla", sans-serif;
   font-size: 20px;
-  color: red;
+  color: rgb(80, 168, 252);
 }
