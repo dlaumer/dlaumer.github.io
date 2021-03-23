@@ -114,33 +114,38 @@ scene.setRenderer(renderer);
 }
 
 function onSessionStarted(session) {
-session.addEventListener('end', onSessionEnded);
+    session.addEventListener('end', onSessionEnded);
 
 
-initGL();
+    initGL();
 
-session.updateRenderState({ baseLayer: new XRWebGLLayer(session, gl) });
+    session.updateRenderState({ baseLayer: new XRWebGLLayer(session, gl) });
 
 
-let refSpaceType = session.isImmersive ? 'local' : 'viewer';
-session.requestReferenceSpace(refSpaceType).then((refSpace) => {
-    if (session.isImmersive) {
-    xrImmersiveRefSpace = refSpace;
-    } else {
-    inlineViewerHelper = new InlineViewerHelper(gl.canvas, refSpace);
-    }
-    session.requestAnimationFrame(onXRFrame);
-});
+    let refSpaceType = session.isImmersive ? 'local' : 'viewer';
+    session.requestReferenceSpace(refSpaceType).then((refSpace) => {
+        if (session.isImmersive) {
+        xrImmersiveRefSpace = refSpace;
+        } else {
+        inlineViewerHelper = new InlineViewerHelper(gl.canvas, refSpace);
+        }
+        session.requestAnimationFrame(onXRFrame);
+    });
+
+    pose = frame.getViewerPose(refSpace);
+
+    flower.matrix = pose.transform.matrix;
+    
 }
 
 function onEndSession(session) {
-session.end();
+    session.end();
 }
 
 function onSessionEnded(event) {
-if (event.session.isImmersive) {
-    xrButton.setSession(null);
-}
+    if (event.session.isImmersive) {
+        xrButton.setSession(null);
+    }
 }
 
 // Teleport the user a certain number of meters along the X, Y, and Z axes,
@@ -217,7 +222,7 @@ if (JSON.stringify(temp_new)!==JSON.stringify(temp)) {
     //console.log(orient.toArray().map(function(x) { return x * 180 / Math.PI; }));
     //console.log(m.extractRotation(RefMatrix))
 }
-pose = frame.getViewerPose(refSpace);
+
 scene.startFrame();
 
 session.requestAnimationFrame(onXRFrame);
