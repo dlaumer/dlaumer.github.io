@@ -336,6 +336,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             //let difference = orientGlobal - orientLocal < 0 ?  orientGlobal - orientLocal + 360 :  orientGlobal - orientLocal;
             let difference = orientGlobal - orientLocal;
             console.log(difference);
+            diff.innerHTML = difference.toFixed(0);
 
           if (Math.abs(difference) > 10) {
             rotateZ(-difference/180 * Math.PI);
