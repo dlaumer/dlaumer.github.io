@@ -11,12 +11,8 @@ const orientLocalVis = document.getElementById('orientLocalVis');
 const orientGlobalVis = document.getElementById('orientGlobalVis');
 const diffOrientVis = document.getElementById('diffOrientVis');
 
-// If requested, use the polyfill to provide support for mobile devices
-// and devices which only support WebVR. Test
-import WebXRPolyfill from './third-party/webxr-polyfill/build/webxr-polyfill.module.js';
-if (QueryArgs.getBool('usePolyfill', true)) {
-let polyfill = new WebXRPolyfill();
-}
+let btnPermissi = document.getElementById( "request" );
+btnPermission.addEventListener( "click", permission );
 
 // XR globals.
 let xrButton = null;
@@ -26,13 +22,10 @@ let inlineViewerHelper = null;
 let temp = null;
 let RefMatrix = null;
 
-let btn = null;
-
 // WebGL scene globals.
 let gl = null;
 let renderer = null;
 let scene = new Scene();
-let camera = null;
 
 var orientLocal = null;
 var orientGlobal = 40;
@@ -264,7 +257,7 @@ let difference = orientGlobal - orientLocal;
 console.log(difference);
 diffOrientVis.innerHTML = "Difference: " + difference.toFixed(0).toString();
 
-if (Math.abs(difference) > 10) {
+if (Math.abs(difference) > 1) {
     rotateZ(-difference/180 * Math.PI);
 }
 
@@ -293,8 +286,8 @@ if (iOS){
 }
 
 function handler() {
-    btn.innerHTML = "Permission granted";
-    btn.disabled = true;
+    btnPermission.innerHTML = "Permission granted";
+    btnPermission.disabled = true;
     initXR();
 
     // Check if device can provide absolute orientation data
@@ -312,6 +305,4 @@ function handler() {
     
 }
 
-btn = document.getElementById( "request" );
-btn.addEventListener( "click", permission );
 
