@@ -25,8 +25,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
     <meta name='mobile-web-app-capable' content='yes'>
     <meta name='apple-mobile-web-app-capable' content='yes'>
-    <link rel='icon' type='image/png' sizes='32x32' href='favicon-32x32.png'>
-    <link rel='icon' type='image/png' sizes='96x96' href='favicon-96x96.png'>
     <link rel='stylesheet' href='css/common.css'>
 
     <title>Immersive AR Session</title>
@@ -79,7 +77,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       let camera = null;
 
       let orientLocal = null;
-      let orientGlobal = null;
+      let orientGlobal = 40;
       //let solarSystem = new Gltf2Node({url: 'media/space.gltf'});
       // The solar system is big (citation needed). Scale it down so that users
       // can move around the planets more easily.
@@ -228,12 +226,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       function onXRFrame(t, frame) {
         let session = frame.session;
 
-        if (session.isImmersive){
-          //console.log(xrImmersiveRefSpace);
-
-          //teleportRelative(-0.01,0,0);
-          //rotateZ(0.01);
-        }
+       
 
         let refSpace = session.isImmersive ?
                          xrImmersiveRefSpace :
@@ -268,7 +261,19 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           orientLocal = 90 - orientDeg;
           if (orientLocal < 0) {orientLocal = orientLocal + 360}
           info.innerHTML = Math.floor(orientLocal).toString();
-          console.log(Math.floor(orientDeg).toString()) //YESSSSSS
+          console.log(Math.floor(orientLocal).toString()) //YESSSSSS
+
+
+          if (session.isImmersive){
+            //let difference = orientGlobal - orientLocal < 0 ?  orientGlobal - orientLocal + 360 :  orientGlobal - orientLocal;
+            let difference = orientGlobal - orientLocal;
+            console.log(difference);
+
+        if (Math.abs(difference) > 10) {
+          rotateZ(-difference/180 * Math.PI);
+        }
+        }
+         
           //console.log(vec);
           //console.log(quat.toArray().map(function(x) { return x * 180 / Math.PI; }));
           //console.log(orient.toArray().map(function(x) { return x * 180 / Math.PI; }));
@@ -340,8 +345,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         let difference = orientGlobal - orientLocal < 0 ?  orientGlobal - orientLocal + 360 :  orientGlobal - orientLocal;
         diff.innerHTML = difference;
 
-        rotateZ(difference/180 * Math.PI);
-        
+        if (difference > 10) {
+          rotateZ(difference/180 * Math.PI);
+        }
+
         // Change backgroud colour based on heading
         // Green for North and South, black otherwise
         if (heading > 359 || heading < 1) { //Allow +- 1 degree
