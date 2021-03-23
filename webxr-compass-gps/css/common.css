@@ -79,3 +79,8 @@ canvas {
   color: rgb(80, 168, 252);
   background-color: rgba(255, 255, 255, 0.7);
 }
+
+.cs_info {
+  font-size: 20px;
+  color: red;
+}
