@@ -24,7 +24,7 @@ let renderer = null;
 let scene = null;
 
 var orientLocal = null;
-var orientGlobal = null;
+var orientGlobal = 20;
 //let solarSystem = new Gltf2Node({url: 'media/space/space.gltf'});
 let flower = new Gltf2Node({ url: 'media/sunflower/sunflower.gltf' });
 let firstTime = true;
@@ -148,11 +148,10 @@ function rotateZ(angle) {
 
     let s = Math.sin(angle * 0.5);
     let c = Math.cos(angle * 0.5);
-    xrRefSpace = xrRefSpace.getOffsetReferenceSpace(
-        new XRRigidTransform(null, { x: 0, y: s, z: 0, w: c }));
+    let transform = new XRRigidTransform(null, { x: 0, y: s, z: 0, w: c })
+    xrRefSpace = xrRefSpace.getOffsetReferenceSpace(transform);
 
-    xrViewerSpace = xrViewerSpace.getOffsetReferenceSpace(
-        new XRRigidTransform(null, { x: 0, y: s, z: 0, w: c }));
+    xrViewerSpace = xrViewerSpace.getOffsetReferenceSpace(transform);
 }
 
 // Called every time a XRSession requests that a new frame be drawn.
@@ -180,7 +179,9 @@ function onXRFrame(t, frame) {
     }
 
     if (Math.abs(difference) > 1) {
-        //rotateZ(-difference / 180 * Math.PI);
+        rotateZ(-difference / 180 * Math.PI);
+        pose = frame.getViewerPose(xrRefSpace);
+
     }
     orientLocal = orientLocal_new;
 
@@ -188,11 +189,16 @@ function onXRFrame(t, frame) {
     if (firstTime) {
 
         scene = new Scene();
-        flower.matrix = [1, 0, 0, 0,
-                         0, 1, 0, 0, 
-                         0, 0, 1, 0, 
-                         0, 0, -2, 1];
-        //console.table(flower.matrix);
+        let angle = -difference / 180 * Math.PI
+        let s = Math.sin(angle * 0.5);
+        let c = Math.cos(angle * 0.5);
+        let transform = new XRRigidTransform(null, { x: 0, y: s, z: 0, w: c })
+
+        //flower.matrix = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, -2, 1];
+        flower.matrix = transform.matrix;
+        flower.matrix[14] = -2;
+
+        console.table(flower.matrix);
         scene.addNode(flower);
 
         renderer = new Renderer(gl);
@@ -200,7 +206,6 @@ function onXRFrame(t, frame) {
         firstTime = false;
     }
 
-    pose = frame.getViewerPose(xrRefSpace);
 
     scene.startFrame();
 
@@ -234,15 +239,23 @@ function deviceOrientationHandler(event) {
     if (typeof event.webkitCompassHeading !== "undefined") {
         alpha = event.webkitCompassHeading; //iOS non-standard
         var heading = alpha
-        orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed([0]).toString();
     }
     else {
         //alert("Your device is reporting relative alpha values, so this compass won't point north :(");
-        var heading = 360 - alpha; //heading [0, 360)
-        orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed([0]).toString();
+       // var heading = 360 - alpha; //heading [0, 360)
+       var heading = 360 - alpha;
+
     }
 
+    if (Math.abs(heading - orientGlobal) > 0.5) {
+        let difference = heading - orientLocal;
+
+        orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed([0]).toString();
+        diffOrientVis.innerHTML = "Difference: " + difference.toFixed(0).toString();
+        console.log({ heading, orientLocal, difference });
+    }
     orientGlobal = heading;
+
     //let difference = orientGlobal - orientLocal < 0 ?  orientGlobal - orientLocal + 360 :  orientGlobal - orientLocal;
 
 
