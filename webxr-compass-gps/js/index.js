@@ -27,7 +27,7 @@ let renderer = null;
 let scene = null;
 
 var orientLocal = null;
-var orientGlobal = null;
+var orientGlobal = 20;
 //let solarSystem = new Gltf2Node({url: 'media/space/space.gltf'});
 let flower = new Gltf2Node({ url: 'media/sunflower/sunflower.gltf' });
 let firstTime = true;
@@ -167,6 +167,23 @@ function rotateZ(angle) {
 // Called every time a XRSession requests that a new frame be drawn.
 function onXRFrame(t, frame) {
 
+    if (firstTime) {
+
+        scene = new Scene();
+        
+        scene.enableStats(false);
+        let transform = new XRRigidTransform({x:0, y:0,z:-2})
+
+        flower.matrix = transform.matrix;
+
+        //console.table(flower.matrix);
+        scene.addNode(flower);
+
+        renderer = new Renderer(gl);
+        scene.setRenderer(renderer);
+        scene.updateInputSources(frame, xrRefSpace);
+        firstTime = false;
+    }
 
     let session = frame.session;
 
@@ -189,36 +206,19 @@ function onXRFrame(t, frame) {
     }
 
     if (Math.abs(difference) > 1) {
-        rotateZ(-difference / 180 * Math.PI);
+        //rotateZ(-difference / 180 * Math.PI);
+        const inverseOrientation = quat.create()
+        quat.identity(inverseOrientation)
+        quat.rotateY(inverseOrientation, inverseOrientation, -difference / 180 * Math.PI);
+        //console.log(inverseOrientation)
+        scene.rotation = [inverseOrientation[0], inverseOrientation[1], inverseOrientation[2], inverseOrientation[3]];
         pose = frame.getViewerPose(xrRefSpace);
 
     }
     orientLocal = orientLocal_new;
 
     //flower.matrix = pose.transform.matrix;
-    if (firstTime) {
 
-        scene = new Scene();
-        console.log(orient.x);
-
-        const inverseOrientation = quat.create()
-        quat.identity(inverseOrientation)
-        quat.rotateY(inverseOrientation, inverseOrientation, -difference / 180 * Math.PI);
-        console.log(inverseOrientation)
-        scene.rotation = [inverseOrientation[0], inverseOrientation[1], inverseOrientation[2], inverseOrientation[3]];
-        scene.enableStats(false);
-        let transform = new XRRigidTransform({x:0, y:0,z:-2})
-
-        flower.matrix = transform.matrix;
-
-        //console.table(flower.matrix);
-        scene.addNode(flower);
-
-        renderer = new Renderer(gl);
-        scene.setRenderer(renderer);
-        scene.updateInputSources(frame, xrRefSpace);
-        firstTime = false;
-    }
 
 
     scene.startFrame();
