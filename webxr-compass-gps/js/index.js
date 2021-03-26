@@ -5,6 +5,7 @@ import { Gltf2Node } from './render/nodes/gltf2.js';
 import { QueryArgs } from './util/query-args.js';
 //import * as THREE from 'https://unpkg.com/three@0.126.1/build/three.js'
 import * as THREE from './../test/build/three.module.js';
+import * as quat from './third-party/gl-matrix/src/gl-matrix/quat.js'
 
 const orientLocalVis = document.getElementById('orientLocalVis');
 const orientGlobalVis = document.getElementById('orientGlobalVis');
@@ -24,10 +25,12 @@ let renderer = null;
 let scene = null;
 
 var orientLocal = null;
-var orientGlobal = 20;
+var orientGlobal = 90;
 //let solarSystem = new Gltf2Node({url: 'media/space/space.gltf'});
 let flower = new Gltf2Node({ url: 'media/sunflower/sunflower.gltf' });
 let firstTime = true;
+
+const inverseOrientation = quat.create()
 
 /*
 const cubeNorth = new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshBasicMaterial( { color: 'red' } ) );
@@ -145,13 +148,17 @@ function teleportRelative(deltaX, deltaY, deltaZ) {
 function rotateZ(angle) {
     // Move the user by moving the reference space in the opposite direction,
     // adjusting originOffset's position by the inverse delta.
-
+    quat.identity(inverseOrientation)
+    quat.rotateY(inverseOrientation, inverseOrientation, angle);
     let s = Math.sin(angle * 0.5);
     let c = Math.cos(angle * 0.5);
-    let transform = new XRRigidTransform(null, { x: 0, y: s, z: 0, w: c })
+    //let transform = new XRRigidTransform(null, { x: 0, y: s, z: 0, w: c })
+    let transform = new XRRigidTransform({x: 0, y:  0, z: 0},
+        {x: inverseOrientation[0], y: inverseOrientation[1],
+         z: inverseOrientation[2], w: inverseOrientation[3]});
     xrRefSpace = xrRefSpace.getOffsetReferenceSpace(transform);
 
-    xrViewerSpace = xrViewerSpace.getOffsetReferenceSpace(transform);
+    //xrViewerSpace = xrViewerSpace.getOffsetReferenceSpace(transform);
 }
 
 // Called every time a XRSession requests that a new frame be drawn.
@@ -192,11 +199,12 @@ function onXRFrame(t, frame) {
         let angle = -difference / 180 * Math.PI
         let s = Math.sin(angle * 0.5);
         let c = Math.cos(angle * 0.5);
-        let transform = new XRRigidTransform(null, { x: 0, y: s, z: 0, w: c })
+        //let transform = new XRRigidTransform(null, { x: 0, y: s, z: 0, w: c })
+        let transform = new XRRigidTransform({x:0, y:0,z:-2})
 
         //flower.matrix = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, -2, 1];
         flower.matrix = transform.matrix;
-        flower.matrix[14] = -2;
+        //flower.matrix[14] = -2;
 
         console.table(flower.matrix);
         scene.addNode(flower);
