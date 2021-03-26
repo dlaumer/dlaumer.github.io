@@ -23,7 +23,7 @@ let renderer = null;
 let scene = null;
 
 var orientLocal = null;
-var orientGlobal = 13;
+var orientGlobal = null;
 //let solarSystem = new Gltf2Node({url: 'media/space/space.gltf'});
 let flower = new Gltf2Node({ url: 'media/sunflower/sunflower.gltf' });
 let firstTime = true;
@@ -153,9 +153,7 @@ function onXRFrame(t, frame) {
 
     let session = frame.session;
 
-    let refSpace = xrImmersiveRefSpace;
-
-    let pose = frame.getViewerPose(refSpace);
+    let pose = frame.getViewerPose(xrImmersiveRefSpace);
     let orient = pose.transform.orientation
     const vector = new THREE.Vector3(0, 0, 1);
     vector.applyQuaternion(orient);
@@ -182,14 +180,20 @@ function onXRFrame(t, frame) {
     if (firstTime) {
 
         scene = new Scene();
-        flower.matrix = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, -2, 1];
+        flower.matrix = [1, 0, 0, 0,
+                         0, 1, 0, 0, 
+                         0, 0, 1, 0, 
+                         0, 0, -2, 1];
         //console.table(flower.matrix);
         scene.addNode(flower);
-        renderer = new Renderer(gl);
 
+        renderer = new Renderer(gl);
         scene.setRenderer(renderer);
         firstTime = false;
     }
+
+    pose = frame.getViewerPose(xrImmersiveRefSpace);
+
     scene.startFrame();
 
     session.requestAnimationFrame(onXRFrame);
