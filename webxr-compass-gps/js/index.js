@@ -184,7 +184,7 @@ function onXRFrame(t, frame) {
     }
 
     if (Math.abs(difference) > 10) {
-        rotateZ(-difference / 180 * Math.PI);
+        rotateZ(difference / 180 * Math.PI);
     }
     orientLocal = orientLocal_new;
 
