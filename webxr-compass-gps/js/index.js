@@ -27,12 +27,11 @@ let renderer = null;
 let scene = null;
 
 var orientLocal = null;
-var orientGlobal = 90;
+var orientGlobal = null;
 //let solarSystem = new Gltf2Node({url: 'media/space/space.gltf'});
 let flower = new Gltf2Node({ url: 'media/sunflower/sunflower.gltf' });
 let firstTime = true;
 
-const inverseOrientation = quat.create()
 
 /*
 const cubeNorth = new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshBasicMaterial( { color: 'red' } ) );
@@ -150,6 +149,8 @@ function teleportRelative(deltaX, deltaY, deltaZ) {
 function rotateZ(angle) {
     // Move the user by moving the reference space in the opposite direction,
     // adjusting originOffset's position by the inverse delta.
+    const inverseOrientation = quat.create()
+
     quat.identity(inverseOrientation)
     quat.rotateY(inverseOrientation, inverseOrientation, angle);
     let s = Math.sin(angle * 0.5);
@@ -199,7 +200,12 @@ function onXRFrame(t, frame) {
 
         scene = new Scene();
         console.log(orient.x);
-        scene.rotation = [orient.x, orient.y, orient.z, orient.w];
+
+        const inverseOrientation = quat.create()
+        quat.identity(inverseOrientation)
+        quat.rotateY(inverseOrientation, inverseOrientation, -difference / 180 * Math.PI);
+        console.log(inverseOrientation)
+        scene.rotation = [inverseOrientation[0], inverseOrientation[1], inverseOrientation[2], inverseOrientation[3]];
         scene.enableStats(false);
         let transform = new XRRigidTransform({x:0, y:0,z:-2})
 
