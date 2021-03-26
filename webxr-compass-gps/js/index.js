@@ -23,7 +23,7 @@ let renderer = null;
 let scene = null;
 
 var orientLocal = null;
-var orientGlobal = null;
+var orientGlobal = 13;
 //let solarSystem = new Gltf2Node({url: 'media/space/space.gltf'});
 let flower = new Gltf2Node({ url: 'media/sunflower/sunflower.gltf' });
 let firstTime = true;
@@ -150,17 +150,7 @@ function rotateZ(angle) {
 // Called every time a XRSession requests that a new frame be drawn.
 function onXRFrame(t, frame) {
 
-    if (firstTime) {
 
-        scene = new Scene();
-        flower.matrix = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, -2, 1];
-        //console.table(flower.matrix);
-        scene.addNode(flower);
-        renderer = new Renderer(gl);
-
-        scene.setRenderer(renderer);
-        firstTime = false;
-    }
     let session = frame.session;
 
     let refSpace = xrImmersiveRefSpace;
@@ -183,13 +173,23 @@ function onXRFrame(t, frame) {
         //console.table(flower.matrix);
     }
 
-    if (Math.abs(difference) > 10) {
-        rotateZ(difference / 180 * Math.PI);
+    if (Math.abs(difference) > 1) {
+        rotateZ(-difference / 180 * Math.PI);
     }
     orientLocal = orientLocal_new;
 
     //flower.matrix = pose.transform.matrix;
+    if (firstTime) {
 
+        scene = new Scene();
+        flower.matrix = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, -2, 1];
+        //console.table(flower.matrix);
+        scene.addNode(flower);
+        renderer = new Renderer(gl);
+
+        scene.setRenderer(renderer);
+        firstTime = false;
+    }
     scene.startFrame();
 
     session.requestAnimationFrame(onXRFrame);
