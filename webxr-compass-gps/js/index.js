@@ -161,7 +161,7 @@ function onXRFrame(t, frame) {
 
     let session = frame.session;
 
-    let pose = frame.getViewerPose(xrViewerSpace);
+    let pose = frame.getViewerPose(xrRefSpace);
     let orient = pose.transform.orientation
     const vector = new THREE.Vector3(0, 0, 1);
     vector.applyQuaternion(orient);
@@ -180,7 +180,7 @@ function onXRFrame(t, frame) {
     }
 
     if (Math.abs(difference) > 1) {
-        rotateZ(-difference / 180 * Math.PI);
+        //rotateZ(-difference / 180 * Math.PI);
     }
     orientLocal = orientLocal_new;
 
@@ -200,7 +200,7 @@ function onXRFrame(t, frame) {
         firstTime = false;
     }
 
-    pose = frame.getViewerPose(xrViewerSpace);
+    pose = frame.getViewerPose(xrRefSpace);
 
     scene.startFrame();
 
