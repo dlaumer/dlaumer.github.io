@@ -10,6 +10,8 @@ import * as quat from './third-party/gl-matrix/src/gl-matrix/quat.js'
 const orientLocalVis = document.getElementById('orientLocalVis');
 const orientGlobalVis = document.getElementById('orientGlobalVis');
 const diffOrientVis = document.getElementById('diffOrientVis');
+const debugDiv = document.getElementById('debugDiv');
+
 
 let btnPermission = document.getElementById("request");
 btnPermission.addEventListener("click", permission);
@@ -196,21 +198,17 @@ function onXRFrame(t, frame) {
     if (firstTime) {
 
         scene = new Scene();
-        let angle = -difference / 180 * Math.PI
-        let s = Math.sin(angle * 0.5);
-        let c = Math.cos(angle * 0.5);
-        //let transform = new XRRigidTransform(null, { x: 0, y: s, z: 0, w: c })
+        scene.enableStats(false);
         let transform = new XRRigidTransform({x:0, y:0,z:-2})
 
-        //flower.matrix = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, -2, 1];
         flower.matrix = transform.matrix;
-        //flower.matrix[14] = -2;
 
-        console.table(flower.matrix);
+        //console.table(flower.matrix);
         scene.addNode(flower);
 
         renderer = new Renderer(gl);
         scene.setRenderer(renderer);
+        scene.updateInputSources(frame, xrRefSpace);
         firstTime = false;
     }
 
