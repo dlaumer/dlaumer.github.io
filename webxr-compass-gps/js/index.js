@@ -198,6 +198,8 @@ function onXRFrame(t, frame) {
     if (firstTime) {
 
         scene = new Scene();
+        console.log(orient.x);
+        scene.rotation = [orient.x, orient.y, orient.z, orient.w];
         scene.enableStats(false);
         let transform = new XRRigidTransform({x:0, y:0,z:-2})
 
