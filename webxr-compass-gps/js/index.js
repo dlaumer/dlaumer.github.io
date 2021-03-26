@@ -15,7 +15,8 @@ btnPermission.addEventListener("click", permission);
 
 // XR globals.
 let xrButton = null;
-let xrImmersiveRefSpace = null;
+let xrRefSpace = null;
+let xrViewerSpace = null;
 
 // WebGL scene globals.
 let gl = null;
@@ -106,9 +107,13 @@ function onSessionStarted(session) {
 
     session.updateRenderState({ baseLayer: new XRWebGLLayer(session, gl) });
 
-    let refSpaceType = 'local' ;
-    session.requestReferenceSpace(refSpaceType).then((refSpace) => {
-        xrImmersiveRefSpace = refSpace;
+
+    session.requestReferenceSpace('viewer').then((refSpace) => {
+        xrViewerSpace = refSpace;
+      });
+
+    session.requestReferenceSpace('local').then((refSpace) => {
+        xrRefSpace = refSpace;
         session.requestAnimationFrame(onXRFrame);
     });
 
@@ -133,7 +138,7 @@ function onSessionEnded(event) {
 function teleportRelative(deltaX, deltaY, deltaZ) {
     // Move the user by moving the reference space in the opposite direction,
     // adjusting originOffset's position by the inverse delta.
-    xrImmersiveRefSpace = xrImmersiveRefSpace.getOffsetReferenceSpace(
+    xrRefSpace = xrRefSpace.getOffsetReferenceSpace(
         new XRRigidTransform({ x: -deltaX, y: -deltaY, z: -deltaZ }));
 }
 
@@ -143,7 +148,10 @@ function rotateZ(angle) {
 
     let s = Math.sin(angle * 0.5);
     let c = Math.cos(angle * 0.5);
-    xrImmersiveRefSpace = xrImmersiveRefSpace.getOffsetReferenceSpace(
+    xrRefSpace = xrRefSpace.getOffsetReferenceSpace(
+        new XRRigidTransform(null, { x: 0, y: s, z: 0, w: c }));
+
+    xrViewerSpace = xrViewerSpace.getOffsetReferenceSpace(
         new XRRigidTransform(null, { x: 0, y: s, z: 0, w: c }));
 }
 
@@ -153,7 +161,7 @@ function onXRFrame(t, frame) {
 
     let session = frame.session;
 
-    let pose = frame.getViewerPose(xrImmersiveRefSpace);
+    let pose = frame.getViewerPose(xrViewerSpace);
     let orient = pose.transform.orientation
     const vector = new THREE.Vector3(0, 0, 1);
     vector.applyQuaternion(orient);
@@ -192,7 +200,7 @@ function onXRFrame(t, frame) {
         firstTime = false;
     }
 
-    pose = frame.getViewerPose(xrImmersiveRefSpace);
+    pose = frame.getViewerPose(xrViewerSpace);
 
     scene.startFrame();
 
