@@ -28,7 +28,7 @@ let renderer = null;
 let scene = null;
 
 var orientLocal = null;
-var orientGlobal = 40;
+var orientGlobal = null;
 //let solarSystem = new Gltf2Node({url: 'media/space/space.gltf'});
 let flower = new Gltf2Node({url: 'media/sunflower/sunflower.gltf'});
 
@@ -132,9 +132,7 @@ function onSessionStarted(session) {
         session.requestAnimationFrame(onXRFrame);
     });
 
-    pose = frame.getViewerPose(refSpace);
 
-    flower.matrix = pose.transform.matrix;
     
 }
 
@@ -175,9 +173,8 @@ let session = frame.session;
 
 
 
-let refSpace = session.isImmersive ?
-                    xrImmersiveRefSpace :
-                    inlineViewerHelper.referenceSpace;
+let refSpace = xrImmersiveRefSpace;
+                    
 let pose = frame.getViewerPose(refSpace);
 let temp_new = pose.transform.matrix;
 
@@ -208,10 +205,9 @@ if (JSON.stringify(temp_new)!==JSON.stringify(temp)) {
     orientLocal = 90 - orientDeg;
     if (orientLocal < 0) {orientLocal = orientLocal + 360}
     orientLocalVis.innerHTML = "Local orientation: " + orientLocal.toFixed([0]).toString();
-    console.log(orientLocal.toFixed([0]).toString()) //YESSSSSS
 
     let difference = orientGlobal - orientLocal;
-    console.log(difference);
+    console.log({orientGlobal, orientLocal, difference});
     diffOrientVis.innerHTML = "Difference: " + difference.toFixed(0).toString();
     
     if (Math.abs(difference) > 1) {
@@ -222,6 +218,7 @@ if (JSON.stringify(temp_new)!==JSON.stringify(temp)) {
     //console.log(orient.toArray().map(function(x) { return x * 180 / Math.PI; }));
     //console.log(m.extractRotation(RefMatrix))
 }
+flower.matrix = pose.transform.matrix;
 
 scene.startFrame();
 
