@@ -23,7 +23,7 @@ let renderer = null;
 let scene = null;
 
 var orientLocal = null;
-var orientGlobal = 20;
+var orientGlobal = null;
 //let solarSystem = new Gltf2Node({url: 'media/space/space.gltf'});
 let flower = new Gltf2Node({ url: 'media/sunflower/sunflower.gltf' });
 let firstTime = true;
@@ -175,7 +175,7 @@ function onXRFrame(t, frame) {
     if (orientLocal_new < 0) { orientLocal_new = orientLocal_new + 360 }
     let difference = orientGlobal - orientLocal_new;
 
-    if (orientLocal_new - orientLocal > 0.5) {
+    if (Math.abs(orientLocal_new - orientLocal) > 0.5) {
         orientLocalVis.innerHTML = "Local orientation: " + orientLocal_new.toFixed([0]).toString();
         diffOrientVis.innerHTML = "Difference: " + difference.toFixed(0).toString();
 
