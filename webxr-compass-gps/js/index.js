@@ -1,7 +1,6 @@
 import {WebXRButton} from './util/webxr-button.js';
 import {Scene} from './render/scenes/scene.js';
 import {Renderer, createWebGLContext} from './render/core/renderer.js';
-import {InlineViewerHelper} from './util/inline-viewer-helper.js';
 import {Gltf2Node} from './render/nodes/gltf2.js';
 import {QueryArgs} from './util/query-args.js';
 //import * as THREE from 'https://unpkg.com/three@0.126.1/build/three.js'
@@ -17,10 +16,8 @@ btnPermission.addEventListener( "click", permission );
 // XR globals.
 let xrButton = null;
 let xrImmersiveRefSpace = null;
-let inlineViewerHelper = null;
 
 let temp = null;
-let RefMatrix = null;
 
 // WebGL scene globals.
 let gl = null;
@@ -31,7 +28,7 @@ var orientLocal = null;
 var orientGlobal = null;
 //let solarSystem = new Gltf2Node({url: 'media/space/space.gltf'});
 let flower = new Gltf2Node({url: 'media/sunflower/sunflower.gltf'});
-
+let firstTime = true;
 
 // The solar system is big (citation needed). Scale it down so that users
 // can move around the planets more easily.
@@ -89,8 +86,7 @@ return navigator.xr.requestSession('immersive-ar', {
         onSessionStarted(session);
     });
 }
-scene = new Scene();
-scene.addNode(flower);
+
 
 function initGL() {
 if (gl)
@@ -108,9 +104,7 @@ function onResize() {
 window.addEventListener('resize', onResize);
 onResize();
 
-renderer = new Renderer(gl);
 
-scene.setRenderer(renderer);
 }
 
 function onSessionStarted(session) {
@@ -124,11 +118,7 @@ function onSessionStarted(session) {
 
     let refSpaceType = session.isImmersive ? 'local' : 'viewer';
     session.requestReferenceSpace(refSpaceType).then((refSpace) => {
-        if (session.isImmersive) {
         xrImmersiveRefSpace = refSpace;
-        } else {
-        inlineViewerHelper = new InlineViewerHelper(gl.canvas, refSpace);
-        }
         session.requestAnimationFrame(onXRFrame);
     });
 
@@ -153,80 +143,71 @@ function onSessionEnded(event) {
 function teleportRelative(deltaX, deltaY, deltaZ) {
 // Move the user by moving the reference space in the opposite direction,
 // adjusting originOffset's position by the inverse delta.
-xrImmersiveRefSpace = xrImmersiveRefSpace.getOffsetReferenceSpace(
-    new XRRigidTransform({ x: -deltaX, y: -deltaY, z: -deltaZ }));
+    xrImmersiveRefSpace = xrImmersiveRefSpace.getOffsetReferenceSpace(
+        new XRRigidTransform({ x: -deltaX, y: -deltaY, z: -deltaZ }));
 }
 
 function rotateZ(angle) {
 // Move the user by moving the reference space in the opposite direction,
 // adjusting originOffset's position by the inverse delta.
 
-let s = Math.sin(angle * 0.5);
-let c = Math.cos(angle * 0.5);
-xrImmersiveRefSpace = xrImmersiveRefSpace.getOffsetReferenceSpace(
-    new XRRigidTransform(null, { x: 0, y: s, z: 0, w: c }));
+    let s = Math.sin(angle * 0.5);
+    let c = Math.cos(angle * 0.5);
+    xrImmersiveRefSpace = xrImmersiveRefSpace.getOffsetReferenceSpace(
+        new XRRigidTransform(null, { x: 0, y: s, z: 0, w: c }));
 }
 
 // Called every time a XRSession requests that a new frame be drawn.
 function onXRFrame(t, frame) {
-let session = frame.session;
 
+    if (firstTime) {
+        
+        scene = new Scene();
+        //flower.position.set(0, 0, -3);
+        scene.addNode(flower);
+        renderer = new Renderer(gl);
 
+        scene.setRenderer(renderer);
+        firstTime = false;
+    }
+    let session = frame.session;
 
-let refSpace = xrImmersiveRefSpace;
-                    
-let pose = frame.getViewerPose(refSpace);
-let temp_new = pose.transform.matrix;
-
-if (RefMatrix == null) {
-    RefMatrix = new THREE.Matrix4();
-    RefMatrix.fromArray(temp_new);
-}
-if (JSON.stringify(temp_new)!==JSON.stringify(temp)) {
-    temp = temp_new;
-    //console.log(new Array(temp))
-    const m = new THREE.Matrix4();
-    m.fromArray(temp)
-    const a = new THREE.Euler()
-    a.setFromRotationMatrix(m);
-
-
-    let position = new THREE.Vector3();
-    let quat = new THREE.Quaternion();
-    let scale = new THREE.Vector3();
-    m.decompose(position, quat, scale)
+    let refSpace = xrImmersiveRefSpace;
+                        
+    let pose = frame.getViewerPose(refSpace);
+    let temp_new = pose.transform.matrix;
 
     let orient = pose.transform.orientation
-
     const vector = new THREE.Vector3( 0, 0, 1 );
     vector.applyQuaternion( orient );
     let vec = vector.projectOnPlane(new THREE.Vector3(0,1,0))
     let orientDeg = Math.atan2(vec.z,vec.x) * 180 / Math.PI;
-    orientLocal = 90 - orientDeg;
-    if (orientLocal < 0) {orientLocal = orientLocal + 360}
-    orientLocalVis.innerHTML = "Local orientation: " + orientLocal.toFixed([0]).toString();
+    let orientLocal_new = 90 - orientDeg;
+    if (orientLocal_new < 0) {orientLocal_new = orientLocal_new + 360}
+    let difference = orientGlobal - orientLocal_new;
 
-    let difference = orientGlobal - orientLocal;
-    console.log({orientGlobal, orientLocal, difference});
-    diffOrientVis.innerHTML = "Difference: " + difference.toFixed(0).toString();
-    
+    if (orientLocal_new - orientLocal > 0.5) {
+        orientLocalVis.innerHTML = "Local orientation: " + orientLocal.toFixed([0]).toString();  
+        diffOrientVis.innerHTML = "Difference: " + difference.toFixed(0).toString();
+
+        console.log({orientGlobal, orientLocal, difference});
+
+    }
+
     if (Math.abs(difference) > 1) {
         rotateZ(-difference/180 * Math.PI);
     }
-    //console.log(vec);
-    //console.log(quat.toArray().map(function(x) { return x * 180 / Math.PI; }));
-    //console.log(orient.toArray().map(function(x) { return x * 180 / Math.PI; }));
-    //console.log(m.extractRotation(RefMatrix))
-}
-flower.matrix = pose.transform.matrix;
+    orientLocal = orientLocal_new;
 
-scene.startFrame();
+    //flower.matrix = pose.transform.matrix;
 
-session.requestAnimationFrame(onXRFrame);
+    scene.startFrame();
 
-scene.drawXRFrame(frame, pose);
+    session.requestAnimationFrame(onXRFrame);
 
-scene.endFrame();
+    scene.drawXRFrame(frame, pose);
+
+    scene.endFrame();
 }
 
 function iOS() {
@@ -269,19 +250,19 @@ orientGlobal = heading;
 function permission () {
 if (iOS){
     if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
-    // (optional) Do something before API request prompt.
-    DeviceMotionEvent.requestPermission()
-        .then( response => {
-        // (optional) Do something after API prompt dismissed.
-        if ( response == "granted" ) {
-            handler();
-        }
-    })
-    .catch( console.error )
-} else {
-    console.log( "DeviceMotionEvent is not defined" );
-    handler();
-}
+        // (optional) Do something before API request prompt.
+        DeviceMotionEvent.requestPermission()
+            .then( response => {
+            // (optional) Do something after API prompt dismissed.
+            if ( response == "granted" ) {
+                handler();
+            }
+        })
+        .catch( console.error )
+    } else {
+        console.log( "DeviceMotionEvent is not defined" );
+        handler();
+    }
 } else {
     handler();
 }
