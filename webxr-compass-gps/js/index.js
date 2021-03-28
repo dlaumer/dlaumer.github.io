@@ -209,7 +209,7 @@ function onXRFrame(t, frame) {
         //rotateZ(-difference / 180 * Math.PI);
         const inverseOrientation = quat.create()
         quat.identity(inverseOrientation)
-        quat.rotateY(inverseOrientation, inverseOrientation, -difference / 180 * Math.PI);
+        quat.rotateY(inverseOrientation, inverseOrientation, difference / 180 * Math.PI);
         //console.log(inverseOrientation)
         scene.rotation = [inverseOrientation[0], inverseOrientation[1], inverseOrientation[2], inverseOrientation[3]];
         pose = frame.getViewerPose(xrRefSpace);
@@ -218,7 +218,6 @@ function onXRFrame(t, frame) {
     orientLocal = orientLocal_new;
 
     //flower.matrix = pose.transform.matrix;
-
 
 
     scene.startFrame();
