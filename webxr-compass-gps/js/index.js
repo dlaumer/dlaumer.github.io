@@ -29,7 +29,10 @@ let scene = null;
 var orientLocal = null;
 var orientGlobal = 20;
 //let solarSystem = new Gltf2Node({url: 'media/space/space.gltf'});
-let arrow = new Gltf2Node({ url: 'media/arrow/arrow.gltf' });
+let arrowN = new Gltf2Node({ url: 'media/arrow/arrow.gltf' });
+let arrowE = new Gltf2Node({ url: 'media/arrow/arrow_blue.gltf' });
+let arrowS = new Gltf2Node({ url: 'media/arrow/arrow_blue.gltf' });
+let arrowW = new Gltf2Node({ url: 'media/arrow/arrow_blue.gltf' });
 let firstTime = true;
 
 
@@ -172,12 +175,19 @@ function onXRFrame(t, frame) {
         scene = new Scene();
         
         scene.enableStats(false);
-        let transform = new XRRigidTransform({x:0, y:2,z:-3})
+        let transformN = new XRRigidTransform({x:0, y:2,z:-3})
+        let transformE = new XRRigidTransform({x:3, y:2,z:0})
+        let transformS = new XRRigidTransform({x:0, y:2,z:-3})
+        let transformW = new XRRigidTransform({x:0, y:2,z:-3})
 
-        arrow.matrix = transform.matrix;
+        arrowN.matrix = transformN.matrix;
+        arrowE.matrix = transformE.matrix;
+        arrowS.matrix = transformS.matrix;
+        arrowW.matrix = transformW.matrix;
 
         //console.table(arrow.matrix);
-        scene.addNode(arrow);
+        scene.addNode(arrowN);
+        scene.addNode(arrowE);
 
         renderer = new Renderer(gl);
         scene.setRenderer(renderer);
