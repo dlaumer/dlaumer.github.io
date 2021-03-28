@@ -29,7 +29,7 @@ let scene = null;
 var orientLocal = null;
 var orientGlobal = 20;
 //let solarSystem = new Gltf2Node({url: 'media/space/space.gltf'});
-let flower = new Gltf2Node({ url: 'media/sunflower/sunflower.gltf' });
+let arrow = new Gltf2Node({ url: 'media/arrow/arrow.gltf' });
 let firstTime = true;
 
 
@@ -172,12 +172,12 @@ function onXRFrame(t, frame) {
         scene = new Scene();
         
         scene.enableStats(false);
-        let transform = new XRRigidTransform({x:0, y:0,z:-2})
+        let transform = new XRRigidTransform({x:0, y:2,z:-3})
 
-        flower.matrix = transform.matrix;
+        arrow.matrix = transform.matrix;
 
-        //console.table(flower.matrix);
-        scene.addNode(flower);
+        //console.table(arrow.matrix);
+        scene.addNode(arrow);
 
         renderer = new Renderer(gl);
         scene.setRenderer(renderer);
@@ -202,7 +202,7 @@ function onXRFrame(t, frame) {
         diffOrientVis.innerHTML = "Difference: " + difference.toFixed(0).toString();
 
         console.log({ orientGlobal, orientLocal_new, difference });
-        //console.table(flower.matrix);
+        //console.table(arrow.matrix);
     }
 
     if (Math.abs(difference) > 1) {
@@ -217,7 +217,7 @@ function onXRFrame(t, frame) {
     }
     orientLocal = orientLocal_new;
 
-    //flower.matrix = pose.transform.matrix;
+    //arrow.matrix = pose.transform.matrix;
 
 
     scene.startFrame();
