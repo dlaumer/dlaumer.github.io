@@ -4,7 +4,7 @@ import { Renderer, createWebGLContext } from './render/core/renderer.js';
 import { Gltf2Node } from './render/nodes/gltf2.js';
 import { QueryArgs } from './util/query-args.js';
 //import * as THREE from 'https://unpkg.com/three@0.126.1/build/three.js'
-import * as THREE from './../test/build/three.module.js';
+import * as THREE from '../test/build/three.module.js';
 import * as quat from './third-party/gl-matrix/src/gl-matrix/quat.js'
 
 const orientLocalVis = document.getElementById('orientLocalVis');
@@ -12,13 +12,8 @@ const orientGlobalVis = document.getElementById('orientGlobalVis');
 const diffOrientVis = document.getElementById('diffOrientVis');
 
 
-let btnPermissionGeo = document.getElementById("requestGeo");
-let btnPermissionCompass = document.getElementById("requestCompass");
-btnPermissionCompass.style.display="none"
-
-btnPermissionGeo.addEventListener("click", permissionGeo);
-btnPermissionCompass.addEventListener("click", permission);
-
+let btnPermission = document.getElementById("request");
+btnPermission.addEventListener("click", permission);
 
 // XR globals.
 let xrButton = null;
@@ -292,13 +287,6 @@ function deviceOrientationHandler(event) {
 
 }
 
-function permissionGeo() {
-
-    btnPermissionGeo.innerHTML = "Permission granted";
-    btnPermissionGeo.disabled = true;
-    btnPermissionCompass.style.display="block";
-}
-
 function permission() {
     if (iOS) {
         if (typeof (DeviceMotionEvent) !== "undefined" && typeof (DeviceMotionEvent.requestPermission) === "function") {
@@ -322,8 +310,8 @@ function permission() {
 }
 
 function handler() {
-    btnPermissionCompass.innerHTML = "Permission granted";
-    btnPermissionCompass.disabled = true;
+    btnPermission.innerHTML = "Permission granted";
+    btnPermission.disabled = true;
     initXR();
 
     // Check if device can provide absolute orientation data
