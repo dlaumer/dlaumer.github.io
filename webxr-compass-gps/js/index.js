@@ -29,10 +29,10 @@ let scene = null;
 var orientLocal = null;
 var orientGlobal = 20;
 //let solarSystem = new Gltf2Node({url: 'media/space/space.gltf'});
-let arrowN = new Gltf2Node({ url: 'arrow.gltf' });
-let arrowE = new Gltf2Node({ url: 'arrow_blue.gltf' });
-let arrowS = new Gltf2Node({ url: 'arrow_blue.gltf' });
-let arrowW = new Gltf2Node({ url: 'arrow_blue.gltf' });
+let arrowN = new Gltf2Node({ url: 'media/arrow.gltf' });
+let arrowE = new Gltf2Node({ url: 'media/arrow_blue.gltf' });
+let arrowS = new Gltf2Node({ url: 'media/arrow_blue.gltf' });
+let arrowW = new Gltf2Node({ url: 'media/arrow_blue.gltf' });
 let firstTime = true;
 
 
