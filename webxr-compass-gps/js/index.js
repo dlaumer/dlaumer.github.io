@@ -211,7 +211,7 @@ function onXRFrame(t, frame) {
         orientLocalVis.innerHTML = "Local orientation: " + orientLocal_new.toFixed([0]).toString();
         diffOrientVis.innerHTML = "Difference: " + difference.toFixed(0).toString();
 
-        console.log({ orientGlobal, orientLocal_new, difference });
+        //console.log({ orientGlobal, orientLocal_new, difference });
         //console.table(arrow.matrix);
     }
 
@@ -225,6 +225,9 @@ function onXRFrame(t, frame) {
         pose = frame.getViewerPose(xrRefSpace);
 
     }
+  //console.log(pose.transform.position);
+    //console.log(scene.translation);
+    scene.translation = [pose.transform.position.x, pose.transform.position.y, pose.transform.position.z]; 
     orientLocal = orientLocal_new;
 
     //arrow.matrix = pose.transform.matrix;
