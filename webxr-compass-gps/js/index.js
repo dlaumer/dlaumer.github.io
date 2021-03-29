@@ -10,7 +10,6 @@ import * as quat from './third-party/gl-matrix/src/gl-matrix/quat.js'
 const orientLocalVis = document.getElementById('orientLocalVis');
 const orientGlobalVis = document.getElementById('orientGlobalVis');
 const diffOrientVis = document.getElementById('diffOrientVis');
-const debugDiv = document.getElementById('debugDiv');
 
 
 let btnPermission = document.getElementById("request");
