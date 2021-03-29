@@ -29,10 +29,10 @@ let scene = null;
 var orientLocal = null;
 var orientGlobal = 20;
 //let solarSystem = new Gltf2Node({url: 'media/space/space.gltf'});
-let arrowN = new Gltf2Node({ url: 'media/arrow.gltf' });
-let arrowE = new Gltf2Node({ url: 'media/arrow_blue.gltf' });
-let arrowS = new Gltf2Node({ url: 'media/arrow_blue.gltf' });
-let arrowW = new Gltf2Node({ url: 'media/arrow_blue.gltf' });
+let arrowN = new Gltf2Node({ url: 'arrow.gltf' });
+let arrowE = new Gltf2Node({ url: 'arrow_blue.gltf' });
+let arrowS = new Gltf2Node({ url: 'arrow_blue.gltf' });
+let arrowW = new Gltf2Node({ url: 'arrow_blue.gltf' });
 let firstTime = true;
 
 
@@ -153,7 +153,6 @@ function rotateZ(angle) {
     // Move the user by moving the reference space in the opposite direction,
     // adjusting originOffset's position by the inverse delta.
     const inverseOrientation = quat.create()
-
     quat.identity(inverseOrientation)
     quat.rotateY(inverseOrientation, inverseOrientation, angle);
     let s = Math.sin(angle * 0.5);
@@ -176,9 +175,9 @@ function onXRFrame(t, frame) {
         
         scene.enableStats(false);
         let transformN = new XRRigidTransform({x:0, y:2,z:-3})
-        let transformE = new XRRigidTransform({x:3, y:2,z:0})
-        let transformS = new XRRigidTransform({x:0, y:2,z:-3})
-        let transformW = new XRRigidTransform({x:0, y:2,z:-3})
+        let transformE = new XRRigidTransform({x:3, y:2,z:0}, {x: 0, y: Math.sin(-Math.PI * 0.25), z: 0, w: Math.cos(-Math.PI * 0.25)})
+        let transformS = new XRRigidTransform({x:0, y:2,z:3}, {x: 0, y: Math.sin(Math.PI * 0.5), z: 0, w: Math.cos(Math.PI * 0.5)})
+        let transformW = new XRRigidTransform({x:-3, y:2,z:0}, {x: 0, y: Math.sin(Math.PI * 0.25), z: 0, w: Math.cos(Math.PI * 0.25)})
 
         arrowN.matrix = transformN.matrix;
         arrowE.matrix = transformE.matrix;
@@ -188,6 +187,8 @@ function onXRFrame(t, frame) {
         //console.table(arrow.matrix);
         scene.addNode(arrowN);
         scene.addNode(arrowE);
+        scene.addNode(arrowS);
+        scene.addNode(arrowW);
 
         renderer = new Renderer(gl);
         scene.setRenderer(renderer);
