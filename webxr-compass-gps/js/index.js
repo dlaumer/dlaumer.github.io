@@ -7,6 +7,7 @@ import { QueryArgs } from './util/query-args.js';
 import * as THREE from './../test/build/three.module.js';
 import * as quat from './third-party/gl-matrix/src/gl-matrix/quat.js'
 
+const geoLocVis = document.getElementById('geoLocVis');
 const orientLocalVis = document.getElementById('orientLocalVis');
 const orientGlobalVis = document.getElementById('orientGlobalVis');
 const diffOrientVis = document.getElementById('diffOrientVis');
@@ -287,10 +288,30 @@ function deviceOrientationHandler(event) {
 
 function permissionGeo() {
 
-    btnPermissionGeo.innerHTML = "Permission granted";
-    btnPermissionGeo.disabled = true;
-    btnPermissionCompass.style.display="block";
+    if (!navigator.geolocation) {
+        navigator.notification.alert(
+            "Geolocation not supported.", function(){}, "G2", "Ok"
+        );
+        btnPermissionGeo.innerHTML = "No Permission!";
+        btnPermissionGeo.disabled = true;
+        btnPermissionCompass.style.display="block";
+    }
+    else {
+
+        navigator.geolocation.getCurrentPosition(currentLocation); 
+        btnPermissionGeo.innerHTML = "Permission granted";
+        btnPermissionGeo.disabled = true;
+        btnPermissionCompass.style.display="block";
+    }
 }
+
+function currentLocation(position) {
+
+    let pointLng = position.coords.longitude; 
+    let pointLtd = position.coords.latitude;
+
+    geoLocVis.innerHTML = pointLng.toString() + ", " + pointLtd.toString()
+}   
 
 function permission() {
     if (iOS) {
