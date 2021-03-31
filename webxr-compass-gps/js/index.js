@@ -40,22 +40,6 @@ let arrowW = new Gltf2Node({ url: 'media/Arrow_blue.gltf' });
 let firstTime = true;
 
 
-/*
-const cubeNorth = new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshBasicMaterial( { color: 'red' } ) );
-const cubeEast = new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshBasicMaterial( { color: 'blue' } ) );
-const cubeSouth = new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshBasicMaterial( { color: 'yellow' } ) );
-const cubeWest = new THREE.Mesh( new THREE.BoxGeometry(0.2,0.2,0.2), new THREE.MeshBasicMaterial( { color: 'green' } ) );
-
-cubeNorth.position.set(0, 0, -3);
-cubeEast.position.set(3, 0, 0);
-cubeSouth.position.set(0, 0, 3);
-cubeWest.position.set(-3, 0, 0);
-scene.add( cubeNorth );
-scene.add( cubeEast );
-scene.add( cubeSouth );
-scene.add( cubeWest );
-*/
-
 function initXR() {
     xrButton = new WebXRButton({
         onRequestSession: onRequestSession,
@@ -264,28 +248,37 @@ function iOS() {
 // Get event data
 function deviceOrientationHandler(event) {
     var alpha = event.alpha; //z axis rotation [0,360)
-    var beta = event.beta; //x axis rotation [-180, 180]
-    var gamma = event.gamma; //y axis rotation [-90, 90]
+    var heading = null;
+    let acc = null;
     //Check if absolute values have been sent
     if (typeof event.webkitCompassHeading !== "undefined") {
-        alpha = event.webkitCompassHeading; //iOS non-standard
-        var heading = alpha
+        heading = event.webkitCompassHeading; //iOS non-standard
+        acc = event.webkitCompassAccuracy;
     }
     else {
         //alert("Your device is reporting relative alpha values, so this compass won't point north :(");
        // var heading = 360 - alpha; //heading [0, 360)
-       var heading = 360 - alpha;
+        heading = 360 - alpha;
 
     }
 
     if (Math.abs(heading - orientGlobal) > 0.5) {
         let difference = heading - orientLocal;
-
-        orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed([0]).toString();
-        diffOrientVis.innerHTML = "Difference: " + difference.toFixed(0).toString();
-        console.log({ heading, orientLocal, difference });
+        if (acc == null) {
+            orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed([0]).toString();
+            diffOrientVis.innerHTML = "Difference: " + difference.toFixed(0).toString();
+            console.log({ heading, orientLocal, difference});
+        }
+        else if (acc == -1) {
+            orientGlobalVis.innerHTML = "Global orientation: Not calibrated - not usable";
+        }
+        else {
+            orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed([0]).toString() + " +/- " + acc.toFixed(0).toString();
+            diffOrientVis.innerHTML = "Difference: " + difference.toFixed(0).toString();
+        }
+        orientGlobal = heading;
     }
-    orientGlobal = heading;
+
 
     //let difference = orientGlobal - orientLocal < 0 ?  orientGlobal - orientLocal + 360 :  orientGlobal - orientLocal;
 
