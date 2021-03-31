@@ -289,15 +289,14 @@ function deviceOrientationHandler(event) {
 function permissionGeo() {
 
     if (!navigator.geolocation) {
-        navigator.notification.alert(
-            "Geolocation not supported.", function(){}, "G2", "Ok"
+        alert(
+            "Geolocation not supported.", function(){}, "", "Ok"
         );
         btnPermissionGeo.innerHTML = "No Permission!";
         btnPermissionGeo.disabled = true;
         btnPermissionCompass.style.display="block";
     }
     else {
-
         navigator.geolocation.getCurrentPosition(currentLocation); 
         btnPermissionGeo.innerHTML = "Permission granted";
         btnPermissionGeo.disabled = true;
@@ -309,8 +308,9 @@ function currentLocation(position) {
 
     let pointLng = position.coords.longitude; 
     let pointLtd = position.coords.latitude;
+    let accGeo = position.coords.accuracy;
 
-    geoLocVis.innerHTML = pointLng.toString() + ", " + pointLtd.toString()
+    geoLocVis.innerHTML = "Geolocation: " + pointLng.toFixed(2).toString() + ", " + pointLtd.toFixed(2).toString() + ", acc: " + accGeo.toFixed(1).toString() + "m";
 }   
 
 function permission() {
@@ -355,4 +355,18 @@ function handler() {
 
 }
 
+function readJSON() {
+    // Read the GeoJSON file here
+    var xhr = new XMLHttpRequest(); // xhr is a local variable
+    xhr.responseType = "json"; // Make sure the server returns json
+    xhr.open("GET", "data/points.geojson"); // Open the file
+    xhr.send();	
 
+    xhr.onreadystatechange = function () {
+        // If there are no errors, everything worked fine
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            jsonData = xhr.response;	// Read the file
+        }
+    }
+
+}
