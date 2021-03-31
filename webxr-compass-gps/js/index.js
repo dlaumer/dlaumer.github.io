@@ -7,6 +7,7 @@ import { QueryArgs } from './util/query-args.js';
 import * as THREE from './../test/build/three.module.js';
 import * as quat from './third-party/gl-matrix/src/gl-matrix/quat.js'
 
+const pointVis = document.getElementById('pointVis');
 const geoLocVis = document.getElementById('geoLocVis');
 const orientLocalVis = document.getElementById('orientLocalVis');
 const orientGlobalVis = document.getElementById('orientGlobalVis');
@@ -39,6 +40,8 @@ let arrowE = new Gltf2Node({ url: 'media/Arrow_blue.gltf' });
 let arrowS = new Gltf2Node({ url: 'media/Arrow_blue.gltf' });
 let arrowW = new Gltf2Node({ url: 'media/Arrow_blue.gltf' });
 let firstTime = true;
+
+let pointData = null;
 
 
 function initXR() {
@@ -278,6 +281,23 @@ function deviceOrientationHandler(event) {
             diffOrientVis.innerHTML = "Difference: " + difference.toFixed(0).toString();
         }
         orientGlobal = heading;
+
+        if (pointData != null) {
+            let clostestOrient = 0;
+            let diff = 400;
+            for (var i in pointData) {
+                // TODO: overlauf nach 360!!!
+                if (Math.abs(orientGlobal - pointData[i].bearing) < diff) {
+                    clostestOrient = i;
+                    diff = Math.abs(orientGlobal - pointData[i].bearing);
+                }
+            }
+            if (diff < 10) {
+                pointVis.innerHTML = pointData[clostestOrient].name + " (" + pointData[clostestOrient].distance.toFixed(0) + "km)";
+            } else {
+                pointVis.innerHTML = "";
+            }
+        }
     }
 
 
@@ -287,7 +307,6 @@ function deviceOrientationHandler(event) {
 }
 
 function permissionGeo() {
-
     if (!navigator.geolocation) {
         alert(
             "Geolocation not supported.", function(){}, "", "Ok"
@@ -309,8 +328,10 @@ function currentLocation(position) {
     let pointLng = position.coords.longitude; 
     let pointLtd = position.coords.latitude;
     let accGeo = position.coords.accuracy;
-
+    position = [pointLng, pointLtd];
     geoLocVis.innerHTML = "Geolocation: " + pointLng.toFixed(2).toString() + ", " + pointLtd.toFixed(2).toString() + ", acc: " + accGeo.toFixed(1).toString() + "m";
+    readJSON(position);
+
 }   
 
 function permission() {
@@ -355,18 +376,74 @@ function handler() {
 
 }
 
-function readJSON() {
+function readJSON(position) {
     // Read the GeoJSON file here
     var xhr = new XMLHttpRequest(); // xhr is a local variable
     xhr.responseType = "json"; // Make sure the server returns json
-    xhr.open("GET", "data/points.geojson"); // Open the file
+    xhr.open("GET", "data/points_selected.json"); // Open the file
     xhr.send();	
 
     xhr.onreadystatechange = function () {
         // If there are no errors, everything worked fine
         if (xhr.readyState == 4 && xhr.status == 200) {
-            jsonData = xhr.response;	// Read the file
+            let jsonData = xhr.response;	// Read the file
+            processJson(jsonData, position);
         }
     }
-
 }
+
+function processJson(jsonData, position) {
+    pointData = []
+        for (var i in jsonData){
+            let lng = jsonData[i].geometry.coordinates[0];
+            let lat = jsonData[i].geometry.coordinates[1];
+            
+            let dist = distance(position[1], position[0], lat, lng, 'K');
+            let bear = bearing(position[1], position[0], lat, lng);
+            pointData.push({
+                'name':jsonData[i].properties.capital, 
+                'distance': dist,
+                'bearing': bear
+            })
+        }
+    console.log(pointData);
+}
+
+function distance(lat1, lon1, lat2, lon2, unit) {
+        var radlat1 = Math.PI * lat1/180
+        var radlat2 = Math.PI * lat2/180
+        var theta = lon1-lon2
+        var radtheta = Math.PI * theta/180
+        var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+        dist = Math.acos(dist)
+        dist = dist * 180/Math.PI
+        dist = dist * 60 * 1.1515
+        if (unit=="K") { dist = dist * 1.609344 }
+        if (unit=="N") { dist = dist * 0.8684 }
+        return dist
+}
+
+// Converts from degrees to radians.
+function toRadians(degrees) {
+    return degrees * Math.PI / 180;
+  };
+   
+  // Converts from radians to degrees.
+  function toDegrees(radians) {
+    return radians * 180 / Math.PI;
+  }
+  
+  
+  function bearing(startLat, startLng, destLat, destLng){
+    startLat = toRadians(startLat);
+    startLng = toRadians(startLng);
+    destLat = toRadians(destLat);
+    destLng = toRadians(destLng);
+  
+    let y = Math.sin(destLng - startLng) * Math.cos(destLat);
+    let x = Math.cos(startLat) * Math.sin(destLat) -
+          Math.sin(startLat) * Math.cos(destLat) * Math.cos(destLng - startLng);
+    let brng = Math.atan2(y, x);
+    brng = toDegrees(brng);
+    return (brng + 360) % 360;
+  }

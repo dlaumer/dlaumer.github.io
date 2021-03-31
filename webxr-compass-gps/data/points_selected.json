@@ -1,0 +1,198 @@
+[
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        16.37,
+        48.21
+      ]
+    },
+    "properties": {
+      "capital": "Vienna",
+      "country": "Austria"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        4.35,
+        50.85
+      ]
+    },
+    "properties": {
+      "capital": "Brussels",
+      "country": "Belgium"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        14.42,
+        50.09
+      ]
+    },
+    "properties": {
+      "capital": "Prague",
+      "country": "Czech Republic"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        12.57,
+        55.68
+      ]
+    },
+    "properties": {
+      "capital": "Copenhagen",
+      "country": "Denmark"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        2.35,
+        48.85
+      ]
+    },
+    "properties": {
+      "capital": "Paris",
+      "country": "France"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        13.41,
+        52.52
+      ]
+    },
+    "properties": {
+      "capital": "Berlin",
+      "country": "Germany"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        19.04,
+        47.5
+      ]
+    },
+    "properties": {
+      "capital": "Budapest",
+      "country": "Hungary"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        12.48,
+        41.89
+      ]
+    },
+    "properties": {
+      "capital": "Rome",
+      "country": "Italy"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        9.52,
+        47.14
+      ]
+    },
+    "properties": {
+      "capital": "Vaduz",
+      "country": "Liechtenstein"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        6.13,
+        49.61
+      ]
+    },
+    "properties": {
+      "capital": "Luxembourg",
+      "country": "Luxembourg"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        4.89,
+        52.37
+      ]
+    },
+    "properties": {
+      "capital": "Amsterdam",
+      "country": "Netherlands"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -3.7,
+        40.42
+      ]
+    },
+    "properties": {
+      "capital": "Madrid",
+      "country": "Spain"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        7.45,
+        46.95
+      ]
+    },
+    "properties": {
+      "capital": "Berne",
+      "country": "Switzerland"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -0.13,
+        51.51
+      ]
+    },
+    "properties": {
+      "capital": "London",
+      "country": "United Kingdom"
+    }
+  }
+]
