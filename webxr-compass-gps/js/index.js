@@ -187,7 +187,7 @@ function onXRFrame(t, frame) {
 
         for (var i in pointData) {
             let bearing = pointData[i].bearing;
-            let transform = new XRRigidTransform(polarToCart2D(bearing, 4, 3), polarToCartOrient(bearing))
+            let transform = new XRRigidTransform(polarToCart2D(bearing, 5, 3), polarToCartOrient(bearing))
             let arrow = new Gltf2Node({ url: 'media/jumpboost_arrow/jumpboost_arrow.gltf' });
             arrow.matrix = transform.matrix;
             scene.addNode(arrow);
@@ -328,7 +328,7 @@ function permissionGeo() {
     }
     else {
         navigator.geolocation.getCurrentPosition(currentLocation); 
-        btnPermissionGeo.innerHTML = "Permission granted";
+        btnPermissionGeo.innerHTML = "Loading...";
         btnPermissionGeo.disabled = true;
         
     }
@@ -418,6 +418,7 @@ function processJson(jsonData, position) {
             })
         }
     console.log(pointData);
+    btnPermissionGeo.innerHTML = "Permission granted";
     btnPermissionCompass.style.display="block";
 }
 
