@@ -219,7 +219,7 @@ function onXRFrame(t, frame) {
         //console.table(arrow.matrix);
     }
 
-    if (Math.abs(difference) > 1) {
+    if (Math.abs(difference) > 0.1) {
         //rotateZ(-difference / 180 * Math.PI);
         const inverseOrientation = quat.create()
         quat.identity(inverseOrientation)
@@ -277,7 +277,7 @@ function deviceOrientationHandler(event) {
 
     }
 
-    if (Math.abs(heading - orientGlobal) > 0.5) {
+    if (Math.abs(heading - orientGlobal) > 0.1) {
         let difference = heading - orientLocal;
         if (acc == null) {
             orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed([0]).toString();
