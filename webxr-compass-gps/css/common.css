@@ -89,6 +89,7 @@ canvas {
 #addInfo {
   position: fixed; 
     bottom:0%;
+
 }
 
 #pointVis {
@@ -97,4 +98,7 @@ canvas {
   color: rgb(80, 168, 252);
   position: fixed; 
     bottom:50%;
+    width: 100%;
+    text-align: center;
+    background-color: #ffffff73;
 }
