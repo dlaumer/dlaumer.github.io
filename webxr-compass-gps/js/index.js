@@ -187,7 +187,7 @@ function onXRFrame(t, frame) {
 
         for (var i in pointData) {
             let bearing = pointData[i].bearing;
-            let transform = new XRRigidTransform(polarToCart2D(bearing, 4, 1), polarToCartOrient(bearing))
+            let transform = new XRRigidTransform(polarToCart2D(bearing, 4, 3), polarToCartOrient(bearing))
             let arrow = new Gltf2Node({ url: 'media/jumpboost_arrow/jumpboost_arrow.gltf' });
             arrow.matrix = transform.matrix;
             scene.addNode(arrow);
@@ -330,7 +330,7 @@ function permissionGeo() {
         navigator.geolocation.getCurrentPosition(currentLocation); 
         btnPermissionGeo.innerHTML = "Permission granted";
         btnPermissionGeo.disabled = true;
-        btnPermissionCompass.style.display="block";
+        
     }
 }
 
@@ -418,6 +418,7 @@ function processJson(jsonData, position) {
             })
         }
     console.log(pointData);
+    btnPermissionCompass.style.display="block";
 }
 
 function distance(lat1, lon1, lat2, lon2, unit) {
