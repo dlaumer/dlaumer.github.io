@@ -39,7 +39,9 @@ let arrowN = new Gltf2Node({ url: 'media/Arrow.gltf' });
 let arrowE = new Gltf2Node({ url: 'media/Arrow_blue.gltf' });
 let arrowS = new Gltf2Node({ url: 'media/Arrow_blue.gltf' });
 let arrowW = new Gltf2Node({ url: 'media/Arrow_blue.gltf' });
+let arrowDest = new Gltf2Node({ url: 'media/jumpboost_arrow/jumpboost_arrow.gltf' });
 let firstTime = true;
+
 
 let pointData = null;
 
@@ -166,10 +168,10 @@ function onXRFrame(t, frame) {
         scene = new Scene();
         
         scene.enableStats(false);
-        let transformN = new XRRigidTransform({x:0, y:2,z:-3})
-        let transformE = new XRRigidTransform({x:3, y:2,z:0}, {x: 0, y: Math.sin(-Math.PI * 0.25), z: 0, w: Math.cos(-Math.PI * 0.25)})
-        let transformS = new XRRigidTransform({x:0, y:2,z:3}, {x: 0, y: Math.sin(Math.PI * 0.5), z: 0, w: Math.cos(Math.PI * 0.5)})
-        let transformW = new XRRigidTransform({x:-3, y:2,z:0}, {x: 0, y: Math.sin(Math.PI * 0.25), z: 0, w: Math.cos(Math.PI * 0.25)})
+        let transformN = new XRRigidTransform(polarToCart2D(0, 3, 2))
+        let transformE = new XRRigidTransform(polarToCart2D(90, 3, 2), polarToCartOrient(90))
+        let transformS = new XRRigidTransform(polarToCart2D(180, 3, 2), polarToCartOrient(180))
+        let transformW = new XRRigidTransform(polarToCart2D(270, 3, 2), polarToCartOrient(270))
 
         arrowN.matrix = transformN.matrix;
         arrowE.matrix = transformE.matrix;
@@ -181,6 +183,15 @@ function onXRFrame(t, frame) {
         scene.addNode(arrowE);
         scene.addNode(arrowS);
         scene.addNode(arrowW);
+
+
+        for (var i in pointData) {
+            let bearing = pointData[i].bearing;
+            let transform = new XRRigidTransform(polarToCart2D(bearing, 4, 1), polarToCartOrient(bearing))
+            let arrow = new Gltf2Node({ url: 'media/jumpboost_arrow/jumpboost_arrow.gltf' });
+            arrow.matrix = transform.matrix;
+            scene.addNode(arrow);
+        }
 
         renderer = new Renderer(gl);
         scene.setRenderer(renderer);
@@ -447,3 +458,15 @@ function toRadians(degrees) {
     brng = toDegrees(brng);
     return (brng + 360) % 360;
   }
+
+  function polarToCart2D(angle, radius, height) {
+        let z = -radius * Math.cos(angle*Math.PI/180);
+        let y = height;
+        let x = radius * Math.sin(angle*Math.PI/180);
+        return {x: x, y: y, z: z}
+  }
+
+  function polarToCartOrient(angle) {
+        let a = angle * Math.PI / 180;
+    return  {x: 0, y: Math.sin(-a * 0.5), z: 0, w: Math.cos(-a * 0.5)}
+}
