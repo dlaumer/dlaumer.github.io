@@ -1,5 +1,37 @@
-<a href="Example_AR.html">AR.js</a></br>
-<a href="compass/compass.html">Compass</a></br>
-<a href="webxr-example-master/webxr-threejs.html">Tutorial</a></br>
-<a href="webxr-samples-main/index.html">WebXR Samples</a></br>
-<a href="webxr-compass-gps/index.html">WebXR Compass GPS</a></br>
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+        body, html {
+            height:100%;
+            width:100%;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            align-content: space-around;
+            height:100%;
+        }
+        .item {
+            flex-basis: auto;
+            flex-grow: 1;
+            font-size: 5vh;
+            margin: 2vh;
+            background-color: #9fb0fc; /* Green */
+            border: none;
+            border-radius: 10px;
+        }
+        </style>
+  </head>
+  <body>
+      <div class="container">
+            <button class="item" onclick="location.href='Example_AR.html';">AR.js</button>
+            <button class="item" onclick="location.href='compass/compass.html';">Compass</button>
+            <button class="item" onclick="location.href='webxr-example-master/webxr-threejs.html';">Tutorial</button>
+            <button class="item" onclick="location.href='webxr-samples-main/index.html';">WebXR Samples</button>
+            <button class="item" onclick="location.href='webxr-compass-gps/index.html';">WebXR Compass GPS</button>
+      </div>
+   
+  </body>
+
