@@ -1,22 +1,28 @@
-import { WebXRButton } from './util/webxr-button.js';
-import { Scene } from './render/scenes/scene.js';
-import { Renderer, createWebGLContext } from './render/core/renderer.js';
-import { Gltf2Node } from './render/nodes/gltf2.js';
-import { QueryArgs } from './util/query-args.js';
-//import * as THREE from 'https://unpkg.com/three@0.126.1/build/three.js'
-import * as THREE from './../test/build/three.module.js';
-import * as quat from './third-party/gl-matrix/src/gl-matrix/quat.js'
+/*
 
+
+
+*/
+
+import { WebXRButton } from './util/webxr-button.js';   // For easier handeling of the starting and allowing of XR
+import { Scene } from './render/scenes/scene.js';       // For "easier" handeling of positioning objects, a bit confusing tho
+import { Renderer, createWebGLContext } from './render/core/renderer.js';   // Renderer
+import { Gltf2Node } from './render/nodes/gltf2.js';    // For uploading 3D models (are there other options than gltf?)
+import { QueryArgs } from './util/query-args.js';       // ?
+//import * as THREE from 'https://unpkg.com/three@0.126.1/build/three.js'
+import * as THREE from './../test/build/three.module.js';   // Hack to import THREE on the server, somehow the other did't work
+import * as quat from './third-party/gl-matrix/src/gl-matrix/quat.js'   // Library to build and use quaternions
+
+// Find all the DOM elements 
 const pointVis = document.getElementById('pointVis');
 const geoLocVis = document.getElementById('geoLocVis');
 const orientLocalVis = document.getElementById('orientLocalVis');
 const orientGlobalVis = document.getElementById('orientGlobalVis');
 const diffOrientVis = document.getElementById('diffOrientVis');
 
-
-let btnPermissionGeo = document.getElementById("requestGeo");
-let btnPermissionCompass = document.getElementById("requestCompass");
-btnPermissionCompass.style.display="none"
+let btnPermissionGeo = document.getElementById("requestGeo");           // Button to ask for geolocation permission
+let btnPermissionCompass = document.getElementById("requestCompass");   // Button to ask for compass permission
+btnPermissionCompass.style.display="none"   // Only show it after geolocation
 
 btnPermissionGeo.addEventListener("click", permissionGeo);
 btnPermissionCompass.addEventListener("click", permission);
@@ -32,20 +38,21 @@ let gl = null;
 let renderer = null;
 let scene = null;
 
-var orientLocal = null;
-var orientGlobal = 20;
-//let solarSystem = new Gltf2Node({url: 'media/space/space.gltf'});
+// Geo orientation globals
+var orientLocal = null;     // Stores the current orientation of the phone in the local coordinate system (degree)
+var orientGlobal = null;    // Stores the current orientation of the phone in the global coordinate system (degree)
+
+// Load 3D models
 let arrowN = new Gltf2Node({ url: 'media/Arrow.gltf' });
 let arrowE = new Gltf2Node({ url: 'media/Arrow_blue.gltf' });
 let arrowS = new Gltf2Node({ url: 'media/Arrow_blue.gltf' });
 let arrowW = new Gltf2Node({ url: 'media/Arrow_blue.gltf' });
-let arrowDest = new Gltf2Node({ url: 'media/jumpboost_arrow/jumpboost_arrow.gltf' });
 let firstTime = true;
 
-
+// Data for the different points, which are pointed to in the AR session 
 let pointData = null;
 
-
+// Function to make XR Button and check if AR is available
 function initXR() {
     xrButton = new WebXRButton({
         onRequestSession: onRequestSession,
@@ -66,6 +73,7 @@ function initXR() {
     }
 }
 
+// Function to start the XR Session
 function onRequestSession() {
     // Requests an 'immersive-ar' session, which ensures that the users
     // environment will be visible either via video passthrough or a
@@ -82,7 +90,7 @@ function onRequestSession() {
         });
 }
 
-
+// Function to start the GL canvas
 function initGL() {
     if (gl)
         return;
@@ -101,6 +109,8 @@ function initGL() {
 
 }
 
+// Function to what happens after the XR session has started
+// Like for example to get the reference spaces and the animation frame
 function onSessionStarted(session) {
     session.addEventListener('end', onSessionEnded);
 
@@ -122,10 +132,12 @@ function onSessionStarted(session) {
 
 }
 
+// Function to end the session
 function onEndSession(session) {
     session.end();
 }
 
+// Reset XR Button 
 function onSessionEnded(event) {
     if (event.session.isImmersive) {
         xrButton.setSession(null);
@@ -143,6 +155,7 @@ function teleportRelative(deltaX, deltaY, deltaZ) {
         new XRRigidTransform({ x: -deltaX, y: -deltaY, z: -deltaZ }));
 }
 
+// Rotate the coordinate system of the user by the amount of angle (radian)
 function rotateZ(angle) {
     // Move the user by moving the reference space in the opposite direction,
     // adjusting originOffset's position by the inverse delta.
@@ -161,30 +174,35 @@ function rotateZ(angle) {
 }
 
 // Called every time a XRSession requests that a new frame be drawn.
+// Similar to the update() function of unity
 function onXRFrame(t, frame) {
 
+    // If first time, initialize the scene. 
+    // TODO: Check if also possible in function onSessionStarted()
     if (firstTime) {
 
-        scene = new Scene();
-        
-        scene.enableStats(false);
+        scene = new Scene();    
+        scene.enableStats(false);   // Remove the virtual display to show the FPS
+
+        // Prepare position and rotation matrix of the 4 main directions
         let transformN = new XRRigidTransform(polarToCart2D(0, 3, 2))
         let transformE = new XRRigidTransform(polarToCart2D(90, 3, 2), polarToCartOrient(90))
         let transformS = new XRRigidTransform(polarToCart2D(180, 3, 2), polarToCartOrient(180))
         let transformW = new XRRigidTransform(polarToCart2D(270, 3, 2), polarToCartOrient(270))
 
+        // Apply position and rotation matrix of the 4 main directions (shown as arrows)
         arrowN.matrix = transformN.matrix;
         arrowE.matrix = transformE.matrix;
         arrowS.matrix = transformS.matrix;
         arrowW.matrix = transformW.matrix;
 
-        //console.table(arrow.matrix);
+        // Add the 4 arrows showing the main directions
         scene.addNode(arrowN);
         scene.addNode(arrowE);
         scene.addNode(arrowS);
         scene.addNode(arrowW);
 
-
+        // Add another arrow for each point
         for (var i in pointData) {
             let bearing = pointData[i].bearing;
             let transform = new XRRigidTransform(polarToCart2D(bearing, 5, 3), polarToCartOrient(bearing))
@@ -193,20 +211,22 @@ function onXRFrame(t, frame) {
             scene.addNode(arrow);
         }
 
+        // Don't really know what that does...
         renderer = new Renderer(gl);
         scene.setRenderer(renderer);
         scene.updateInputSources(frame, xrRefSpace);
         firstTime = false;
     }
 
+    // Get the session of this frame!
     let session = frame.session;
 
-    let pose = frame.getViewerPose(xrRefSpace);
-    let orient = pose.transform.orientation
-    const vector = new THREE.Vector3(0, 0, 1);
-    vector.applyQuaternion(orient);
-    let vec = vector.projectOnPlane(new THREE.Vector3(0, 1, 0))
-    let orientDeg = Math.atan2(vec.z, vec.x) * 180 / Math.PI;
+    let pose = frame.getViewerPose(xrRefSpace); // Get the pose of the device (!)
+    let orient = pose.transform.orientation     // Only extract the orientation
+    const vector = new THREE.Vector3(0, 0, 1);  // Prepare a unit vector showing the z axis
+    vector.applyQuaternion(orient);             // Rotate this vector accodrding to the orientation of the device
+    let vec = vector.projectOnPlane(new THREE.Vector3(0, 1, 0)) // Project the result onto the xz-plane
+    let orientDeg = Math.atan2(vec.z, vec.x) * 180 / Math.PI;   // Calculate the angle of the 
     let orientLocal_new = 90 - orientDeg;
     if (orientLocal_new < 0) { orientLocal_new = orientLocal_new + 360 }
     let difference = orientGlobal - orientLocal_new;
@@ -346,7 +366,7 @@ function currentLocation(position) {
 }   
 
 function permission() {
-    if (iOS) {
+    if (iOS()) {
         if (typeof (DeviceMotionEvent) !== "undefined" && typeof (DeviceMotionEvent.requestPermission) === "function") {
             // (optional) Do something before API request prompt.
             DeviceMotionEvent.requestPermission()
