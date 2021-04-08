@@ -48,7 +48,7 @@ let arrowE = new Gltf2Node({ url: 'media/Arrow_blue.gltf' });
 let arrowS = new Gltf2Node({ url: 'media/Arrow_blue.gltf' });
 let arrowW = new Gltf2Node({ url: 'media/Arrow_blue.gltf' });
 let firstTime = true;
-
+let firstTimeCompass = true;
 // Data for the different points, which are pointed to in the AR session 
 let pointData = null;
 
@@ -287,10 +287,14 @@ function deviceOrientationHandler(event) {
     let acc = null;
     //Check if absolute values have been sent
     if (typeof event.webkitCompassHeading !== "undefined") {
+        if (firstTimeCompass) {alert("Using WebkitCompassHeading"); firstTime=false;}
+
         heading = event.webkitCompassHeading; //iOS non-standard
         acc = event.webkitCompassAccuracy;
     }
     else {
+        if (firstTime) {alert("Using alpha value"); firstTime=false;}
+
         //alert("Your device is reporting relative alpha values, so this compass won't point north :(");
        // var heading = 360 - alpha; //heading [0, 360)
         heading = 360 - alpha;
@@ -394,15 +398,24 @@ function handler() {
 
     // Check if device can provide absolute orientation data
     if (window.DeviceOrientationAbsoluteEvent) {
-        comsole.log("Absolute Orientation existing");
+        console.log("Absolute Orientation existing");
+        alert("Using DeviceOrientationAbsoluteEvent");
         window.addEventListener("DeviceOrientationAbsoluteEvent", deviceOrientationHandler);
     } // If not, check if the device sends any orientation data
-    else if (window.DeviceOrientationEvent) {
+    else if ('ondeviceorientationabsolute' in window) {
+      // We can listen for the new deviceorientationabsolute event.
+      alert("Using DeviceOrientationAbsolute");
+
+      window.addEventListener("deviceorientationabsolute", deviceOrientationHandler, true);
+    } 
+    else if(window.DeviceOrientationEvent){
         console.log("Only normal orientation existing");
-        window.addEventListener("deviceorientation", deviceOrientationHandler);
+        alert("Using DeviceOrientation");
+
+    window.addEventListener("deviceorientation", deviceOrientationHandler);
     } // Send an alert if the device isn't compatible
     else {
-        alert("Sorry, try again on a compatible mobile device!");
+    alert("Sorry, try again on a compatible mobile device!");
     }
 
 }

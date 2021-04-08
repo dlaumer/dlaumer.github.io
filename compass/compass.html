@@ -30,6 +30,7 @@
     <script>
 
     let btn = null;
+    let firstTime = true;
 
     function iOS() {
       console.log("sdsd")
@@ -53,11 +54,13 @@
       var gamma    = event.gamma; //y axis rotation [-90, 90]
       //Check if absolute values have been sent
       if (typeof event.webkitCompassHeading !== "undefined") {
+        if (firstTime) {alert("Using WebkitCompassHeading"); firstTime=false;}
         alpha = event.webkitCompassHeading; //iOS non-standard
         var heading = alpha
         document.getElementById("heading").innerHTML = heading.toFixed([0]);
       }
       else {
+        if (firstTime) {alert("Using alpha value"); firstTime=false;}
         var heading = 360 - alpha; //heading [0, 360)
         document.getElementById("heading").innerHTML = heading.toFixed([0]);
       }
@@ -79,7 +82,6 @@
 
     function permission () {
     if (iOS()){
-        console.log("Helloo1")
         if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" ) {
         // (optional) Do something before API request prompt.
         DeviceMotionEvent.requestPermission()
@@ -103,12 +105,19 @@
         btn.style.display = "none";
         // Check if device can provide absolute orientation data
         if (window.DeviceOrientationAbsoluteEvent) {
-            comsole.log("Absolute Orientation existing");
-        window.addEventListener("DeviceOrientationAbsoluteEvent", deviceOrientationHandler);
+            console.log("Absolute Orientation existing");
+            alert("Using DeviceOrientationAbsoluteEvent");
+            window.addEventListener("DeviceOrientationAbsoluteEvent", deviceOrientationHandler);
         } // If not, check if the device sends any orientation data
+        else if ('ondeviceorientationabsolute' in window) {
+          // We can listen for the new deviceorientationabsolute event.
+          alert("Using DeviceOrientationAbsolute");
+
+          window.addEventListener("deviceorientationabsolute", deviceOrientationHandler, true);
+        } 
         else if(window.DeviceOrientationEvent){
             console.log("Only normal orientation existing");
-            alert("Your device is reporting relative alpha values, so this compass won't point north :(");
+            alert("Using DeviceOrientation");
 
         window.addEventListener("deviceorientation", deviceOrientationHandler);
         } // Send an alert if the device isn't compatible
