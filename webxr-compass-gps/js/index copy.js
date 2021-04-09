@@ -79,10 +79,7 @@ function onRequestSession() {
     // environment will be visible either via video passthrough or a
     // transparent display. This may be presented either in a headset or
     // fullscreen on a mobile device.
-    return navigator.xr.requestSession('immersive-ar', {
-        optionalFeatures: ['dom-overlay'],
-        domOverlay: { root: document.getElementById('overlay') }
-    })
+    return navigator.xr.requestSession('immersive-ar')
         .then((session) => {
             xrButton.setSession(session);
             session.isImmersive = true;
@@ -222,43 +219,37 @@ function onXRFrame(t, frame) {
     let session = frame.session;
 
     let pose = frame.getViewerPose(xrRefSpace); // Get the pose of the device (!)
-    if (pose !== null) {
-        
-    
-        let orient = pose.transform.orientation     // Only extract the orientation
-        const vector = new THREE.Vector3(0, 0, 1);  // Prepare a unit vector showing the z axis
-        vector.applyQuaternion(orient);             // Rotate this vector accodrding to the orientation of the device
-        let vec = vector.projectOnPlane(new THREE.Vector3(0, 1, 0)) // Project the result onto the xz-plane
-        let orientDeg = Math.atan2(vec.z, vec.x) * 180 / Math.PI;   // Calculate the angle of the 
-        let orientLocal_new = 90 - orientDeg;
-        //orientLocal_new = 360 - orientLocal_new;
-        if (orientLocal_new < 0) { orientLocal_new = orientLocal_new + 360 }
-        let difference = orientGlobal - orientLocal_new;
-    
-        if (Math.abs(orientLocal_new - orientLocal) > 0.5) {
-            orientLocalVis.innerHTML = "Local orientation: " + orientLocal_new.toFixed([0]).toString();
-            diffOrientVis.innerHTML = "Difference: " + difference.toFixed(0).toString();
-    
-            //console.log({ orientGlobal, orientLocal_new, difference });
-            //console.table(arrow.matrix);
-        }
-    
-        if (Math.abs(difference) > 0.1) {
-            //rotateZ(-difference / 180 * Math.PI);
-            const inverseOrientation = quat.create()
-            quat.identity(inverseOrientation)
-            quat.rotateY(inverseOrientation, inverseOrientation, difference / 180 * Math.PI);
-            //console.log(inverseOrientation)
-            scene.rotation = [inverseOrientation[0], inverseOrientation[1], inverseOrientation[2], inverseOrientation[3]];
-            pose = frame.getViewerPose(xrRefSpace);
-    
-        }
-      //console.log(pose.transform.position);
-        //console.log(scene.translation);
-        scene.translation = [pose.transform.position.x, pose.transform.position.y, pose.transform.position.z]; 
-        orientLocal = orientLocal_new;
+    let orient = pose.transform.orientation     // Only extract the orientation
+    const vector = new THREE.Vector3(0, 0, 1);  // Prepare a unit vector showing the z axis
+    vector.applyQuaternion(orient);             // Rotate this vector accodrding to the orientation of the device
+    let vec = vector.projectOnPlane(new THREE.Vector3(0, 1, 0)) // Project the result onto the xz-plane
+    let orientDeg = Math.atan2(vec.z, vec.x) * 180 / Math.PI;   // Calculate the angle of the 
+    let orientLocal_new = 90 - orientDeg;
+    if (orientLocal_new < 0) { orientLocal_new = orientLocal_new + 360 }
+    let difference = orientGlobal - orientLocal_new;
+
+    if (Math.abs(orientLocal_new - orientLocal) > 0.5) {
+        orientLocalVis.innerHTML = "Local orientation: " + orientLocal_new.toFixed([0]).toString();
+        diffOrientVis.innerHTML = "Difference: " + difference.toFixed(0).toString();
+
+        //console.log({ orientGlobal, orientLocal_new, difference });
+        //console.table(arrow.matrix);
     }
-    
+
+    if (Math.abs(difference) > 0.1) {
+        //rotateZ(-difference / 180 * Math.PI);
+        const inverseOrientation = quat.create()
+        quat.identity(inverseOrientation)
+        quat.rotateY(inverseOrientation, inverseOrientation, difference / 180 * Math.PI);
+        //console.log(inverseOrientation)
+        scene.rotation = [inverseOrientation[0], inverseOrientation[1], inverseOrientation[2], inverseOrientation[3]];
+        pose = frame.getViewerPose(xrRefSpace);
+
+    }
+  //console.log(pose.transform.position);
+    //console.log(scene.translation);
+    scene.translation = [pose.transform.position.x, pose.transform.position.y, pose.transform.position.z]; 
+    orientLocal = orientLocal_new;
 
     //arrow.matrix = pose.transform.matrix;
 
