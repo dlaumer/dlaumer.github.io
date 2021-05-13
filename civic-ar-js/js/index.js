@@ -4,9 +4,6 @@ import { GLTFLoader } from '../three_local/examples/jsm/loaders/GLTFLoader.js';
 let renderer = null;
 let scene = null;
 let camera = null;
-let model = null;
-let mixer = null;
-let action = null;
 let reticle = null;
 let lastFrame = Date.now();
 let canvas = null;
@@ -23,12 +20,13 @@ let pointData = null;
 // Geo orientation globals
 var orientLocal = null;     // Stores the current orientation of the phone in the local coordinate system (degree)
 var orientGlobal = null;    // Stores the current orientation of the phone in the global coordinate system (degree)
-
+let difference = 0;
 
 const initScene = (gl, session) => {
 
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
   camera.matrixAutoUpdate = false;
 
   var light = new THREE.PointLight(0xffffff, 2, 100); // soft white light
@@ -65,15 +63,13 @@ const initScene = (gl, session) => {
 
 // button to start XR experience
 const xrButton = document.getElementById('xr-button');
-xrButton.style.display="none"   // Only show it after geolocation
+xrButton.style.visibility="hidden"   // Only show it after geolocation
 
 // to display debug information
-const info = document.getElementById('info');
-
 
 const btnPermissionGeo = document.getElementById("requestGeo");           // Button to ask for geolocation permission
 const btnPermissionCompass = document.getElementById("requestCompass");   // Button to ask for compass permission
-btnPermissionCompass.style.display="none"   // Only show it after geolocation
+btnPermissionCompass.style.visibility="hidden"   // Only show it after geolocation
 
 
 btnPermissionGeo.addEventListener("click", permissionGeo);
@@ -91,6 +87,9 @@ let xrHitTestSource = null;
 let gl = null;
 
 function checkXR() {
+
+  document.getElementById("header").style.display="none";
+
   if (!window.isSecureContext) {
     document.getElementById("warning").innerText = "WebXR unavailable. Please use secure context";
   }
@@ -161,11 +160,6 @@ function onSessionStarted(session) {
   xrSession = session;
   xrButton.innerHTML = 'Exit AR';
 
-  // Show which type of DOM Overlay got enabled (if any)
-  if (session.domOverlayState) {
-    info.innerHTML = 'DOM Overlay type: ' + session.domOverlayState.type;
-  }
-
   // create a canvas element and WebGL context for rendering
   session.addEventListener('end', onSessionEnded);
   canvas = document.createElement('canvas');
@@ -191,14 +185,12 @@ function onSessionStarted(session) {
 }
 
 function onRequestSessionError(ex) {
-  info.innerHTML = "Failed to start AR session.";
   console.error(ex.message);
 }
 
 function onSessionEnded(event) {
   xrSession = null;
   xrButton.innerHTML = 'Enter AR';
-  info.innerHTML = '';
   gl = null;
   if (xrHitTestSource) xrHitTestSource.cancel();
   xrHitTestSource = null;
@@ -212,12 +204,14 @@ function placeObject() {
     arrowN.position.set(pos.x, pos.y, pos.z);
     scene.add(arrowN);
     pos = polarToCart2D(90, 3, 2);
-    console.log(pos);
+    arrowE.setRotationFromAxisAngle(new THREE.Vector3(0,1,0), toRadians(270))
     arrowE.position.set(pos.x, pos.y, pos.z);
     scene.add(arrowE);
+    arrowS.setRotationFromAxisAngle(new THREE.Vector3(0,1,0), toRadians(180))
     pos = polarToCart2D(180, 3, 2);
     arrowS.position.set(pos.x, pos.y, pos.z);
     scene.add(arrowS);
+    arrowW.setRotationFromAxisAngle(new THREE.Vector3(0,1,0), toRadians(90))
     pos = polarToCart2D(270, 3, 2);
     arrowW.position.set(pos.x, pos.y, pos.z);
     scene.add(arrowW);
@@ -254,10 +248,16 @@ function onXRFrame(t, frame) {
 
     var vecCamera = new THREE.Vector3();
     camera.getWorldDirection(vecCamera);
-    let orientDeg = Math.atan2(vecCamera.z, vecCamera.x) * 180 / Math.PI;   // Calculate the angle of the 
-    orientDeg = orientDeg + 180;
-    orientLocalVis.innerHTML = "Local orientation: " + orientDeg.toFixed([0]).toString();
-
+    orientLocal= Math.atan2(vecCamera.z, vecCamera.x) * 180 / Math.PI + 180;   // Calculate the angle of the 
+    orientLocal = (orientLocal+270) % 360;
+    //camera.setRotationFromAxisAngle(new THREE.Vector3(0,1,0), toRadians(180))
+    orientLocalVis.innerHTML = "Local orientation: " + orientLocal.toFixed([0]).toString();
+    
+    var diff =  (orientGlobal - orientLocal + 360) % 360;
+    diffOrientVis.innerHTML = "Difference: " + diff.toFixed([0]).toString();
+    if (diff > 0.1) {
+      scene.rotation.y = diff * Math.PI / 180;
+    }
     // Render the scene with THREE.WebGLRenderer.
     renderer.render(scene, camera)
   }
@@ -272,7 +272,7 @@ function permissionGeo() {
       );
       btnPermissionGeo.innerHTML = "No Permission!";
       btnPermissionGeo.disabled = true;
-      btnPermissionCompass.style.display="block";
+      btnPermissionCompass.style.visibility="visible";
   }
   else {
       navigator.geolocation.getCurrentPosition(currentLocation); 
@@ -318,7 +318,7 @@ function permission() {
 function handler() {
   btnPermissionCompass.innerHTML = "Permission granted";
   btnPermissionCompass.disabled = true;
-  xrButton.style.display="block"   // Only show it after geolocation
+  xrButton.style.visibility="visible"   // Only show it after geolocation
 
   checkXR();
 
@@ -378,7 +378,7 @@ function processJson(jsonData, position) {
       }
   console.log(pointData);
   btnPermissionGeo.innerHTML = "Permission granted";
-  btnPermissionCompass.style.display="block";
+  btnPermissionCompass.style.visibility="visible";
 }
 
 
@@ -405,8 +405,36 @@ function deviceOrientationHandler(event) {
 
   }
 
-  orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed([0]).toString();
+  if (Math.abs(heading - orientGlobal) > 0.1) {
+    if (acc == null) {
+        orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed([0]).toString();
+        //console.log({ heading, orientLocal, difference});
+    }
+    else if (acc == -1) {
+        orientGlobalVis.innerHTML = "Global orientation: Not calibrated - not usable";
+    }
+    else {
+        orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed([0]).toString() + " +/- " + acc.toFixed(0).toString();
+    }
+    orientGlobal = heading;
 
+    if (pointData != null) {
+        let clostestOrient = 0;
+        let diff = 400;
+        for (var i in pointData) {
+            // TODO: overlauf nach 360!!!
+            if (Math.abs(orientGlobal - pointData[i].bearing) < diff) {
+                clostestOrient = i;
+                diff = Math.abs(orientGlobal - pointData[i].bearing);
+            }
+        }
+        if (diff < 10) {
+            pointVis.innerHTML = pointData[clostestOrient].name + " (" + pointData[clostestOrient].distance.toFixed(0) + "km)";
+        } else {
+            pointVis.innerHTML = "";
+        }
+    }
+}
 
   //let difference = orientGlobal - orientLocal < 0 ?  orientGlobal - orientLocal + 360 :  orientGlobal - orientLocal;
 

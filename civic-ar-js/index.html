@@ -9,20 +9,20 @@
     <title>WebXR</title>
   </head>
   <body>
-    <header>
+    <header id="header">
       <button id="requestGeo" class='barebones-button'>Permission Geolocation</button>
       <button id="requestCompass" class='barebones-button'>Permission Compass</button>
-      <button id="xr-button"  class='barebones-button' disabled>XR not found</button>
-
     </header>
     <div id="overlay">
-      <div class="info-area">
-        <div id="info"></div>
-        <div id="geoLocVis" class="cs_info">Geolocation</div>
-        <div id="orientLocalVis" class="cs_info">Local orientation</div>
-        <div id="orientGlobalVis" class="cs_info">Global orientation</div>
-        <div id="diffOrientVis" class="cs_info">Difference</div>
-      </div>
+      <button id="xr-button"  class='barebones-button' disabled>XR not found</button>
+
+        <div id="pointVis">Test City</div>
+        <div id="addInfo">
+          <div id="geoLocVis" class="cs_info">Geolocation</div>
+          <div id="orientLocalVis" class="cs_info">Local orientation</div>
+          <div id="orientGlobalVis" class="cs_info">Global orientation</div>
+          <div id="diffOrientVis" class="cs_info">Difference</div>
+        </div>
     </div>
     
     <script type="module" src="js/index.js"></script>
