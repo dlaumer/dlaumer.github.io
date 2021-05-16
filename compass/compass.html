@@ -52,6 +52,7 @@
       var alpha    = event.alpha; //z axis rotation [0,360)
       var beta     = event.beta; //x axis rotation [-180, 180]
       var gamma    = event.gamma; //y axis rotation [-90, 90]
+      if (firstTime) {alert("Absolute Values?" + event.absolute)};
       //Check if absolute values have been sent
       if (typeof event.webkitCompassHeading !== "undefined") {
         if (firstTime) {alert("Using WebkitCompassHeading"); firstTime=false;}
@@ -61,7 +62,8 @@
       }
       else {
         if (firstTime) {alert("Using alpha value"); firstTime=false;}
-        var heading = 360 - alpha; //heading [0, 360)
+        //var heading = 360 - alpha; //heading [0, 360)
+        var heading = compassHeading(alpha, beta, gamma);
         document.getElementById("heading").innerHTML = heading.toFixed([0]);
       }
       
@@ -79,6 +81,43 @@
         document.body.style.backgroundColor = "#161616";
       }
     }
+
+    function compassHeading(alpha, beta, gamma) {
+
+      // Convert degrees to radians
+      var alphaRad = alpha * (Math.PI / 180);
+      var betaRad = beta * (Math.PI / 180);
+      var gammaRad = gamma * (Math.PI / 180);
+
+      // Calculate equation components
+      var cA = Math.cos(alphaRad);
+      var sA = Math.sin(alphaRad);
+      var cB = Math.cos(betaRad);
+      var sB = Math.sin(betaRad);
+      var cG = Math.cos(gammaRad);
+      var sG = Math.sin(gammaRad);
+
+      // Calculate A, B, C rotation components
+      var rA = - cA * sG - sA * sB * cG;
+      var rB = - sA * sG + cA * sB * cG;
+      var rC = - cB * cG;
+
+      // Calculate compass heading
+      var compassHeading = Math.atan(rA / rB);
+
+      // Convert from half unit circle to whole unit circle
+      if(rB < 0) {
+        compassHeading += Math.PI;
+      }else if(rA < 0) {
+        compassHeading += 2 * Math.PI;
+      }
+
+      // Convert radians to degrees
+      compassHeading *= 180 / Math.PI;
+
+      return compassHeading;
+
+      }
 
     function permission () {
     if (iOS()){
