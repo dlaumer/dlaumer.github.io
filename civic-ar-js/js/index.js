@@ -20,7 +20,7 @@ let pointData = null;
 // Geo orientation globals
 var orientLocal = null;     // Stores the current orientation of the phone in the local coordinate system (degree)
 var orientGlobal = null;    // Stores the current orientation of the phone in the global coordinate system (degree)
-let difference = 0;
+let diff = 0;
 
 const initScene = (gl, session) => {
 
@@ -253,11 +253,13 @@ function onXRFrame(t, frame) {
     //camera.setRotationFromAxisAngle(new THREE.Vector3(0,1,0), toRadians(180))
     orientLocalVis.innerHTML = "Local orientation: " + orientLocal.toFixed([0]).toString();
     
-    var diff =  (orientGlobal - orientLocal + 360) % 360;
+    diff =  orientGlobal - orientLocal;
     diffOrientVis.innerHTML = "Difference: " + diff.toFixed([0]).toString();
-    if (diff > 0.1) {
+    
+    if (Math.abs(diff - (scene.rotation.y * 180 / Math.PI)) > 1) {
       scene.rotation.y = diff * Math.PI / 180;
     }
+    
     // Render the scene with THREE.WebGLRenderer.
     renderer.render(scene, camera)
   }
@@ -387,6 +389,8 @@ function processJson(jsonData, position) {
 // Get event data
 function deviceOrientationHandler(event) {
   var alpha = event.alpha; //z axis rotation [0,360)
+  var beta     = event.beta; //x axis rotation [-180, 180]
+  var gamma    = event.gamma; //y axis rotation [-90, 90]
   var heading = null;
   let acc = null;
   //Check if absolute values have been sent
