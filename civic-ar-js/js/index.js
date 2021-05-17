@@ -1,5 +1,8 @@
-import * as THREE from '../three_local/build/three.module.js';
-import { GLTFLoader } from '../three_local/examples/jsm/loaders/GLTFLoader.js';
+//import * as THREE from '../three_local/build/three.module.js';
+import * as THREE from 'https://cdn.skypack.dev/three@0.128.0';
+//import { GLTFLoader } from '../three_local/examples/jsm/loaders/GLTFLoader.js';
+import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/loaders/GLTFLoader.js';
+
 
 let renderer = null;
 let scene = null;
@@ -7,12 +10,17 @@ let camera = null;
 let reticle = null;
 let lastFrame = Date.now();
 let canvas = null;
+let raycaster = null;
+
+const pointer = new THREE.Vector2();
 
 // Load 3D models
 let arrowN = null;
 let arrowE = null;
 let arrowS = null;
 let arrowW = null;
+
+let objectSelected = null;
 
 let firstTime = true;
 let pointData = null;
@@ -33,6 +41,8 @@ const initScene = (gl, session) => {
   light.position.z = 1;
   light.position.y = 5;
   scene.add(light);
+
+  raycaster = new THREE.Raycaster();
 
   // create and configure three.js renderer with XR support
   renderer = new THREE.WebGLRenderer({
@@ -59,7 +69,40 @@ const initScene = (gl, session) => {
   reticle.matrixAutoUpdate = false;
   reticle.visible = false;
   scene.add(reticle);
+
+
+  var controller = renderer.xr.getController(0);
+  controller.addEventListener('select', (event) => onSelect(event));
+  scene.add(controller);
+
 };
+
+function onSelect(event) {
+  //how to get the 2d touch position on screen area?
+
+  pointer.x = event.data.gamepad.axes[0];
+  pointer.y = -event.data.gamepad.axes[1];
+  
+  //raycaster.set(camera.getWorldPosition(), camera.getWorldDirection());
+
+  // update the picking ray with the camera and mouse position
+	raycaster.setFromCamera( pointer, camera );
+  //scene.add(new THREE.ArrowHelper(raycaster.ray.direction, raycaster.ray.origin, 300, 0xff0000) );
+
+	// calculate objects intersecting the picking ray
+	const intersects = raycaster.intersectObjects( scene.children , true);
+
+  if (intersects.length > 0) {
+    if (objectSelected == intersects[0].object) {
+      objectSelected = null;
+    }
+    else {
+      objectSelected = intersects[0].object;
+  
+    }
+  }
+
+}
 
 // button to start XR experience
 const xrButton = document.getElementById('xr-button');
@@ -221,6 +264,12 @@ function placeObject() {
 
 function onXRFrame(t, frame) {
   let session = frame.session;
+
+  if (objectSelected != null) {
+    objectSelected.rotation.y = Date.now() * 0.0005;
+  }
+  
+  
   session.requestAnimationFrame(onXRFrame);
 
   if (firstTime) {
@@ -256,15 +305,32 @@ function onXRFrame(t, frame) {
     diff =  orientGlobal - orientLocal;
     diffOrientVis.innerHTML = "Difference: " + diff.toFixed([0]).toString();
     
+    
     if (Math.abs(diff - (scene.rotation.y * 180 / Math.PI)) > 1) {
       scene.rotation.y = diff * Math.PI / 180;
     }
     
+
+
+    if (xrHitTestSource) {
+      // obtain hit test results by casting a ray from the center of device screen
+      // into AR view. Results indicate that ray intersected with one or more detected surfaces
+      const hitTestResults = frame.getHitTestResults(xrHitTestSource);
+      if (hitTestResults.length) {
+        // obtain a local pose at the intersection point
+        const pose = hitTestResults[0].getPose(xrRefSpace);
+        // place a reticle at the intersection point
+        reticle.matrix.fromArray(pose.transform.matrix);
+        reticle.visible = true;
+      }
+    } else {  // do not show a reticle if no surfaces are intersected
+      reticle.visible = false;
+    }
+
     // Render the scene with THREE.WebGLRenderer.
     renderer.render(scene, camera)
   }
 }
-
 
 
 function permissionGeo() {
