@@ -1,33 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
+    <meta name='mobile-web-app-capable' content='yes'>
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <link rel='stylesheet' href='style.css'>
+    <title>WebXR</title>
+  <script defer src="main.js"></script></head>
+  <body>
+    <header id="header">
+      <button id="requestGeo" class='barebones-button'>Permission Geolocation</button>
+      <button id="requestCompass" class='barebones-button'>Permission Compass</button>
+    </header>
+    <div id="overlay">
+      <button id="xr-button"  class='barebones-button' disabled>XR not found</button>
 
-<head>
-	<title>Civic-AR</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	<link rel="stylesheet" href="https://js.arcgis.com/4.19/esri/themes/light/main.css" />
-</head>
-
-<body>
-
-	<header>
-		<button id="requestGeo" class='barebones-button'>Permission Geolocation</button>
-		<button id="requestCompass" class='barebones-button'>Permission Compass</button>
-	  </header>
-	  (Version 4.6.6)
-	  <div id="overlay">
-		<div id="pointVis">Test City</div>
-		<div id="addInfo">
-		  <div id="geoLocVis" class="cs_info">Geolocation</div>
-		  <div id="orientLocalVis" class="cs_info">Local orientation</div>
-		  <div id="orientGlobalVis" class="cs_info">Global orientation</div>
-		  <div id="diffOrientVis" class="cs_info">Difference</div>
-		</div>
-	  </div>
-
-	<script src=" main.js">
-	</script>
-
-</body>
-
+        <div id="pointVis">Test City</div>
+        <div id="addInfo">
+          <div id="geoLocVis" class="cs_info">Geolocation</div>
+          <div id="orientLocalVis" class="cs_info">Local orientation</div>
+          <div id="orientGlobalVis" class="cs_info">Global orientation</div>
+          <div id="diffOrientVis" class="cs_info">Difference</div>
+        </div>
+    </div>
+    
+    <script type="module" src="main.js"></script>
+  </body>
 </html>
