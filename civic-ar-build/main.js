@@ -53451,11 +53451,12 @@ class ConnectionAGO {
         //var urlDownload = this.url + this.id + "/resources/styles/web/eth_zurich.json"
         this.urlDownload = "https://egregis.maps.arcgis.com/sharing/rest/content/items/362ddc1a09b84ef784f6bad9001480e0/resources/styles/gltf/resource/eth_zurich.glb?f=json";
         this.glb = null;
-        this.loadGLTF = () => {
+        this.loadGLTF = (modelName) => {
+            var url = "https://egregis.maps.arcgis.com/sharing/rest/content/items/362ddc1a09b84ef784f6bad9001480e0/resources/styles/gltf/resource/" + modelName + ".glb?f=json";
             var that = this;
             var gltfLoader = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_0__.GLTFLoader();
             return new Promise((resolve) => {
-                gltfLoader.load(this.urlDownload, function (gltf) {
+                gltfLoader.load(url, function (gltf) {
                     that.glb = gltf.scene;
                     resolve();
                 }, null, function (err) {
@@ -53463,11 +53464,6 @@ class ConnectionAGO {
                 });
             });
         };
-    }
-    downloadModel() {
-        this.loadGLTF().then(() => {
-            return console.log(this.glb);
-        });
     }
     loadJson() {
         var that = this;
@@ -53483,6 +53479,7 @@ class ConnectionAGO {
     }
     readJSON(position, callback) {
         var urlJson = "https://services1.arcgis.com/i9MtZ1vtgD3gTnyL/ArcGIS/rest/services/civic_ar_test/FeatureServer/0/query?where=OBJECTID%20%3C%201000&outFields=*&f=JSON";
+        urlJson = "data/models.json";
         // Read the GeoJSON file here
         var xhr = new XMLHttpRequest(); // xhr is a local variable
         xhr.responseType = "json"; // Make sure the server returns json
@@ -53923,6 +53920,8 @@ let arrowN = null;
 let arrowE = null;
 let arrowS = null;
 let arrowW = null;
+let arrowJump = null;
+let arrows = [];
 let objectSelected = null;
 let firstTime = true;
 let pointData = null;
@@ -53976,26 +53975,57 @@ function onSelect(event) {
     // calculate objects intersecting the picking ray
     const intersects = raycaster.intersectObjects(scene.children, true);
     if (intersects.length > 0) {
-        var successBool = window.navigator.vibrate(200);
-        if (objectSelected == intersects[0].object) {
-            objectSelected = null;
+        //var successBool = window.navigator.vibrate(200);
+        try {
+            var modelName = intersects[0].object.parent.parent.parent.parent.parent.parent.name;
+            var position = intersects[0].object.parent.parent.parent.parent.parent.parent.position;
+            console.log(modelName);
+            for (var i in pointData) {
+                if (pointData[i].id == modelName) {
+                    if (connectionAGO.glb != null && connectionAGO.glb.name == modelName + "_model") {
+                        var model3D = scene.getObjectByName(connectionAGO.glb.name);
+                        scene.remove(model3D);
+                        connectionAGO.glb = null;
+                        return;
+                    }
+                    else {
+                        pointVis.innerHTML = "Loading...";
+                        if (connectionAGO.glb != null) {
+                            var model3D = scene.getObjectByName(connectionAGO.glb.name);
+                            scene.remove(model3D);
+                        }
+                        connectionAGO.loadGLTF(modelName).then(() => {
+                            console.log(connectionAGO.glb);
+                            connectionAGO.glb.position.set(position.x, 0, position.z);
+                            connectionAGO.glb.name = modelName + "_model";
+                            scene.add(connectionAGO.glb);
+                            objectSelected = connectionAGO.glb;
+                            pointVis.innerHTML = "";
+                        });
+                    }
+                }
+            }
         }
+        finally {
+        }
+        /*
         else {
-            objectSelected = intersects[0].object;
-        }
-    }
-    else {
-        //
-        if (connectionAGO.glb == null) {
-            connectionAGO.loadGLTF().then(() => {
-                console.log(connectionAGO.glb);
-                placeBuilding(connectionAGO.glb);
-                scene.add(connectionAGO.glb);
+          //
+          if (connectionAGO.glb == null) {
+            connectionAGO.loadGLTF().then(()=>{
+              console.log(connectionAGO.glb)
+              
+              placeBuilding(connectionAGO.glb);
+      
+              scene.add(connectionAGO.glb);
             });
-        }
-        else {
+          }
+          else {
             placeBuilding(connectionAGO.glb);
+          }
+      
         }
+        */
     }
 }
 function placeBuilding(glb) {
@@ -54073,6 +54103,12 @@ function loadModels() {
         arrowE = arrow.clone();
         arrowS = arrow.clone();
         arrowW = arrow.clone();
+    }, () => { }, (error) => console.error(error));
+    loader.load('models/jumpboost_arrow.glb', (gltf) => {
+        arrowJump = gltf.scene;
+        arrowJump.scale.set(1.5, 1.5, 1.5);
+        arrowJump.castShadow = true;
+        arrowJump.receiveShadow = true;
     }, () => { }, (error) => console.error(error));
 }
 function checkSupportedState() {
@@ -54154,24 +54190,21 @@ function placeObject() {
         firstTime = false;
         // Add another arrow for each point
         for (var i in pointData) {
-            loader.load('models/jumpboost_arrow.glb', (gltf) => {
-                var arrow = gltf.scene;
-                arrow.scale.set(1, 1, 1);
-                arrow.castShadow = true;
-                arrow.receiveShadow = true;
-                let bearing = pointData[i].bearing;
-                pos = polarToCart2D(bearing, 5, 5);
-                arrow.setRotationFromAxisAngle(new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), toRadians(bearing));
-                arrow.position.set(pos.x, pos.y, pos.z);
-                scene.add(arrow);
-            }, () => { }, (error) => console.error(error));
+            arrows.push(arrowJump.clone());
+            let bearing = pointData[i].bearing;
+            arrows[i].userData = { "name": pointData[i].id };
+            arrows[i].name = pointData[i].id;
+            pos = polarToCart2D(bearing, 3, 2);
+            arrows[i].setRotationFromAxisAngle(new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), toRadians(360 - bearing));
+            arrows[i].position.set(pos.x, pos.y, pos.z);
+            scene.add(arrows[i]);
         }
     }
 }
 function onXRFrame(t, frame) {
     let session = frame.session;
     if (objectSelected != null) {
-        objectSelected.rotation.y = Date.now() * 0.0005;
+        objectSelected.rotation.y = objectSelected.rotation.y + 0.01;
     }
     session.requestAnimationFrame(onXRFrame);
     if (firstTime) {
@@ -54300,6 +54333,7 @@ function processJson(jsonData, position) {
         let dist = distance(position[1], position[0], lat, lng, 'K');
         let bear = bearing(position[1], position[0], lat, lng);
         pointData.push({
+            'id': jsonData[i].attributes.name,
             'name': jsonData[i].attributes.name_long,
             'distance': dist,
             'bearing': bear
@@ -54350,11 +54384,13 @@ function deviceOrientationHandler(event) {
                     diff = Math.abs(orientGlobal - pointData[i].bearing);
                 }
             }
-            if (diff < 10) {
-                pointVis.innerHTML = pointData[clostestOrient].name + " (" + pointData[clostestOrient].distance.toFixed(0) + "km)";
-            }
-            else {
-                pointVis.innerHTML = "";
+            if (pointVis.innerHTML != "Loading...") {
+                if (diff < 10) {
+                    pointVis.innerHTML = pointData[clostestOrient].name + " (" + pointData[clostestOrient].distance.toFixed(0) + "m)";
+                }
+                else {
+                    pointVis.innerHTML = "";
+                }
             }
         }
     }
@@ -54404,7 +54440,7 @@ function distance(lat1, lon1, lat2, lon2, unit) {
     if (unit == "N") {
         dist = dist * 0.8684;
     }
-    return dist;
+    return dist * 1000;
 }
 // Converts from degrees to radians.
 function toRadians(degrees) {

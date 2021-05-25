@@ -1,0 +1,98 @@
+{
+    "objectIdFieldName": "OBJECTID",
+    "uniqueIdField": {
+        "name": "OBJECTID",
+        "isSystemMaintained": true
+    },
+    "globalIdFieldName": "",
+    "geometryType": "esriGeometryPoint",
+    "spatialReference": {
+        "wkid": 4326,
+        "latestWkid": 4326
+    },
+    "fields": [
+        {
+            "name": "OBJECTID",
+            "type": "esriFieldTypeOID",
+            "alias": "OBJECTID",
+            "sqlType": "sqlTypeOther",
+            "domain": null,
+            "defaultValue": null
+        },
+        {
+            "name": "name",
+            "type": "esriFieldTypeString",
+            "alias": "name",
+            "sqlType": "sqlTypeOther",
+            "length": 255,
+            "domain": null,
+            "defaultValue": null
+        },
+        {
+            "name": "name_long",
+            "type": "esriFieldTypeString",
+            "alias": "name_long",
+            "sqlType": "sqlTypeOther",
+            "length": 255,
+            "domain": null,
+            "defaultValue": null
+        }
+    ],
+    "features": [
+        {
+            "attributes": {
+                "OBJECTID": 1,
+                "name": "grossmuenster",
+                "name_long": "Grossmünster"
+            },
+            "geometry": {
+                "x": 8.5440048030000639,
+                "y": 47.370119478000049
+            }
+        },
+        {
+            "attributes": {
+                "OBJECTID": 2,
+                "name": "fraumuenster",
+                "name_long": "Fraumünster"
+            },
+            "geometry": {
+                "x": 8.5412489850000384,
+                "y": 47.369776076000051
+            }
+        },
+        {
+            "attributes": {
+                "OBJECTID": 3,
+                "name": "hauptbahnhof",
+                "name_long": "Hautbahnhof Zürich"
+            },
+            "geometry": {
+                "x": 8.5405309160000229,
+                "y": 47.377808001000062
+            }
+        },
+        {
+            "attributes": {
+                "OBJECTID": 4,
+                "name": "eth_zurich",
+                "name_long": "ETH Zürich"
+            },
+            "geometry": {
+                "x": 8.547588016000077,
+                "y": 47.376474961000042
+            }
+        },
+        {
+            "attributes": {
+                "OBJECTID": 5,
+                "name": "uni_zurich",
+                "name_long": "Uni Zürich"
+            },
+            "geometry": {
+                "x": 8.54857626300003,
+                "y": 47.374586513000054
+            }
+        }
+    ]
+}
