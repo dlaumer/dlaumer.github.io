@@ -53914,6 +53914,7 @@ let reticle = null;
 let lastFrame = Date.now();
 let canvas = null;
 let raycaster = null;
+let turning = true;
 const pointer = new three__WEBPACK_IMPORTED_MODULE_0__.Vector2();
 // Load 3D models
 let arrowN = null;
@@ -54000,6 +54001,7 @@ function onSelect(event) {
                             connectionAGO.glb.name = modelName + "_model";
                             scene.add(connectionAGO.glb);
                             objectSelected = connectionAGO.glb;
+                            turning = true;
                             pointVis.innerHTML = "";
                         });
                     }
@@ -54007,6 +54009,9 @@ function onSelect(event) {
             }
         }
         finally {
+            if (intersects[0].object.parent.parent == objectSelected) {
+                turning = !turning;
+            }
         }
         /*
         else {
@@ -54203,7 +54208,7 @@ function placeObject() {
 }
 function onXRFrame(t, frame) {
     let session = frame.session;
-    if (objectSelected != null) {
+    if (turning && (objectSelected != null)) {
         objectSelected.rotation.y = objectSelected.rotation.y + 0.01;
     }
     session.requestAnimationFrame(onXRFrame);
