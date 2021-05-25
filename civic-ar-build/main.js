@@ -53479,7 +53479,7 @@ class ConnectionAGO {
     }
     readJSON(position, callback) {
         var urlJson = "https://services1.arcgis.com/i9MtZ1vtgD3gTnyL/ArcGIS/rest/services/civic_ar_test/FeatureServer/0/query?where=OBJECTID%20%3C%201000&outFields=*&f=JSON";
-        urlJson = "data/models.json";
+        //urlJson = "data/models.json";
         // Read the GeoJSON file here
         var xhr = new XMLHttpRequest(); // xhr is a local variable
         xhr.responseType = "json"; // Make sure the server returns json
@@ -53983,10 +53983,13 @@ function onSelect(event) {
             console.log(modelName);
             for (var i in pointData) {
                 if (pointData[i].id == modelName) {
+                    var text = "Model " + pointData[i].name + " (" + pointData[i].distance.toFixed(0) + "m)";
                     if (connectionAGO.glb != null && connectionAGO.glb.name == modelName + "_model") {
                         var model3D = scene.getObjectByName(connectionAGO.glb.name);
                         scene.remove(model3D);
                         connectionAGO.glb = null;
+                        objectSelected = null;
+                        pointVis.innerHTML = "";
                         return;
                     }
                     else {
@@ -54002,7 +54005,7 @@ function onSelect(event) {
                             scene.add(connectionAGO.glb);
                             objectSelected = connectionAGO.glb;
                             turning = true;
-                            pointVis.innerHTML = "";
+                            pointVis.innerHTML = text;
                         });
                     }
                 }
@@ -54389,7 +54392,7 @@ function deviceOrientationHandler(event) {
                     diff = Math.abs(orientGlobal - pointData[i].bearing);
                 }
             }
-            if (pointVis.innerHTML != "Loading...") {
+            if ((pointVis.innerHTML != "Loading...") && (pointVis.innerHTML.slice(0, 5) != "Model")) {
                 if (diff < 10) {
                     pointVis.innerHTML = pointData[clostestOrient].name + " (" + pointData[clostestOrient].distance.toFixed(0) + "m)";
                 }
