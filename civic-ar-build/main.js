@@ -54281,6 +54281,10 @@ function currentLocation(position) {
     let pointLtd = position.coords.latitude;
     let accGeo = position.coords.accuracy;
     position = [pointLng, pointLtd];
+    var element = document.getElementById("fakeGeo");
+    if (element.checked) {
+        position = [8.542248, 47.371773];
+    }
     geoLocVis.innerHTML = "Geolocation: " + pointLng.toFixed(2).toString() + ", " + pointLtd.toFixed(2).toString() + ", acc: " + accGeo.toFixed(1).toString() + "m";
     connectionAGO.readJSON(position, processJson);
 }
