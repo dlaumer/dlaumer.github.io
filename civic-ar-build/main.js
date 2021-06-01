@@ -1,6 +1,460 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/css/main.css":
+/*!****************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/css/main.css ***!
+  \****************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n\nbody {\n  background-color: #F0F0F0;\n  font: 1rem/1.4 -apple-system, BlinkMacSystemFont,\n    Segoe UI, Roboto, Oxygen,\n    Ubuntu, Cantarell, Fira Sans,\n    Droid Sans, Helvetica Neue, sans-serif;\n}\n\nheader {\n  position: relative;\n  z-index: 2;\n  left: 0px;\n  text-align: left;\n  padding: 0.5em;\n  background-color: rgba(255, 255, 255, 0.90);\n  margin-bottom: 0.5em;\n  border-radius: 2px;\n  text-align: center;\n}\n\n#overlay {\n  height:100%;\n  text-align: center;\n}\n\ndetails summary {\n  font-size: 1.0em;\n  font-weight: bold;\n}\n\ndetails[open] summary {\n  font-size: 1.4em;\n  font-weight: bold;\n}\n\nheader h1 {\n  margin-top: 0px;\n}\n\ncanvas {\n  position: absolute;\n  z-index: 0;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  margin: 0;\n  touch-action: none;\n}\n\n.back {\n  float: right;\n  text-decoration: none;\n}\n\n.back:hover {\n  text-decoration: underline;\n}\n\n.back::before {\n  display: inline-block;\n  content: attr(data-index) '<';\n  font-weight: bold;\n  white-space: nowrap;\n  margin-right: 0.2em;\n  margin-left: 0.2em;\n}\n\n/* Used for the 'barebones' samples */\n.barebones-button {\n  font-family: \"Karla\", sans-serif;\n  border: rgb(80, 168, 252) 2px solid;\n  border-radius: 2px;\n  box-sizing: border-box;\n  background: none;\n  height: 55px;\n  width: 300px;\n  display: inline-block;\n  position: relative;\n  cursor: pointer;\n  font-size: 18px;\n  color: rgb(80, 168, 252);\n  background-color: rgba(255, 255, 255, 0.7);\n  margin: 5px;\n}\n\n\n#fakeGeoLabel {\n  color: rgb(80, 168, 252);\n}\n\n\n.cs_info {\n  font-family: \"Karla\", sans-serif;\n  font-size: 16px;\n  color: rgb(80, 168, 252);\n}\n\n#addInfo {\n  position: fixed; \n    bottom:0%;\n\n}\n\n#pointVis {\n  font-family: \"Karla\", sans-serif;\n  font-size: 30px;\n  color: rgb(80, 168, 252);\n  position: fixed; \n    bottom:80%;\n    width: 100%;\n    text-align: center;\n    background-color: #ffffff73;\n}", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":";;AAEA;EACE,yBAAyB;EACzB;;;0CAGwC;AAC1C;;AAEA;EACE,kBAAkB;EAClB,UAAU;EACV,SAAS;EACT,gBAAgB;EAChB,cAAc;EACd,2CAA2C;EAC3C,oBAAoB;EACpB,kBAAkB;EAClB,kBAAkB;AACpB;;AAEA;EACE,WAAW;EACX,kBAAkB;AACpB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;AACnB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;AACnB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,kBAAkB;EAClB,UAAU;EACV,WAAW;EACX,YAAY;EACZ,OAAO;EACP,MAAM;EACN,QAAQ;EACR,SAAS;EACT,SAAS;EACT,kBAAkB;AACpB;;AAEA;EACE,YAAY;EACZ,qBAAqB;AACvB;;AAEA;EACE,0BAA0B;AAC5B;;AAEA;EACE,qBAAqB;EACrB,6BAA6B;EAC7B,iBAAiB;EACjB,mBAAmB;EACnB,mBAAmB;EACnB,kBAAkB;AACpB;;AAEA,qCAAqC;AACrC;EACE,gCAAgC;EAChC,mCAAmC;EACnC,kBAAkB;EAClB,sBAAsB;EACtB,gBAAgB;EAChB,YAAY;EACZ,YAAY;EACZ,qBAAqB;EACrB,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,wBAAwB;EACxB,0CAA0C;EAC1C,WAAW;AACb;;;AAGA;EACE,wBAAwB;AAC1B;;;AAGA;EACE,gCAAgC;EAChC,eAAe;EACf,wBAAwB;AAC1B;;AAEA;EACE,eAAe;IACb,SAAS;;AAEb;;AAEA;EACE,gCAAgC;EAChC,eAAe;EACf,wBAAwB;EACxB,eAAe;IACb,UAAU;IACV,WAAW;IACX,kBAAkB;IAClB,2BAA2B;AAC/B","sourcesContent":["\n\nbody {\n  background-color: #F0F0F0;\n  font: 1rem/1.4 -apple-system, BlinkMacSystemFont,\n    Segoe UI, Roboto, Oxygen,\n    Ubuntu, Cantarell, Fira Sans,\n    Droid Sans, Helvetica Neue, sans-serif;\n}\n\nheader {\n  position: relative;\n  z-index: 2;\n  left: 0px;\n  text-align: left;\n  padding: 0.5em;\n  background-color: rgba(255, 255, 255, 0.90);\n  margin-bottom: 0.5em;\n  border-radius: 2px;\n  text-align: center;\n}\n\n#overlay {\n  height:100%;\n  text-align: center;\n}\n\ndetails summary {\n  font-size: 1.0em;\n  font-weight: bold;\n}\n\ndetails[open] summary {\n  font-size: 1.4em;\n  font-weight: bold;\n}\n\nheader h1 {\n  margin-top: 0px;\n}\n\ncanvas {\n  position: absolute;\n  z-index: 0;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  margin: 0;\n  touch-action: none;\n}\n\n.back {\n  float: right;\n  text-decoration: none;\n}\n\n.back:hover {\n  text-decoration: underline;\n}\n\n.back::before {\n  display: inline-block;\n  content: attr(data-index) '<';\n  font-weight: bold;\n  white-space: nowrap;\n  margin-right: 0.2em;\n  margin-left: 0.2em;\n}\n\n/* Used for the 'barebones' samples */\n.barebones-button {\n  font-family: \"Karla\", sans-serif;\n  border: rgb(80, 168, 252) 2px solid;\n  border-radius: 2px;\n  box-sizing: border-box;\n  background: none;\n  height: 55px;\n  width: 300px;\n  display: inline-block;\n  position: relative;\n  cursor: pointer;\n  font-size: 18px;\n  color: rgb(80, 168, 252);\n  background-color: rgba(255, 255, 255, 0.7);\n  margin: 5px;\n}\n\n\n#fakeGeoLabel {\n  color: rgb(80, 168, 252);\n}\n\n\n.cs_info {\n  font-family: \"Karla\", sans-serif;\n  font-size: 16px;\n  color: rgb(80, 168, 252);\n}\n\n#addInfo {\n  position: fixed; \n    bottom:0%;\n\n}\n\n#pointVis {\n  font-family: \"Karla\", sans-serif;\n  font-size: 30px;\n  color: rgb(80, 168, 252);\n  position: fixed; \n    bottom:80%;\n    width: 100%;\n    text-align: center;\n    background-color: #ffffff73;\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function (cssWithMappingToString) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item);
+
+      if (item[2]) {
+        return "@media ".concat(item[2], " {").concat(content, "}");
+      }
+
+      return content;
+    }).join("");
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery, dedupe) {
+    if (typeof modules === "string") {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, ""]];
+    }
+
+    var alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (var i = 0; i < this.length; i++) {
+        // eslint-disable-next-line prefer-destructuring
+        var id = this[i][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = [].concat(modules[_i]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (mediaQuery) {
+        if (!item[2]) {
+          item[2] = mediaQuery;
+        } else {
+          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/cssWithMappingToString.js ***!
+  \************************************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+module.exports = function cssWithMappingToString(item) {
+  var _item = _slicedToArray(item, 4),
+      content = _item[1],
+      cssMapping = _item[3];
+
+  if (typeof btoa === "function") {
+    // eslint-disable-next-line no-undef
+    var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(cssMapping))));
+    var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
+    var sourceMapping = "/*# ".concat(data, " */");
+    var sourceURLs = cssMapping.sources.map(function (source) {
+      return "/*# sourceURL=".concat(cssMapping.sourceRoot || "").concat(source, " */");
+    });
+    return [content].concat(sourceURLs).concat([sourceMapping]).join("\n");
+  }
+
+  return [content].join("\n");
+};
+
+/***/ }),
+
+/***/ "./src/css/main.css":
+/*!**************************!*\
+  !*** ./src/css/main.css ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_main_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!./main.css */ "./node_modules/css-loader/dist/cjs.js!./src/css/main.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_main_css__WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_main_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var isOldIE = function isOldIE() {
+  var memo;
+  return function memorize() {
+    if (typeof memo === 'undefined') {
+      // Test for IE <= 9 as proposed by Browserhacks
+      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+      // Tests for existence of standard globals is to allow style-loader
+      // to operate correctly into non-standard environments
+      // @see https://github.com/webpack-contrib/style-loader/issues/177
+      memo = Boolean(window && document && document.all && !window.atob);
+    }
+
+    return memo;
+  };
+}();
+
+var getTarget = function getTarget() {
+  var memo = {};
+  return function memorize(target) {
+    if (typeof memo[target] === 'undefined') {
+      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
+
+      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
+
+      memo[target] = styleTarget;
+    }
+
+    return memo[target];
+  };
+}();
+
+var stylesInDom = [];
+
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+
+  for (var i = 0; i < stylesInDom.length; i++) {
+    if (stylesInDom[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var index = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3]
+    };
+
+    if (index !== -1) {
+      stylesInDom[index].references++;
+      stylesInDom[index].updater(obj);
+    } else {
+      stylesInDom.push({
+        identifier: identifier,
+        updater: addStyle(obj, options),
+        references: 1
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
+}
+
+function insertStyleElement(options) {
+  var style = document.createElement('style');
+  var attributes = options.attributes || {};
+
+  if (typeof attributes.nonce === 'undefined') {
+    var nonce =  true ? __webpack_require__.nc : 0;
+
+    if (nonce) {
+      attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(attributes).forEach(function (key) {
+    style.setAttribute(key, attributes[key]);
+  });
+
+  if (typeof options.insert === 'function') {
+    options.insert(style);
+  } else {
+    var target = getTarget(options.insert || 'head');
+
+    if (!target) {
+      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+    }
+
+    target.appendChild(style);
+  }
+
+  return style;
+}
+
+function removeStyleElement(style) {
+  // istanbul ignore if
+  if (style.parentNode === null) {
+    return false;
+  }
+
+  style.parentNode.removeChild(style);
+}
+/* istanbul ignore next  */
+
+
+var replaceText = function replaceText() {
+  var textStore = [];
+  return function replace(index, replacement) {
+    textStore[index] = replacement;
+    return textStore.filter(Boolean).join('\n');
+  };
+}();
+
+function applyToSingletonTag(style, index, remove, obj) {
+  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
+
+  /* istanbul ignore if  */
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = replaceText(index, css);
+  } else {
+    var cssNode = document.createTextNode(css);
+    var childNodes = style.childNodes;
+
+    if (childNodes[index]) {
+      style.removeChild(childNodes[index]);
+    }
+
+    if (childNodes.length) {
+      style.insertBefore(cssNode, childNodes[index]);
+    } else {
+      style.appendChild(cssNode);
+    }
+  }
+}
+
+function applyToTag(style, options, obj) {
+  var css = obj.css;
+  var media = obj.media;
+  var sourceMap = obj.sourceMap;
+
+  if (media) {
+    style.setAttribute('media', media);
+  } else {
+    style.removeAttribute('media');
+  }
+
+  if (sourceMap && typeof btoa !== 'undefined') {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    while (style.firstChild) {
+      style.removeChild(style.firstChild);
+    }
+
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var singleton = null;
+var singletonCounter = 0;
+
+function addStyle(obj, options) {
+  var style;
+  var update;
+  var remove;
+
+  if (options.singleton) {
+    var styleIndex = singletonCounter++;
+    style = singleton || (singleton = insertStyleElement(options));
+    update = applyToSingletonTag.bind(null, style, styleIndex, false);
+    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+  } else {
+    style = insertStyleElement(options);
+    update = applyToTag.bind(null, style, options);
+
+    remove = function remove() {
+      removeStyleElement(style);
+    };
+  }
+
+  update(obj);
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
+        return;
+      }
+
+      update(obj = newObj);
+    } else {
+      remove();
+    }
+  };
+}
+
+module.exports = function (list, options) {
+  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+
+  if (!options.singleton && typeof options.singleton !== 'boolean') {
+    options.singleton = isOldIE();
+  }
+
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+
+    if (Object.prototype.toString.call(newList) !== '[object Array]') {
+      return;
+    }
+
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDom[index].references--;
+    }
+
+    var newLastIdentifiers = modulesToDom(newList, options);
+
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+
+      var _index = getIndexByIdentifier(_identifier);
+
+      if (stylesInDom[_index].references === 0) {
+        stylesInDom[_index].updater();
+
+        stylesInDom.splice(_index, 1);
+      }
+    }
+
+    lastIdentifiers = newLastIdentifiers;
+  };
+};
+
+/***/ }),
+
 /***/ "./node_modules/three/build/three.module.js":
 /*!**************************************************!*\
   !*** ./node_modules/three/build/three.module.js ***!
@@ -53426,10 +53880,270 @@ var GLTFLoader = ( function () {
 
 /***/ }),
 
-/***/ "./src/ConnectionAGO.js":
-/*!******************************!*\
-  !*** ./src/ConnectionAGO.js ***!
-  \******************************/
+/***/ "./src/js/ARHandler.js":
+/*!*****************************!*\
+  !*** ./src/js/ARHandler.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ARHandler": () => (/* binding */ ARHandler)
+/* harmony export */ });
+/* harmony import */ var _Helper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Helper.js */ "./src/js/Helper.js");
+/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
+
+
+class ARHandler {
+    constructor(app) {
+        // Geo orientation globals
+        this.orientLocal = null; // Stores the current orientation of the phone in the local coordinate system (degree)
+        // to control the xr session
+        this.xrSession = null;
+        // reference space used within an application https://developer.mozilla.org/en-US/docs/Web/API/XRSession/requestReferenceSpace
+        this.xrRefSpace = null;
+        // for hit testing with detected surfaces
+        this.xrHitTestSource = null;
+        // button to start XR experience
+        this.xrButton = document.getElementById('xr-button');
+        this.orientLocalVis = document.getElementById('orientLocalVis');
+        this.orientGlobalVis = document.getElementById('orientGlobalVis');
+        this.diffOrientVis = document.getElementById('diffOrientVis');
+        this.checkXR = () => {
+            return new Promise((resolve, reject) => {
+                if (!window.isSecureContext) {
+                    alert("WebXR unavailable. Please use secure context");
+                    reject();
+                }
+                if (navigator.xr) {
+                    navigator.xr.addEventListener('devicechange', this.checkSupportedState);
+                    navigator.xr.isSessionSupported('immersive-ar').then((supported) => {
+                        if (supported) {
+                            this.xrButton.innerHTML = 'Enter AR';
+                            this.xrButton.addEventListener('click', this.enterAr);
+                            resolve();
+                        }
+                        else {
+                            this.xrButton.innerHTML = 'AR not found';
+                            reject();
+                        }
+                        this.xrButton.disabled = !supported;
+                    });
+                }
+                else {
+                    alert("WebXR unavailable for this browser");
+                    reject();
+                }
+            });
+        };
+        this.checkSupportedState = () => {
+            navigator.xr.isSessionSupported('immersive-ar').then((supported) => {
+                if (supported) {
+                    this.xrButton.innerHTML = 'Enter AR';
+                    this.xrButton.addEventListener('click', this.enterAr);
+                }
+                else {
+                    this.xrButton.innerHTML = 'AR not found';
+                }
+                this.xrButton.disabled = !supported;
+            });
+        };
+        this.enterAr = () => {
+            if (!this.xrSession) {
+                navigator.xr.requestSession('immersive-ar', {
+                    optionalFeatures: ['dom-overlay'],
+                    requiredFeatures: ['local', 'hit-test'],
+                    domOverlay: { root: document.getElementById('overlay') }
+                }).then(this.onSessionStarted, this.onRequestSessionError);
+            }
+            else {
+                this.xrSession.end();
+            }
+        };
+        this.onSessionStarted = (session) => {
+            this.xrSession = session;
+            this.xrButton.innerHTML = 'Exit AR';
+            // create a canvas element and WebGL context for rendering
+            session.addEventListener('end', this.onSessionEnded);
+            // initialize three.js scene
+            this.app.threeScene.initScene(session);
+            this.app.threeScene.placeObject();
+            //session.updateRenderState({ baseLayer: new XRWebGLLayer(session, gl) });
+            // here we ask for viewer reference space, since we will be casting a ray
+            // from a viewer towards a detected surface. The results of ray and surface intersection
+            // will be obtained via xrHitTestSource variable
+            session.requestReferenceSpace('viewer').then((refSpace) => {
+                session.requestHitTestSource({ space: refSpace }).then((hitTestSource) => {
+                    this.xrHitTestSource = hitTestSource;
+                });
+            });
+            session.requestReferenceSpace('local').then((refSpace) => {
+                this.xrRefSpace = refSpace;
+                session.requestAnimationFrame(this.onXRFrame);
+            });
+        };
+        this.onRequestSessionError = (ex) => {
+            console.error(ex.message);
+        };
+        this.onSessionEnded = (event) => {
+            this.xrSession = null;
+            this.xrButton.innerHTML = 'Enter AR';
+            this.app.threeScene.gl = null;
+            if (this.xrHitTestSource)
+                this.xrHitTestSource.cancel();
+            this.xrHitTestSource = null;
+        };
+        this.onXRFrame = (t, frame) => {
+            let session = frame.session;
+            if (this.app.threeScene.turning && (this.app.threeScene.landmarkModel != null)) {
+                this.app.threeScene.landmarkModel.rotation.y = this.app.threeScene.landmarkModel.rotation.y + 0.01;
+            }
+            session.requestAnimationFrame(this.onXRFrame);
+            // bind our gl context that was created with WebXR to threejs renderer
+            this.app.threeScene.gl.bindFramebuffer(this.app.threeScene.gl.FRAMEBUFFER, session.renderState.baseLayer.framebuffer);
+            // render the scene
+            // Retrieve the pose of the device.
+            // XRFrame.getViewerPose can return null while the session attempts to establish tracking.
+            const pose = frame.getViewerPose(this.xrRefSpace);
+            if (pose) {
+                // In mobile AR, we only have one view.
+                const view = pose.views[0];
+                //const viewport = session.renderState.baseLayer.getViewport(view);
+                //renderer.setSize(viewport.width, viewport.height)
+                // Use the view's transform matrix and projection matrix to configure the THREE.camera.
+                this.app.threeScene.camera.matrix.fromArray(view.transform.matrix);
+                this.app.threeScene.camera.projectionMatrix.fromArray(view.projectionMatrix);
+                this.app.threeScene.camera.updateMatrixWorld(true);
+                var vecCamera = new three__WEBPACK_IMPORTED_MODULE_1__.Vector3();
+                this.app.threeScene.camera.getWorldDirection(vecCamera);
+                this.orientLocal = Math.atan2(vecCamera.z, vecCamera.x) * 180 / Math.PI + 180; // Calculate the angle of the 
+                this.orientLocal = (this.orientLocal + 270) % 360;
+                //camera.setRotationFromAxisAngle(new THREE.Vector3(0,1,0), toRadians(180))
+                this.orientLocalVis.innerHTML = "Local orientation: " + this.orientLocal.toFixed(0).toString();
+                var diff = this.app.geoalignment.orientGlobal - this.orientLocal;
+                this.diffOrientVis.innerHTML = "Difference: " + diff.toFixed(0).toString();
+                if (Math.abs(diff - (this.app.threeScene.scene.rotation.y * 180 / Math.PI)) > 1) {
+                    this.app.threeScene.scene.rotation.y = this.helper.toRadians(diff);
+                }
+                /*
+                if (xrHitTestSource) {
+                // obtain hit test results by casting a ray from the center of device screen
+                // into AR view. Results indicate that ray intersected with one or more detected surfaces
+                const hitTestResults = frame.getHitTestResults(xrHitTestSource);
+                if (hitTestResults.length) {
+                    // obtain a local pose at the intersection point
+                    const pose = hitTestResults[0].getPose(xrRefSpace);
+                    // place a reticle at the intersection point
+                    reticle.matrix.fromArray(pose.transform.matrix);
+                    reticle.visible = true;
+                }
+                } else {  // do not show a reticle if no surfaces are intersected
+                reticle.visible = false;
+                }
+                */
+                // Render the scene with THREE.WebGLRenderer.
+                this.app.threeScene.renderer.render(this.app.threeScene.scene, this.app.threeScene.camera);
+            }
+        };
+        this.app = app;
+        this.helper = new _Helper_js__WEBPACK_IMPORTED_MODULE_0__.Helper();
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/js/Application.js":
+/*!*******************************!*\
+  !*** ./src/js/Application.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Application": () => (/* binding */ Application),
+/* harmony export */   "PointData": () => (/* binding */ PointData)
+/* harmony export */ });
+/* harmony import */ var _ARHandler_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ARHandler.js */ "./src/js/ARHandler.js");
+/* harmony import */ var _ConnectionAGO_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ConnectionAGO.js */ "./src/js/ConnectionAGO.js");
+/* harmony import */ var _ThreeScene_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ThreeScene.js */ "./src/js/ThreeScene.js");
+/* harmony import */ var _Helper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Helper.js */ "./src/js/Helper.js");
+/* harmony import */ var _Geoalignment_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Geoalignment.js */ "./src/js/Geoalignment.js");
+//import * as THREE from '../three_local/build/three.module.js';
+//import * as THREE from 'https://cdn.skypack.dev/three@0.128.0';
+//import { GLTFLoader } from '../three_local/examples/jsm/loaders/GLTFLoader.js';
+//import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/loaders/GLTFLoader.js';
+//import { init } from "esri/core/watchUtils";
+//import { BoxHelper } from "three";
+//import { XRWebGLLayer } from "three";
+//import { Object3D, Vector3, XRWebGLLayer } from 'three';
+
+
+
+
+
+class Application {
+    constructor() {
+        this.pointData = [];
+        // TODO: Print error to GUI in case the promises don't get resolved
+        this.init = () => {
+            Promise.all([
+                this.readPointData(),
+                this.threeScene.loadLocalModels(),
+                this.ARHandler.checkXR()
+            ]).then(() => {
+                document.getElementById('fakeGeoContainer').style.visibility = "visible";
+                document.getElementById('requestGeo').style.visibility = "visible";
+            }).catch(() => {
+                console.log("Damn");
+            });
+        };
+        this.readPointData = () => {
+            return new Promise((resolve, reject) => {
+                this.connectionAGO.readJSON().then((jsonData) => {
+                    for (var i in jsonData) {
+                        this.pointData.push(new PointData(jsonData[i].attributes.name, jsonData[i].attributes.name_long, jsonData[i].geometry.y, jsonData[i].geometry.x));
+                    }
+                    resolve();
+                })
+                    .catch(() => {
+                    console.error("Point Data could not be processed");
+                    reject();
+                });
+            });
+        };
+        this.ARHandler = new _ARHandler_js__WEBPACK_IMPORTED_MODULE_0__.ARHandler(this);
+        this.connectionAGO = new _ConnectionAGO_js__WEBPACK_IMPORTED_MODULE_1__.ConnectionAGO(this);
+        this.threeScene = new _ThreeScene_js__WEBPACK_IMPORTED_MODULE_2__.ThreeScene(this);
+        this.helper = new _Helper_js__WEBPACK_IMPORTED_MODULE_3__.Helper(this);
+        this.geoalignment = new _Geoalignment_js__WEBPACK_IMPORTED_MODULE_4__.Geoalignment(this);
+    }
+}
+class PointData {
+    constructor(id, name, lat, lng) {
+        this.distance = null;
+        this.bearing = null;
+        this.updateDist = (position) => {
+            this.distance = this.helper.distance(position[1], position[0], this.lat, this.lng, 'K');
+            this.bearing = this.helper.bearing(position[1], position[0], this.lat, this.lng);
+        };
+        this.id = id;
+        this.name = name;
+        this.lat = lat;
+        this.lng = lng;
+        this.helper = new _Helper_js__WEBPACK_IMPORTED_MODULE_3__.Helper();
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/js/ConnectionAGO.js":
+/*!*********************************!*\
+  !*** ./src/js/ConnectionAGO.js ***!
+  \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -53443,55 +54157,581 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class ConnectionAGO {
-    constructor() {
+    constructor(app) {
         this.url = "https://egregis.maps.arcgis.com/sharing/rest/content/items/";
         this.idStyle = "362ddc1a09b84ef784f6bad9001480e0";
         this.idLayer = "e0cacc702c6d48a6ade34652ac7b6802";
         //var urlDownload = this.url + this.id + "/data?f=json"
         //var urlDownload = this.url + this.id + "/resources/styles/web/eth_zurich.json"
         this.urlDownload = "https://egregis.maps.arcgis.com/sharing/rest/content/items/362ddc1a09b84ef784f6bad9001480e0/resources/styles/gltf/resource/eth_zurich.glb?f=json";
-        this.glb = null;
+        this.gltfLoader = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_0__.GLTFLoader();
         this.loadGLTF = (modelName) => {
             var url = "https://egregis.maps.arcgis.com/sharing/rest/content/items/362ddc1a09b84ef784f6bad9001480e0/resources/styles/gltf/resource/" + modelName + ".glb?f=json";
             var that = this;
-            var gltfLoader = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_0__.GLTFLoader();
-            return new Promise((resolve) => {
-                gltfLoader.load(url, function (gltf) {
-                    that.glb = gltf.scene;
-                    resolve();
-                }, null, function (err) {
-                    return Promise.reject(err);
+            return new Promise((resolve, reject) => {
+                this.gltfLoader.load(url, gltf => {
+                    resolve(gltf.scene);
+                }, function (xhr) {
+                    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+                }, function (err) {
+                    reject(err);
                 });
             });
         };
-    }
-    loadJson() {
-        var that = this;
-        return (0,esri_loader__WEBPACK_IMPORTED_MODULE_1__.loadModules)(["esri/layers/FeatureLayer"])
-            .then(([FeatureLayer]) => {
-            var table = new FeatureLayer({
-                portalItem: {
-                    id: that.idLayer
-                },
+        this.loadJson = () => {
+            var that = this;
+            return (0,esri_loader__WEBPACK_IMPORTED_MODULE_1__.loadModules)(["esri/layers/FeatureLayer"])
+                .then(([FeatureLayer]) => {
+                var table = new FeatureLayer({
+                    portalItem: {
+                        id: that.idLayer
+                    },
+                });
+                table.load().then(() => { console.log(table); });
             });
-            table.load().then(() => { console.log(table); });
-        });
+        };
+        this.readJSON = () => {
+            var urlJson = "https://services1.arcgis.com/i9MtZ1vtgD3gTnyL/ArcGIS/rest/services/civic_ar_test/FeatureServer/0/query?where=OBJECTID%20%3C%201000&outFields=*&f=JSON";
+            //urlJson = "data/models.json";
+            // Read the GeoJSON file here
+            return new Promise((resolve, reject) => {
+                var xhr = new XMLHttpRequest(); // xhr is a local variable
+                xhr.responseType = "json"; // Make sure the server returns json
+                xhr.open("GET", urlJson); // Open the file
+                xhr.send();
+                xhr.onreadystatechange = function () {
+                    // If there are no errors, everything worked fine
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        let jsonData = xhr.response; // Read the file
+                        resolve(jsonData.features);
+                    }
+                };
+            });
+        };
+        this.app = app;
     }
-    readJSON(position, callback) {
-        var urlJson = "https://services1.arcgis.com/i9MtZ1vtgD3gTnyL/ArcGIS/rest/services/civic_ar_test/FeatureServer/0/query?where=OBJECTID%20%3C%201000&outFields=*&f=JSON";
-        //urlJson = "data/models.json";
-        // Read the GeoJSON file here
-        var xhr = new XMLHttpRequest(); // xhr is a local variable
-        xhr.responseType = "json"; // Make sure the server returns json
-        xhr.open("GET", urlJson); // Open the file
-        xhr.send();
-        xhr.onreadystatechange = function () {
-            // If there are no errors, everything worked fine
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                let jsonData = xhr.response; // Read the file
-                callback(jsonData.features, position);
+}
+
+
+/***/ }),
+
+/***/ "./src/js/Geoalignment.js":
+/*!********************************!*\
+  !*** ./src/js/Geoalignment.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Geoalignment": () => (/* binding */ Geoalignment)
+/* harmony export */ });
+/* harmony import */ var _Helper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Helper.js */ "./src/js/Helper.js");
+
+class Geoalignment {
+    constructor(app) {
+        this.orientGlobal = null; // Stores the current orientation of the phone in the global coordinate system (degree)
+        this.position = [0, 0, 0];
+        // to display debug information
+        this.btnFakeGeo = document.getElementById("fakeGeo"); // Button to ask for geolocation permission
+        this.btnPermissionGeo = document.getElementById("requestGeo"); // Button to ask for geolocation permission
+        this.btnPermissionCompass = document.getElementById("requestCompass"); // Button to ask for compass permission
+        // Find all the DOM elements 
+        this.pointVis = document.getElementById('pointVis');
+        this.geoLocVis = document.getElementById('geoLocVis');
+        this.orientLocalVis = document.getElementById('orientLocalVis');
+        this.orientGlobalVis = document.getElementById('orientGlobalVis');
+        this.diffOrientVis = document.getElementById('diffOrientVis');
+        this.permissionGeo = () => {
+            if (!navigator.geolocation) {
+                alert("Geolocation not supported.");
+                this.btnPermissionGeo.innerHTML = "No Permission!";
+            }
+            else {
+                this.btnPermissionGeo.innerHTML = "Loading...";
+                this.btnPermissionGeo.disabled = true;
+                this.btnFakeGeo.disabled = true;
+                this.btnPermissionGeo.innerHTML = "Permission granted";
+                this.btnPermissionCompass.style.visibility = "visible";
+                //(navigator as any).geolocation.getCurrentPosition(handlerGeo);
+                navigator.geolocation.watchPosition(this.handlerGeo, this.errorGeo);
             }
         };
+        this.handlerGeo = (pos) => {
+            // Reduce computational effort, only update when necessary
+            if (this.helper.distance(this.position[1], this.position[0], pos.coords.latitude, pos.coords.longitude, "K") > 0.001) {
+                var element = document.getElementById("fakeGeo");
+                if (element.checked) {
+                    this.position = [8.542248, 47.371773, 0];
+                }
+                else {
+                    this.position = [pos.coords.longitude, pos.coords.latitude, pos.coords.accuracy];
+                }
+                // Write geolocation to screen
+                this.geoLocVis.innerHTML = "Geolocation: " + this.position[0].toFixed(2).toString() + ", " + this.position[1].toFixed(2).toString() + ", acc: " + this.position[2].toFixed(1).toString() + "m";
+                this.updateGeolocation();
+            }
+        };
+        this.errorGeo = (err) => {
+            console.warn('ERROR(' + err.code + '): ' + err.message);
+        };
+        this.updateGeolocation = () => {
+            for (var i in this.app.pointData) {
+                this.app.pointData[i].updateDist(this.position);
+            }
+        };
+        this.permissionCompass = () => {
+            // in iOS 13 we need to ask for permission to get the compass info, in android not
+            if (this.helper.iOS()) {
+                // Not sure what this is for, maybe case of iOS but lower than verison 13?
+                if (typeof (DeviceMotionEvent) !== "undefined" && typeof (DeviceMotionEvent.requestPermission) === "function") {
+                    // Ask for permisison
+                    DeviceMotionEvent.requestPermission()
+                        .then(response => {
+                        if (response == "granted") {
+                            this.checkHandlerCompass();
+                        }
+                    })
+                        .catch(console.error);
+                }
+                else {
+                    console.log("DeviceMotionEvent is not defined");
+                    this.checkHandlerCompass();
+                }
+            }
+            // Case android, go directly to the handler
+            else {
+                this.checkHandlerCompass();
+            }
+        };
+        this.checkHandlerCompass = () => {
+            this.btnPermissionCompass.innerHTML = "Permission granted";
+            this.btnPermissionCompass.disabled = true;
+            document.getElementById("header").style.display = "none";
+            document.getElementById("header").style.display = "none";
+            document.getElementById('xr-button').style.visibility = "visible"; // Only show it after geolocation
+            // Check if device can provide absolute orientation data
+            if (window.DeviceOrientationAbsoluteEvent) {
+                console.log("Using window.DeviceOrientationAbsoluteEvent");
+                window.addEventListener("DeviceOrientationAbsoluteEvent", this.handlerCompass);
+            } // If not, check if the device sends any orientation data
+            else if ('ondeviceorientationabsolute' in window) {
+                // We can listen for the new deviceorientationabsolute event.
+                console.log("Using ondeviceorientationabsolute");
+                window.addEventListener("deviceorientationabsolute", this.handlerCompass, true);
+            }
+            else if (window.DeviceOrientationEvent) {
+                alert("Only relative orientation existing");
+                window.addEventListener("deviceorientation", this.handlerCompass);
+            } // Send an alert if the device isn't compatible
+            else {
+                alert("Sorry, try again on a compatible mobile device!");
+            }
+        };
+        // Get event data
+        this.handlerCompass = (event) => {
+            var alpha = event.alpha; //z axis rotation [0,360)
+            var beta = event.beta; //x axis rotation [-180, 180]
+            var gamma = event.gamma; //y axis rotation [-90, 90]
+            var heading = null;
+            let acc = null;
+            //Case iOS, using webkit
+            if (typeof event.webkitCompassHeading !== "undefined") {
+                heading = event.webkitCompassHeading; //iOS non-standard
+                acc = event.webkitCompassAccuracy;
+            }
+            // All other cases, use a helper function to get the compass info from all three angle values
+            else {
+                heading = this.helper.compassHeading(alpha, beta, gamma);
+            }
+            // Reduce computational effort, only update when necessary
+            if (Math.abs(heading - this.orientGlobal) > 0.1) {
+                if (acc == null) {
+                    this.orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed([0]).toString();
+                }
+                else if (acc == -1) {
+                    this.orientGlobalVis.innerHTML = "Global orientation: Not calibrated - not usable";
+                }
+                else {
+                    this.orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed([0]).toString() + " +/- " + acc.toFixed(0).toString();
+                }
+                // Update local compass info
+                this.orientGlobal = heading;
+                if (this.app.pointData != null) {
+                    let clostestOrient = "";
+                    let diff = 400;
+                    for (var i in this.app.pointData) {
+                        // TODO: overlauf nach 360!!!
+                        if (Math.abs(this.orientGlobal - this.app.pointData[i].bearing) < diff) {
+                            clostestOrient = i;
+                            diff = Math.abs(this.orientGlobal - this.app.pointData[i].bearing);
+                        }
+                    }
+                    if ((this.pointVis.innerHTML != "Loading...") && (this.pointVis.innerHTML.slice(0, 5) != "Model")) {
+                        if (diff < 10) {
+                            this.pointVis.innerHTML = this.app.pointData[clostestOrient].name + " (" + this.app.pointData[clostestOrient].distance.toFixed(0) + "m)";
+                        }
+                        else {
+                            this.pointVis.innerHTML = "";
+                        }
+                    }
+                }
+            }
+        };
+        this.updateOrientation = () => {
+        };
+        this.app = app;
+        this.helper = new _Helper_js__WEBPACK_IMPORTED_MODULE_0__.Helper();
+        this.btnPermissionGeo.addEventListener("click", this.permissionGeo);
+        this.btnPermissionCompass.addEventListener("click", this.permissionCompass);
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/js/Helper.js":
+/*!**************************!*\
+  !*** ./src/js/Helper.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Helper": () => (/* binding */ Helper)
+/* harmony export */ });
+/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
+
+class Helper {
+    constructor(app) {
+        this.placeInFront = (obj, camera, scene) => {
+            var x = camera.getWorldPosition().x + 3 * camera.getWorldDirection().x;
+            var y = camera.getWorldPosition().y + 3 * camera.getWorldDirection().y;
+            var z = camera.getWorldPosition().z + 3 * camera.getWorldDirection().z;
+            obj.position.set(x, y, z);
+            this.rotateAboutPoint(obj, camera.getWorldPosition(), new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), -scene.rotation.y, false);
+        };
+        this.rotateAboutPoint = (obj, point, axis, theta, pointIsWorld) => {
+            pointIsWorld = (pointIsWorld === undefined) ? false : pointIsWorld;
+            if (pointIsWorld) {
+                obj.parent.localToWorld(obj.position); // compensate for world coordinate
+            }
+            obj.position.sub(point); // remove the offset
+            obj.position.applyAxisAngle(axis, theta); // rotate the POSITION
+            obj.position.add(point); // re-add the offset
+            if (pointIsWorld) {
+                obj.parent.worldToLocal(obj.position); // undo world coordinates compensation
+            }
+            obj.rotateOnAxis(axis, theta); // rotate the OBJECT
+        };
+        this.compassHeading = (alpha, beta, gamma) => {
+            // Convert degrees to radians
+            var alphaRad = alpha * (Math.PI / 180);
+            var betaRad = beta * (Math.PI / 180);
+            var gammaRad = gamma * (Math.PI / 180);
+            // Calculate equation components
+            var cA = Math.cos(alphaRad);
+            var sA = Math.sin(alphaRad);
+            var cB = Math.cos(betaRad);
+            var sB = Math.sin(betaRad);
+            var cG = Math.cos(gammaRad);
+            var sG = Math.sin(gammaRad);
+            // Calculate A, B, C rotation components
+            var rA = -cA * sG - sA * sB * cG;
+            var rB = -sA * sG + cA * sB * cG;
+            var rC = -cB * cG;
+            // Calculate compass heading
+            var compassHeading = Math.atan(rA / rB);
+            // Convert from half unit circle to whole unit circle
+            if (rB < 0) {
+                compassHeading += Math.PI;
+            }
+            else if (rA < 0) {
+                compassHeading += 2 * Math.PI;
+            }
+            // Convert radians to degrees
+            compassHeading *= 180 / Math.PI;
+            return compassHeading;
+        };
+        this.distance = (lat1, lon1, lat2, lon2, unit) => {
+            var radlat1 = Math.PI * lat1 / 180;
+            var radlat2 = Math.PI * lat2 / 180;
+            var theta = lon1 - lon2;
+            var radtheta = Math.PI * theta / 180;
+            var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+            dist = Math.acos(dist);
+            dist = dist * 180 / Math.PI;
+            dist = dist * 60 * 1.1515;
+            if (unit == "K") {
+                dist = dist * 1.609344;
+            }
+            if (unit == "N") {
+                dist = dist * 0.8684;
+            }
+            return dist * 1000;
+        };
+        // Converts from degrees to radians.
+        this.toRadians = (degrees) => {
+            return degrees * Math.PI / 180;
+        };
+        // Converts from radians to degrees.
+        this.toDegrees = (radians) => {
+            return radians * 180 / Math.PI;
+        };
+        this.bearing = (startLat, startLng, destLat, destLng) => {
+            startLat = this.toRadians(startLat);
+            startLng = this.toRadians(startLng);
+            destLat = this.toRadians(destLat);
+            destLng = this.toRadians(destLng);
+            let y = Math.sin(destLng - startLng) * Math.cos(destLat);
+            let x = Math.cos(startLat) * Math.sin(destLat) -
+                Math.sin(startLat) * Math.cos(destLat) * Math.cos(destLng - startLng);
+            let brng = Math.atan2(y, x);
+            brng = this.toDegrees(brng);
+            return (brng + 360) % 360;
+        };
+        this.polarToCart2D = (angle, radius, height) => {
+            let z = -radius * Math.cos(angle * Math.PI / 180);
+            let y = height;
+            let x = radius * Math.sin(angle * Math.PI / 180);
+            return { x: x, y: y, z: z };
+        };
+        this.polarToCartOrient = (angle) => {
+            let a = angle * Math.PI / 180;
+            return { x: 0, y: Math.sin(-a * 0.5), z: 0, w: Math.cos(-a * 0.5) };
+        };
+        //TODO: Implement this for typescript!
+        this.iOS = () => {
+            return false;
+        };
+        this.app = app;
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/js/ThreeScene.js":
+/*!******************************!*\
+  !*** ./src/js/ThreeScene.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ThreeScene": () => (/* binding */ ThreeScene)
+/* harmony export */ });
+/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
+/* harmony import */ var three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! three/examples/jsm/loaders/GLTFLoader */ "./node_modules/three/examples/jsm/loaders/GLTFLoader.js");
+/* harmony import */ var _Helper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Helper.js */ "./src/js/Helper.js");
+
+
+
+class ThreeScene {
+    constructor(app) {
+        this.turning = false;
+        this.arrows = [];
+        this.gltfLoader = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_1__.GLTFLoader();
+        this.initScene = (session) => {
+            this.canvas = document.createElement('canvas');
+            this.gl = this.canvas.getContext('webgl', { xrCompatible: true });
+            this.scene = new three__WEBPACK_IMPORTED_MODULE_0__.Scene();
+            this.camera = new three__WEBPACK_IMPORTED_MODULE_0__.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            this.camera.matrixAutoUpdate = false;
+            var light = new three__WEBPACK_IMPORTED_MODULE_0__.PointLight(0xffffff, 2, 100); // soft white light
+            light.position.z = 1;
+            light.position.y = 5;
+            this.scene.add(light);
+            this.raycaster = new three__WEBPACK_IMPORTED_MODULE_0__.Raycaster();
+            // create and configure three.js renderer with XR support
+            this.renderer = new three__WEBPACK_IMPORTED_MODULE_0__.WebGLRenderer({
+                antialias: true,
+                alpha: true,
+                preserveDrawingBuffer: true,
+                canvas: this.canvas,
+                context: this.gl,
+            });
+            this.renderer.autoClear = true;
+            this.renderer.setPixelRatio(window.devicePixelRatio);
+            this.renderer.setSize(window.innerWidth, window.innerHeight);
+            this.renderer.xr.enabled = true;
+            this.renderer.xr.setReferenceSpaceType('local');
+            this.renderer.xr.setSession(session);
+            /*
+            // simple sprite to indicate detected surfaces
+            this.reticle = new THREE.Mesh(
+                new THREE.RingBufferGeometry(0.15, 0.2, 32).rotateX(-Math.PI / 2),
+                new THREE.MeshPhongMaterial({ color: 0x0fff00 })
+            );
+            // we will update it's matrix later using WebXR hit test pose matrix
+            this.reticle.matrixAutoUpdate = false;
+            this.reticle.visible = false;
+            this.scene.add(this.reticle);
+            */
+            var controller = this.renderer.xr.getController(0);
+            controller.addEventListener('select', (event) => this.onSelect(event));
+            this.scene.add(controller);
+        };
+        this.onSelect = (event) => {
+            //how to get the 2d touch position on screen area?
+            const pointer = new three__WEBPACK_IMPORTED_MODULE_0__.Vector2();
+            pointer.x = event.data.gamepad.axes[0];
+            pointer.y = -event.data.gamepad.axes[1];
+            //raycaster.set(camera.getWorldPosition(), camera.getWorldDirection());
+            // update the picking ray with the camera and mouse position
+            this.raycaster.setFromCamera(pointer, this.camera);
+            //scene.add(new THREE.ArrowHelper(raycaster.ray.direction, raycaster.ray.origin, 300, 0xff0000) );
+            // calculate objects intersecting the picking ray
+            const intersects = this.raycaster.intersectObjects(this.scene.children, true);
+            const pointVis = document.getElementById('pointVis');
+            if (intersects.length > 0) {
+                //var successBool = window.navigator.vibrate(200);
+                try {
+                    var modelName = intersects[0].object.parent.parent.parent.parent.parent.parent.name;
+                    var position = intersects[0].object.parent.parent.parent.parent.parent.parent.position;
+                    console.log(modelName);
+                    for (var i in this.app.pointData) {
+                        if (this.app.pointData[i].id == modelName) {
+                            var text = "Model " + this.app.pointData[i].name + " (" + this.app.pointData[i].distance.toFixed(0) + "m)";
+                            if (this.landmarkModel != null && this.landmarkModel.name == modelName + "_model") {
+                                var model3D = this.scene.getObjectByName(this.landmarkModel.name);
+                                this.scene.remove(model3D);
+                                this.landmarkModel = null;
+                                //objectSelected = null;
+                                pointVis.innerHTML = "";
+                                return;
+                            }
+                            else {
+                                pointVis.innerHTML = "Loading...";
+                                if (this.landmarkModel != null) {
+                                    var model3D = this.scene.getObjectByName(this.landmarkModel.name);
+                                    this.scene.remove(model3D);
+                                }
+                                this.app.connectionAGO.loadGLTF(modelName).then((model) => {
+                                    this.landmarkModel = model;
+                                    this.landmarkModel.position.set(position.x, 0, position.z);
+                                    this.landmarkModel.name = modelName + "_model";
+                                    this.scene.add(this.landmarkModel);
+                                    //objectSelected = this.landmarkModel;
+                                    this.turning = true;
+                                    pointVis.innerHTML = text;
+                                });
+                            }
+                        }
+                    }
+                }
+                finally {
+                    if (intersects[0].object.parent.parent == this.landmarkModel) {
+                        this.turning = !this.turning;
+                    }
+                }
+                /*
+                else {
+                  //
+                  if (app.connectionAGO.glb == null) {
+                    app.connectionAGO.loadGLTF().then(()=>{
+                      console.log(app.connectionAGO.glb)
+                      
+                      placeBuilding(app.connectionAGO.glb);
+                
+                      scene.add(app.connectionAGO.glb);
+                    });
+                  }
+                  else {
+                    placeBuilding(app.connectionAGO.glb);
+                  }
+                
+                }
+                */
+            }
+        };
+        this.loadLocalModels = () => {
+            return new Promise((res, rej) => {
+                Promise.all([
+                    new Promise((resolve, reject) => {
+                        this.gltfLoader.load('models/Arrow.glb', (gltf) => {
+                            this.arrowN = gltf.scene;
+                            this.arrowN.scale.set(1, 1, 1);
+                            this.arrowN.castShadow = true;
+                            this.arrowN.receiveShadow = true;
+                            resolve();
+                        }, () => { }, (error) => {
+                            console.error(error);
+                            reject();
+                        });
+                    }),
+                    new Promise((resolve, reject) => {
+                        this.gltfLoader.load('models/Arrow_blue.glb', (gltf) => {
+                            var arrow = gltf.scene;
+                            arrow.scale.set(1, 1, 1);
+                            arrow.castShadow = true;
+                            arrow.receiveShadow = true;
+                            this.arrowE = arrow.clone();
+                            this.arrowS = arrow.clone();
+                            this.arrowW = arrow.clone();
+                            resolve();
+                        }, () => { }, (error) => {
+                            console.error(error);
+                            reject();
+                        });
+                    }),
+                    new Promise((resolve, reject) => {
+                        this.gltfLoader.load('models/jumpboost_arrow.glb', (gltf) => {
+                            this.arrowJump = gltf.scene;
+                            this.arrowJump.scale.set(1.5, 1.5, 1.5);
+                            this.arrowJump.castShadow = true;
+                            this.arrowJump.receiveShadow = true;
+                            resolve();
+                        }, () => { }, (error) => {
+                            console.error(error);
+                            reject();
+                        });
+                    })
+                ])
+                    .then(() => { res(); })
+                    .catch(() => { rej(); });
+            });
+        };
+        this.placeObject = () => {
+            if (this.arrowN) {
+                // we'll be placing our object right where the reticle was
+                var pos = this.helper.polarToCart2D(0, 3, 2);
+                this.arrowN.position.set(pos.x, pos.y, pos.z);
+                this.scene.add(this.arrowN);
+                pos = this.helper.polarToCart2D(90, 3, 2);
+                this.arrowE.setRotationFromAxisAngle(new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), this.helper.toRadians(270));
+                this.arrowE.position.set(pos.x, pos.y, pos.z);
+                this.scene.add(this.arrowE);
+                this.arrowS.setRotationFromAxisAngle(new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), this.helper.toRadians(180));
+                pos = this.helper.polarToCart2D(180, 3, 2);
+                this.arrowS.position.set(pos.x, pos.y, pos.z);
+                this.scene.add(this.arrowS);
+                this.arrowW.setRotationFromAxisAngle(new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), this.helper.toRadians(90));
+                pos = this.helper.polarToCart2D(270, 3, 2);
+                this.arrowW.position.set(pos.x, pos.y, pos.z);
+                this.scene.add(this.arrowW);
+                // Add another arrow for each point
+                for (var i in this.app.pointData) {
+                    this.arrows.push(this.arrowJump.clone());
+                    let bearing = this.app.pointData[i].bearing;
+                    this.arrows[i].userData = { "name": this.app.pointData[i].id };
+                    this.arrows[i].name = this.app.pointData[i].id;
+                    pos = this.helper.polarToCart2D(bearing, 3, 2);
+                    this.arrows[i].setRotationFromAxisAngle(new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), this.helper.toRadians(360 - bearing));
+                    this.arrows[i].position.set(pos.x, pos.y, pos.z);
+                    this.scene.add(this.arrows[i]);
+                }
+            }
+        };
+        this.loadModel = (url) => {
+            return new Promise(resolve => {
+                this.gltfLoader.load(url, resolve);
+            });
+        };
+        this.app = app;
+        this.helper = new _Helper_js__WEBPACK_IMPORTED_MODULE_2__.Helper();
     }
 }
 
@@ -53833,7 +55073,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
+/******/ 			id: moduleId,
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
@@ -53895,600 +55135,12 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
-/* harmony import */ var three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! three/examples/jsm/loaders/GLTFLoader */ "./node_modules/three/examples/jsm/loaders/GLTFLoader.js");
-/* harmony import */ var _ConnectionAGO_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ConnectionAGO.js */ "./src/ConnectionAGO.js");
-//import * as THREE from '../three_local/build/three.module.js';
-//import * as THREE from 'https://cdn.skypack.dev/three@0.128.0';
-//import { GLTFLoader } from '../three_local/examples/jsm/loaders/GLTFLoader.js';
-//import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/loaders/GLTFLoader.js';
+/* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/main.css */ "./src/css/main.css");
+/* harmony import */ var _js_Application_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/Application.js */ "./src/js/Application.js");
+ // TODO: Loading of css is too slow
 
-//import { XRWebGLLayer } from "three";
-
-//import { Object3D, Vector3, XRWebGLLayer } from 'three';
-
-let renderer = null;
-let scene = null;
-let camera = null;
-let reticle = null;
-let lastFrame = Date.now();
-let canvas = null;
-let raycaster = null;
-let turning = true;
-const pointer = new three__WEBPACK_IMPORTED_MODULE_0__.Vector2();
-// Load 3D models
-let arrowN = null;
-let arrowE = null;
-let arrowS = null;
-let arrowW = null;
-let arrowJump = null;
-let arrows = [];
-let objectSelected = null;
-let firstTime = true;
-let pointData = null;
-var loader = null;
-// Geo orientation globals
-var orientLocal = null; // Stores the current orientation of the phone in the local coordinate system (degree)
-var orientGlobal = null; // Stores the current orientation of the phone in the global coordinate system (degree)
-let diff = 0;
-var connectionAGO;
-const initScene = (gl, session) => {
-    scene = new three__WEBPACK_IMPORTED_MODULE_0__.Scene();
-    camera = new three__WEBPACK_IMPORTED_MODULE_0__.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.matrixAutoUpdate = false;
-    var light = new three__WEBPACK_IMPORTED_MODULE_0__.PointLight(0xffffff, 2, 100); // soft white light
-    light.position.z = 1;
-    light.position.y = 5;
-    scene.add(light);
-    raycaster = new three__WEBPACK_IMPORTED_MODULE_0__.Raycaster();
-    // create and configure three.js renderer with XR support
-    renderer = new three__WEBPACK_IMPORTED_MODULE_0__.WebGLRenderer({
-        antialias: true,
-        alpha: true,
-        preserveDrawingBuffer: true,
-        canvas: canvas,
-        context: gl,
-    });
-    renderer.autoClear = true;
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.xr.enabled = true;
-    renderer.xr.setReferenceSpaceType('local');
-    renderer.xr.setSession(session);
-    // simple sprite to indicate detected surfaces
-    reticle = new three__WEBPACK_IMPORTED_MODULE_0__.Mesh(new three__WEBPACK_IMPORTED_MODULE_0__.RingBufferGeometry(0.15, 0.2, 32).rotateX(-Math.PI / 2), new three__WEBPACK_IMPORTED_MODULE_0__.MeshPhongMaterial({ color: 0x0fff00 }));
-    // we will update it's matrix later using WebXR hit test pose matrix
-    reticle.matrixAutoUpdate = false;
-    reticle.visible = false;
-    scene.add(reticle);
-    var controller = renderer.xr.getController(0);
-    controller.addEventListener('select', (event) => onSelect(event));
-    scene.add(controller);
-};
-function onSelect(event) {
-    //how to get the 2d touch position on screen area?
-    pointer.x = event.data.gamepad.axes[0];
-    pointer.y = -event.data.gamepad.axes[1];
-    //raycaster.set(camera.getWorldPosition(), camera.getWorldDirection());
-    // update the picking ray with the camera and mouse position
-    raycaster.setFromCamera(pointer, camera);
-    //scene.add(new THREE.ArrowHelper(raycaster.ray.direction, raycaster.ray.origin, 300, 0xff0000) );
-    // calculate objects intersecting the picking ray
-    const intersects = raycaster.intersectObjects(scene.children, true);
-    if (intersects.length > 0) {
-        //var successBool = window.navigator.vibrate(200);
-        try {
-            var modelName = intersects[0].object.parent.parent.parent.parent.parent.parent.name;
-            var position = intersects[0].object.parent.parent.parent.parent.parent.parent.position;
-            console.log(modelName);
-            for (var i in pointData) {
-                if (pointData[i].id == modelName) {
-                    var text = "Model " + pointData[i].name + " (" + pointData[i].distance.toFixed(0) + "m)";
-                    if (connectionAGO.glb != null && connectionAGO.glb.name == modelName + "_model") {
-                        var model3D = scene.getObjectByName(connectionAGO.glb.name);
-                        scene.remove(model3D);
-                        connectionAGO.glb = null;
-                        objectSelected = null;
-                        pointVis.innerHTML = "";
-                        return;
-                    }
-                    else {
-                        pointVis.innerHTML = "Loading...";
-                        if (connectionAGO.glb != null) {
-                            var model3D = scene.getObjectByName(connectionAGO.glb.name);
-                            scene.remove(model3D);
-                        }
-                        connectionAGO.loadGLTF(modelName).then(() => {
-                            console.log(connectionAGO.glb);
-                            connectionAGO.glb.position.set(position.x, 0, position.z);
-                            connectionAGO.glb.name = modelName + "_model";
-                            scene.add(connectionAGO.glb);
-                            objectSelected = connectionAGO.glb;
-                            turning = true;
-                            pointVis.innerHTML = text;
-                        });
-                    }
-                }
-            }
-        }
-        finally {
-            if (intersects[0].object.parent.parent == objectSelected) {
-                turning = !turning;
-            }
-        }
-        /*
-        else {
-          //
-          if (connectionAGO.glb == null) {
-            connectionAGO.loadGLTF().then(()=>{
-              console.log(connectionAGO.glb)
-              
-              placeBuilding(connectionAGO.glb);
-      
-              scene.add(connectionAGO.glb);
-            });
-          }
-          else {
-            placeBuilding(connectionAGO.glb);
-          }
-      
-        }
-        */
-    }
-}
-function placeBuilding(glb) {
-    var x = camera.getWorldPosition().x + 3 * camera.getWorldDirection().x;
-    var y = camera.getWorldPosition().y + 3 * camera.getWorldDirection().y;
-    var z = camera.getWorldPosition().z + 3 * camera.getWorldDirection().z;
-    glb.position.set(x, y, z);
-    rotateAboutPoint(glb, camera.getWorldPosition(), new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), -scene.rotation.y, false);
-}
-function rotateAboutPoint(obj, point, axis, theta, pointIsWorld) {
-    pointIsWorld = (pointIsWorld === undefined) ? false : pointIsWorld;
-    if (pointIsWorld) {
-        obj.parent.localToWorld(obj.position); // compensate for world coordinate
-    }
-    obj.position.sub(point); // remove the offset
-    obj.position.applyAxisAngle(axis, theta); // rotate the POSITION
-    obj.position.add(point); // re-add the offset
-    if (pointIsWorld) {
-        obj.parent.worldToLocal(obj.position); // undo world coordinates compensation
-    }
-    obj.rotateOnAxis(axis, theta); // rotate the OBJECT
-}
-// button to start XR experience
-const xrButton = document.getElementById('xr-button');
-xrButton.style.visibility = "hidden"; // Only show it after geolocation
-// to display debug information
-const btnPermissionGeo = document.getElementById("requestGeo"); // Button to ask for geolocation permission
-const btnPermissionCompass = document.getElementById("requestCompass"); // Button to ask for compass permission
-btnPermissionCompass.style.visibility = "hidden"; // Only show it after geolocation
-// Find all the DOM elements 
-const pointVis = document.getElementById('pointVis');
-const geoLocVis = document.getElementById('geoLocVis');
-const orientLocalVis = document.getElementById('orientLocalVis');
-const orientGlobalVis = document.getElementById('orientGlobalVis');
-const diffOrientVis = document.getElementById('diffOrientVis');
-btnPermissionGeo.addEventListener("click", permissionGeo);
-btnPermissionCompass.addEventListener("click", permission);
-// to control the xr session
-let xrSession = null;
-// reference space used within an application https://developer.mozilla.org/en-US/docs/Web/API/XRSession/requestReferenceSpace
-let xrRefSpace = null;
-// for hit testing with detected surfaces
-let xrHitTestSource = null;
-// Canvas OpenGL context used for rendering
-let gl = null;
-function checkXR() {
-    document.getElementById("header").style.display = "none";
-    if (!window.isSecureContext) {
-        document.getElementById("warning").innerText = "WebXR unavailable. Please use secure context";
-    }
-    if (navigator.xr) {
-        navigator.xr.addEventListener('devicechange', checkSupportedState);
-        checkSupportedState();
-    }
-    else {
-        document.getElementById("warning").innerText = "WebXR unavailable for this browser";
-    }
-}
-function loadModels() {
-    // load our gltf model
-    connectionAGO = new _ConnectionAGO_js__WEBPACK_IMPORTED_MODULE_2__.ConnectionAGO();
-    //connectionAGO.loadJson();
-    loader = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_1__.GLTFLoader();
-    loader.load('models/Arrow.glb', (gltf) => {
-        arrowN = gltf.scene;
-        arrowN.scale.set(1, 1, 1);
-        arrowN.castShadow = true;
-        arrowN.receiveShadow = true;
-    }, () => { }, (error) => console.error(error));
-    loader.load('models/Arrow_blue.glb', (gltf) => {
-        var arrow = gltf.scene;
-        arrow.scale.set(1, 1, 1);
-        arrow.castShadow = true;
-        arrow.receiveShadow = true;
-        arrowE = arrow.clone();
-        arrowS = arrow.clone();
-        arrowW = arrow.clone();
-    }, () => { }, (error) => console.error(error));
-    loader.load('models/jumpboost_arrow.glb', (gltf) => {
-        arrowJump = gltf.scene;
-        arrowJump.scale.set(1.5, 1.5, 1.5);
-        arrowJump.castShadow = true;
-        arrowJump.receiveShadow = true;
-    }, () => { }, (error) => console.error(error));
-}
-function checkSupportedState() {
-    navigator.xr.isSessionSupported('immersive-ar').then((supported) => {
-        if (supported) {
-            xrButton.innerHTML = 'Enter AR';
-            xrButton.addEventListener('click', onButtonClicked);
-        }
-        else {
-            xrButton.innerHTML = 'AR not found';
-        }
-        xrButton.disabled = !supported;
-    });
-}
-function onButtonClicked() {
-    if (!xrSession) {
-        navigator.xr.requestSession('immersive-ar', {
-            optionalFeatures: ['dom-overlay'],
-            requiredFeatures: ['local', 'hit-test'],
-            domOverlay: { root: document.getElementById('overlay') }
-        }).then(onSessionStarted, onRequestSessionError);
-    }
-    else {
-        xrSession.end();
-    }
-}
-function onSessionStarted(session) {
-    xrSession = session;
-    xrButton.innerHTML = 'Exit AR';
-    // create a canvas element and WebGL context for rendering
-    session.addEventListener('end', onSessionEnded);
-    canvas = document.createElement('canvas');
-    gl = canvas.getContext('webgl', { xrCompatible: true });
-    //session.updateRenderState({ baseLayer: new XRWebGLLayer(session, gl) });
-    // here we ask for viewer reference space, since we will be casting a ray
-    // from a viewer towards a detected surface. The results of ray and surface intersection
-    // will be obtained via xrHitTestSource variable
-    session.requestReferenceSpace('viewer').then((refSpace) => {
-        session.requestHitTestSource({ space: refSpace }).then((hitTestSource) => {
-            xrHitTestSource = hitTestSource;
-        });
-    });
-    session.requestReferenceSpace('local').then((refSpace) => {
-        xrRefSpace = refSpace;
-        session.requestAnimationFrame(onXRFrame);
-    });
-    // initialize three.js scene
-    initScene(gl, session);
-}
-function onRequestSessionError(ex) {
-    console.error(ex.message);
-}
-function onSessionEnded(event) {
-    xrSession = null;
-    xrButton.innerHTML = 'Enter AR';
-    gl = null;
-    if (xrHitTestSource)
-        xrHitTestSource.cancel();
-    xrHitTestSource = null;
-}
-function placeObject() {
-    if (arrowN) {
-        // we'll be placing our object right where the reticle was
-        var pos = polarToCart2D(0, 3, 2);
-        arrowN.position.set(pos.x, pos.y, pos.z);
-        scene.add(arrowN);
-        pos = polarToCart2D(90, 3, 2);
-        arrowE.setRotationFromAxisAngle(new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), toRadians(270));
-        arrowE.position.set(pos.x, pos.y, pos.z);
-        scene.add(arrowE);
-        arrowS.setRotationFromAxisAngle(new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), toRadians(180));
-        pos = polarToCart2D(180, 3, 2);
-        arrowS.position.set(pos.x, pos.y, pos.z);
-        scene.add(arrowS);
-        arrowW.setRotationFromAxisAngle(new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), toRadians(90));
-        pos = polarToCart2D(270, 3, 2);
-        arrowW.position.set(pos.x, pos.y, pos.z);
-        scene.add(arrowW);
-        firstTime = false;
-        // Add another arrow for each point
-        for (var i in pointData) {
-            arrows.push(arrowJump.clone());
-            let bearing = pointData[i].bearing;
-            arrows[i].userData = { "name": pointData[i].id };
-            arrows[i].name = pointData[i].id;
-            pos = polarToCart2D(bearing, 3, 2);
-            arrows[i].setRotationFromAxisAngle(new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), toRadians(360 - bearing));
-            arrows[i].position.set(pos.x, pos.y, pos.z);
-            scene.add(arrows[i]);
-        }
-    }
-}
-function onXRFrame(t, frame) {
-    let session = frame.session;
-    if (turning && (objectSelected != null)) {
-        objectSelected.rotation.y = objectSelected.rotation.y + 0.01;
-    }
-    session.requestAnimationFrame(onXRFrame);
-    if (firstTime) {
-        placeObject();
-    }
-    // bind our gl context that was created with WebXR to threejs renderer
-    gl.bindFramebuffer(gl.FRAMEBUFFER, session.renderState.baseLayer.framebuffer);
-    // render the scene
-    // Retrieve the pose of the device.
-    // XRFrame.getViewerPose can return null while the session attempts to establish tracking.
-    const pose = frame.getViewerPose(xrRefSpace);
-    if (pose) {
-        // In mobile AR, we only have one view.
-        const view = pose.views[0];
-        //const viewport = session.renderState.baseLayer.getViewport(view);
-        //renderer.setSize(viewport.width, viewport.height)
-        // Use the view's transform matrix and projection matrix to configure the THREE.camera.
-        camera.matrix.fromArray(view.transform.matrix);
-        camera.projectionMatrix.fromArray(view.projectionMatrix);
-        camera.updateMatrixWorld(true);
-        var vecCamera = new three__WEBPACK_IMPORTED_MODULE_0__.Vector3();
-        camera.getWorldDirection(vecCamera);
-        orientLocal = Math.atan2(vecCamera.z, vecCamera.x) * 180 / Math.PI + 180; // Calculate the angle of the 
-        orientLocal = (orientLocal + 270) % 360;
-        //camera.setRotationFromAxisAngle(new THREE.Vector3(0,1,0), toRadians(180))
-        orientLocalVis.innerHTML = "Local orientation: " + orientLocal.toFixed([0]).toString();
-        diff = orientGlobal - orientLocal;
-        diffOrientVis.innerHTML = "Difference: " + diff.toFixed(0).toString();
-        if (Math.abs(diff - (scene.rotation.y * 180 / Math.PI)) > 1) {
-            scene.rotation.y = toRadians(diff);
-        }
-        if (xrHitTestSource) {
-            // obtain hit test results by casting a ray from the center of device screen
-            // into AR view. Results indicate that ray intersected with one or more detected surfaces
-            const hitTestResults = frame.getHitTestResults(xrHitTestSource);
-            if (hitTestResults.length) {
-                // obtain a local pose at the intersection point
-                const pose = hitTestResults[0].getPose(xrRefSpace);
-                // place a reticle at the intersection point
-                reticle.matrix.fromArray(pose.transform.matrix);
-                reticle.visible = true;
-            }
-        }
-        else { // do not show a reticle if no surfaces are intersected
-            reticle.visible = false;
-        }
-        // Render the scene with THREE.WebGLRenderer.
-        renderer.render(scene, camera);
-    }
-}
-function permissionGeo() {
-    if (!navigator.geolocation) {
-        alert("Geolocation not supported.");
-        btnPermissionGeo.innerHTML = "No Permission!";
-        btnPermissionGeo.disabled = true;
-        btnPermissionCompass.style.visibility = "visible";
-    }
-    else {
-        navigator.geolocation.getCurrentPosition(currentLocation);
-        btnPermissionGeo.innerHTML = "Loading...";
-        btnPermissionGeo.disabled = true;
-    }
-}
-function currentLocation(position) {
-    let pointLng = position.coords.longitude;
-    let pointLtd = position.coords.latitude;
-    let accGeo = position.coords.accuracy;
-    position = [pointLng, pointLtd];
-    var element = document.getElementById("fakeGeo");
-    if (element.checked) {
-        position = [8.542248, 47.371773];
-    }
-    geoLocVis.innerHTML = "Geolocation: " + pointLng.toFixed(2).toString() + ", " + pointLtd.toFixed(2).toString() + ", acc: " + accGeo.toFixed(1).toString() + "m";
-    connectionAGO.readJSON(position, processJson);
-}
-function permission() {
-    if (iOS()) {
-        if (typeof (DeviceMotionEvent) !== "undefined" && typeof (DeviceMotionEvent.requestPermission) === "function") {
-            // (optional) Do something before API request prompt.
-            DeviceMotionEvent.requestPermission()
-                .then(response => {
-                // (optional) Do something after API prompt dismissed.
-                if (response == "granted") {
-                    handler();
-                }
-            })
-                .catch(console.error);
-        }
-        else {
-            console.log("DeviceMotionEvent is not defined");
-            handler();
-        }
-    }
-    else {
-        handler();
-    }
-}
-function handler() {
-    btnPermissionCompass.innerHTML = "Permission granted";
-    btnPermissionCompass.disabled = true;
-    xrButton.style.visibility = "visible"; // Only show it after geolocation
-    checkXR();
-    // Check if device can provide absolute orientation data
-    /*
-    if (window.DeviceOrientationAbsoluteEvent) {
-        console.log("Absolute Orientation existing");
-        //alert("Using DeviceOrientationAbsoluteEvent");
-        window.addEventListener("DeviceOrientationAbsoluteEvent", deviceOrientationHandler);
-    } // If not, check if the device sends any orientation data
-    else */
-    if ('ondeviceorientationabsolute' in window) {
-        // We can listen for the new deviceorientationabsolute event.
-        //alert("Using DeviceOrientationAbsolute");
-        window.addEventListener("deviceorientationabsolute", deviceOrientationHandler, true);
-    }
-    else if (window.DeviceOrientationEvent) {
-        console.log("Only normal orientation existing");
-        //alert("Using DeviceOrientation");
-        window.addEventListener("deviceorientation", deviceOrientationHandler);
-    } // Send an alert if the device isn't compatible
-    else {
-        alert("Sorry, try again on a compatible mobile device!");
-    }
-}
-function processJson(jsonData, position) {
-    pointData = [];
-    for (var i in jsonData) {
-        let lng = jsonData[i].geometry.x;
-        let lat = jsonData[i].geometry.y;
-        let dist = distance(position[1], position[0], lat, lng, 'K');
-        let bear = bearing(position[1], position[0], lat, lng);
-        pointData.push({
-            'id': jsonData[i].attributes.name,
-            'name': jsonData[i].attributes.name_long,
-            'distance': dist,
-            'bearing': bear
-        });
-    }
-    console.log(pointData);
-    btnPermissionGeo.innerHTML = "Permission granted";
-    btnPermissionCompass.style.visibility = "visible";
-}
-// Get event data
-function deviceOrientationHandler(event) {
-    var alpha = event.alpha; //z axis rotation [0,360)
-    var beta = event.beta; //x axis rotation [-180, 180]
-    var gamma = event.gamma; //y axis rotation [-90, 90]
-    var heading = null;
-    let acc = null;
-    //Check if absolute values have been sent
-    if (typeof event.webkitCompassHeading !== "undefined") {
-        //if (firstTimeCompass) {alert("Using WebkitCompassHeading"); firstTime=false;}
-        heading = event.webkitCompassHeading; //iOS non-standard
-        acc = event.webkitCompassAccuracy;
-    }
-    else {
-        //if (firstTime) {alert("Using alpha value"); firstTime=false;}
-        //alert("Your device is reporting relative alpha values, so this compass won't point north :(");
-        // var heading = 360 - alpha; //heading [0, 360)
-        heading = compassHeading(alpha, beta, gamma);
-    }
-    if (Math.abs(heading - orientGlobal) > 0.1) {
-        if (acc == null) {
-            orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed([0]).toString();
-            //console.log({ heading, orientLocal, difference});
-        }
-        else if (acc == -1) {
-            orientGlobalVis.innerHTML = "Global orientation: Not calibrated - not usable";
-        }
-        else {
-            orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed([0]).toString() + " +/- " + acc.toFixed(0).toString();
-        }
-        orientGlobal = heading;
-        if (pointData != null) {
-            let clostestOrient = "";
-            let diff = 400;
-            for (var i in pointData) {
-                // TODO: overlauf nach 360!!!
-                if (Math.abs(orientGlobal - pointData[i].bearing) < diff) {
-                    clostestOrient = i;
-                    diff = Math.abs(orientGlobal - pointData[i].bearing);
-                }
-            }
-            if ((pointVis.innerHTML != "Loading...") && (pointVis.innerHTML.slice(0, 5) != "Model")) {
-                if (diff < 10) {
-                    pointVis.innerHTML = pointData[clostestOrient].name + " (" + pointData[clostestOrient].distance.toFixed(0) + "m)";
-                }
-                else {
-                    pointVis.innerHTML = "";
-                }
-            }
-        }
-    }
-    //let difference = orientGlobal - orientLocal < 0 ?  orientGlobal - orientLocal + 360 :  orientGlobal - orientLocal;
-}
-function compassHeading(alpha, beta, gamma) {
-    // Convert degrees to radians
-    var alphaRad = alpha * (Math.PI / 180);
-    var betaRad = beta * (Math.PI / 180);
-    var gammaRad = gamma * (Math.PI / 180);
-    // Calculate equation components
-    var cA = Math.cos(alphaRad);
-    var sA = Math.sin(alphaRad);
-    var cB = Math.cos(betaRad);
-    var sB = Math.sin(betaRad);
-    var cG = Math.cos(gammaRad);
-    var sG = Math.sin(gammaRad);
-    // Calculate A, B, C rotation components
-    var rA = -cA * sG - sA * sB * cG;
-    var rB = -sA * sG + cA * sB * cG;
-    var rC = -cB * cG;
-    // Calculate compass heading
-    var compassHeading = Math.atan(rA / rB);
-    // Convert from half unit circle to whole unit circle
-    if (rB < 0) {
-        compassHeading += Math.PI;
-    }
-    else if (rA < 0) {
-        compassHeading += 2 * Math.PI;
-    }
-    // Convert radians to degrees
-    compassHeading *= 180 / Math.PI;
-    return compassHeading;
-}
-function distance(lat1, lon1, lat2, lon2, unit) {
-    var radlat1 = Math.PI * lat1 / 180;
-    var radlat2 = Math.PI * lat2 / 180;
-    var theta = lon1 - lon2;
-    var radtheta = Math.PI * theta / 180;
-    var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-    dist = Math.acos(dist);
-    dist = dist * 180 / Math.PI;
-    dist = dist * 60 * 1.1515;
-    if (unit == "K") {
-        dist = dist * 1.609344;
-    }
-    if (unit == "N") {
-        dist = dist * 0.8684;
-    }
-    return dist * 1000;
-}
-// Converts from degrees to radians.
-function toRadians(degrees) {
-    return degrees * Math.PI / 180;
-}
-;
-// Converts from radians to degrees.
-function toDegrees(radians) {
-    return radians * 180 / Math.PI;
-}
-function bearing(startLat, startLng, destLat, destLng) {
-    startLat = toRadians(startLat);
-    startLng = toRadians(startLng);
-    destLat = toRadians(destLat);
-    destLng = toRadians(destLng);
-    let y = Math.sin(destLng - startLng) * Math.cos(destLat);
-    let x = Math.cos(startLat) * Math.sin(destLat) -
-        Math.sin(startLat) * Math.cos(destLat) * Math.cos(destLng - startLng);
-    let brng = Math.atan2(y, x);
-    brng = toDegrees(brng);
-    return (brng + 360) % 360;
-}
-function polarToCart2D(angle, radius, height) {
-    let z = -radius * Math.cos(angle * Math.PI / 180);
-    let y = height;
-    let x = radius * Math.sin(angle * Math.PI / 180);
-    return { x: x, y: y, z: z };
-}
-function polarToCartOrient(angle) {
-    let a = angle * Math.PI / 180;
-    return { x: 0, y: Math.sin(-a * 0.5), z: 0, w: Math.cos(-a * 0.5) };
-}
-function iOS() {
-    return false;
-}
-loadModels();
+var app = new _js_Application_js__WEBPACK_IMPORTED_MODULE_1__.Application();
+app.init();
 
 })();
 
