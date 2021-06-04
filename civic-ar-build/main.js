@@ -53996,9 +53996,8 @@ class ARHandler {
         };
         this.onXRFrame = (t, frame) => {
             let session = frame.session;
-            if (this.app.threeScene.turning && (this.app.threeScene.landmarkModel != null)) {
-                this.app.threeScene.landmarkModel.rotation.y = this.app.threeScene.landmarkModel.rotation.y + 0.01;
-            }
+            this.app.threeScene.checkTurning();
+            //console.log(this.app.threeScene.controller.rotation.y);
             session.requestAnimationFrame(this.onXRFrame);
             // bind our gl context that was created with WebXR to threejs renderer
             this.app.threeScene.gl.bindFramebuffer(this.app.threeScene.gl.FRAMEBUFFER, session.renderState.baseLayer.framebuffer);
@@ -54532,6 +54531,7 @@ __webpack_require__.r(__webpack_exports__);
 class ThreeScene {
     constructor(app) {
         this.turning = false;
+        this.first = true;
         this.arrows = [];
         this.gltfLoader = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_1__.GLTFLoader();
         this.initScene = (session) => {
@@ -54540,9 +54540,16 @@ class ThreeScene {
             this.scene = new three__WEBPACK_IMPORTED_MODULE_0__.Scene();
             this.camera = new three__WEBPACK_IMPORTED_MODULE_0__.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
             this.camera.matrixAutoUpdate = false;
-            var light = new three__WEBPACK_IMPORTED_MODULE_0__.PointLight(0xffffff, 2, 100); // soft white light
+            /*
+            var light = new THREE.PointLight(0xffffff, 2, 100); // soft white light
             light.position.z = 1;
             light.position.y = 5;
+            this.scene.add(light);
+            */
+            const skyColor = 0xffffff; // white
+            const groundColor = 0x4d4d4d; // grey
+            const intensity = 1;
+            const light = new three__WEBPACK_IMPORTED_MODULE_0__.HemisphereLight(skyColor, groundColor, intensity);
             this.scene.add(light);
             this.raycaster = new three__WEBPACK_IMPORTED_MODULE_0__.Raycaster();
             // create and configure three.js renderer with XR support
@@ -54570,9 +54577,15 @@ class ThreeScene {
             this.reticle.visible = false;
             this.scene.add(this.reticle);
             */
-            var controller = this.renderer.xr.getController(0);
-            controller.addEventListener('select', (event) => this.onSelect(event));
-            this.scene.add(controller);
+            this.scene.fog = new three__WEBPACK_IMPORTED_MODULE_0__.Fog(0xFFFFFF, 100, 500);
+            this.controller = this.renderer.xr.getController(0);
+            this.controller.addEventListener('select', (event) => this.onSelect(event));
+            this.controller.addEventListener('selectstart', (event) => this.onSelectStart(event));
+            this.controller.addEventListener('selectend', (event) => {
+                this.turning = false;
+                this.first = true;
+            });
+            this.scene.add(this.controller);
         };
         this.onSelect = (event) => {
             //how to get the 2d touch position on screen area?
@@ -54589,9 +54602,10 @@ class ThreeScene {
             if (intersects.length > 0) {
                 //var successBool = window.navigator.vibrate(200);
                 try {
-                    var modelName = intersects[0].object.parent.parent.parent.parent.parent.parent.name;
-                    var position = intersects[0].object.parent.parent.parent.parent.parent.parent.position;
-                    console.log(modelName);
+                    //var modelName = intersects[0].object.parent.parent.parent.parent.parent.parent.name;
+                    //var position = intersects[0].object.parent.parent.parent.parent.parent.parent.position;
+                    var modelName = intersects[0].object.name;
+                    var position = intersects[0].object.position;
                     for (var i in this.app.pointData) {
                         if (this.app.pointData[i].id == modelName) {
                             var text = "Model " + this.app.pointData[i].name + " (" + this.app.pointData[i].distance.toFixed(0) + "m)";
@@ -54611,11 +54625,13 @@ class ThreeScene {
                                 }
                                 this.app.connectionAGO.loadGLTF(modelName).then((model) => {
                                     this.landmarkModel = model;
-                                    this.landmarkModel.position.set(position.x, 0, position.z);
+                                    var bearing = this.app.pointData.find((e) => { return e.id == modelName; }).bearing;
+                                    var pos = this.helper.polarToCart2D(bearing, 3, 0);
+                                    this.landmarkModel.position.set(pos.x, pos.y, pos.z);
                                     this.landmarkModel.name = modelName + "_model";
                                     this.scene.add(this.landmarkModel);
                                     //objectSelected = this.landmarkModel;
-                                    this.turning = true;
+                                    //this.turning = true;
                                     pointVis.innerHTML = text;
                                 });
                             }
@@ -54623,9 +54639,6 @@ class ThreeScene {
                     }
                 }
                 finally {
-                    if (intersects[0].object.parent.parent == this.landmarkModel) {
-                        this.turning = !this.turning;
-                    }
                 }
                 /*
                 else {
@@ -54645,6 +54658,42 @@ class ThreeScene {
                 
                 }
                 */
+            }
+        };
+        this.onSelectStart = (event) => {
+            //how to get the 2d touch position on screen area?
+            const pointer = new three__WEBPACK_IMPORTED_MODULE_0__.Vector2();
+            pointer.x = event.data.gamepad.axes[0];
+            pointer.y = -event.data.gamepad.axes[1];
+            //raycaster.set(camera.getWorldPosition(), camera.getWorldDirection());
+            // update the picking ray with the camera and mouse position
+            this.raycaster.setFromCamera(pointer, this.camera);
+            //scene.add(new THREE.ArrowHelper(raycaster.ray.direction, raycaster.ray.origin, 300, 0xff0000) );
+            // calculate objects intersecting the picking ray
+            const intersects = this.raycaster.intersectObjects(this.scene.children, true);
+            if (intersects.length > 0) {
+                if (this.landmarkModel && intersects[0].object.parent.parent == this.landmarkModel) {
+                    this.rotationY = this.controller.rotation.y;
+                    this.turning = true;
+                }
+            }
+        };
+        this.checkTurning = () => {
+            //console.log(this.turning);
+            if (this.turning) {
+                var diff = this.controller.rotation.y - this.rotationY;
+                if (this.first) {
+                    this.rotationY = this.controller.rotation.y;
+                    diff = 0;
+                    this.first = false;
+                }
+                else {
+                    diff = this.controller.rotation.y - this.rotationY;
+                }
+                if (!isNaN(diff)) {
+                    this.landmarkModel.rotation.y -= diff * 2;
+                }
+                this.rotationY = this.controller.rotation.y;
             }
         };
         this.loadLocalModels = () => {
@@ -54696,7 +54745,6 @@ class ThreeScene {
         };
         this.placeObject = () => {
             if (this.arrowN) {
-                // we'll be placing our object right where the reticle was
                 var pos = this.helper.polarToCart2D(0, 3, 2);
                 this.arrowN.position.set(pos.x, pos.y, pos.z);
                 this.scene.add(this.arrowN);
@@ -54714,14 +54762,26 @@ class ThreeScene {
                 this.scene.add(this.arrowW);
                 // Add another arrow for each point
                 for (var i in this.app.pointData) {
+                    //this.arrows.push(this.arrowJump.clone());
+                    let bearing = this.app.pointData[i].bearing;
+                    let distance = this.app.pointData[i].distance;
+                    const geometry = new three__WEBPACK_IMPORTED_MODULE_0__.SphereGeometry(10, 24, 12);
+                    const sphere = new three__WEBPACK_IMPORTED_MODULE_0__.Mesh(geometry, new three__WEBPACK_IMPORTED_MODULE_0__.MeshPhongMaterial({ color: 0xeb4034 }));
+                    var pos = this.helper.polarToCart2D(bearing, Math.atan(distance / 300) * 200, 40);
+                    sphere.position.set(pos.x, pos.y, pos.z);
+                    sphere.userData = { "name": this.app.pointData[i].id };
+                    sphere.name = this.app.pointData[i].id;
+                    this.scene.add(sphere);
+                    /*
                     this.arrows.push(this.arrowJump.clone());
                     let bearing = this.app.pointData[i].bearing;
                     this.arrows[i].userData = { "name": this.app.pointData[i].id };
                     this.arrows[i].name = this.app.pointData[i].id;
                     pos = this.helper.polarToCart2D(bearing, 3, 2);
-                    this.arrows[i].setRotationFromAxisAngle(new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), this.helper.toRadians(360 - bearing));
+                    this.arrows[i].setRotationFromAxisAngle(new THREE.Vector3(0, 1, 0), this.helper.toRadians(360 - bearing))
                     this.arrows[i].position.set(pos.x, pos.y, pos.z);
                     this.scene.add(this.arrows[i]);
+                    */
                 }
             }
         };
