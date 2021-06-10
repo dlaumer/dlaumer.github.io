@@ -54530,6 +54530,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class ThreeScene {
     constructor(app) {
+        this.spotlight = null;
         this.turning = false;
         this.first = true;
         this.arrows = [];
@@ -54612,6 +54613,7 @@ class ThreeScene {
                             if (this.landmarkModel != null && this.landmarkModel.name == modelName + "_model") {
                                 var model3D = this.scene.getObjectByName(this.landmarkModel.name);
                                 this.scene.remove(model3D);
+                                this.scene.remove(this.spotlight);
                                 this.landmarkModel = null;
                                 //objectSelected = null;
                                 pointVis.innerHTML = "";
@@ -54622,6 +54624,7 @@ class ThreeScene {
                                 if (this.landmarkModel != null) {
                                     var model3D = this.scene.getObjectByName(this.landmarkModel.name);
                                     this.scene.remove(model3D);
+                                    this.scene.remove(this.spotlight);
                                 }
                                 this.app.connectionAGO.loadGLTF(modelName).then((model) => {
                                     this.landmarkModel = model;
@@ -54633,6 +54636,10 @@ class ThreeScene {
                                     //objectSelected = this.landmarkModel;
                                     //this.turning = true;
                                     pointVis.innerHTML = text;
+                                    this.spotlight = new three__WEBPACK_IMPORTED_MODULE_0__.PointLight(0xffffff, 5, 100); // soft white light
+                                    pos = this.helper.polarToCart2D(bearing, 1, 10);
+                                    this.spotlight.position.set(pos.x, pos.y, pos.z);
+                                    this.scene.add(this.spotlight);
                                 });
                             }
                         }
