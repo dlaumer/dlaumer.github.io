@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\nbody {\n  background-color: #F0F0F0;\n  font: 1rem/1.4 -apple-system, BlinkMacSystemFont,\n    Segoe UI, Roboto, Oxygen,\n    Ubuntu, Cantarell, Fira Sans,\n    Droid Sans, Helvetica Neue, sans-serif;\n}\n\nheader {\n  position: relative;\n  z-index: 2;\n  left: 0px;\n  text-align: left;\n  padding: 0.5em;\n  background-color: rgba(255, 255, 255, 0.90);\n  margin-bottom: 0.5em;\n  border-radius: 2px;\n  text-align: center;\n}\n\n#overlay {\n  height:100%;\n  text-align: center;\n}\n\ndetails summary {\n  font-size: 1.0em;\n  font-weight: bold;\n}\n\ndetails[open] summary {\n  font-size: 1.4em;\n  font-weight: bold;\n}\n\nheader h1 {\n  margin-top: 0px;\n}\n\ncanvas {\n  position: absolute;\n  z-index: 0;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  margin: 0;\n  touch-action: none;\n}\n\n.back {\n  float: right;\n  text-decoration: none;\n}\n\n.back:hover {\n  text-decoration: underline;\n}\n\n.back::before {\n  display: inline-block;\n  content: attr(data-index) '<';\n  font-weight: bold;\n  white-space: nowrap;\n  margin-right: 0.2em;\n  margin-left: 0.2em;\n}\n\n/* Used for the 'barebones' samples */\n.barebones-button {\n  font-family: \"Karla\", sans-serif;\n  border: rgb(80, 168, 252) 2px solid;\n  border-radius: 2px;\n  box-sizing: border-box;\n  background: none;\n  height: 55px;\n  width: 300px;\n  display: inline-block;\n  position: relative;\n  cursor: pointer;\n  font-size: 18px;\n  color: rgb(80, 168, 252);\n  background-color: rgba(255, 255, 255, 0.7);\n  margin: 5px;\n}\n\n\n#fakeGeoLabel {\n  color: rgb(80, 168, 252);\n}\n\n\n.cs_info {\n  font-family: \"Karla\", sans-serif;\n  font-size: 16px;\n  color: rgb(80, 168, 252);\n}\n\n#addInfo {\n  position: fixed; \n    bottom:0%;\n\n}\n\n#pointVis {\n  font-family: \"Karla\", sans-serif;\n  font-size: 30px;\n  color: rgb(80, 168, 252);\n  position: fixed; \n    bottom:80%;\n    width: 100%;\n    text-align: center;\n    background-color: #ffffff73;\n}", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":";;AAEA;EACE,yBAAyB;EACzB;;;0CAGwC;AAC1C;;AAEA;EACE,kBAAkB;EAClB,UAAU;EACV,SAAS;EACT,gBAAgB;EAChB,cAAc;EACd,2CAA2C;EAC3C,oBAAoB;EACpB,kBAAkB;EAClB,kBAAkB;AACpB;;AAEA;EACE,WAAW;EACX,kBAAkB;AACpB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;AACnB;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;AACnB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,kBAAkB;EAClB,UAAU;EACV,WAAW;EACX,YAAY;EACZ,OAAO;EACP,MAAM;EACN,QAAQ;EACR,SAAS;EACT,SAAS;EACT,kBAAkB;AACpB;;AAEA;EACE,YAAY;EACZ,qBAAqB;AACvB;;AAEA;EACE,0BAA0B;AAC5B;;AAEA;EACE,qBAAqB;EACrB,6BAA6B;EAC7B,iBAAiB;EACjB,mBAAmB;EACnB,mBAAmB;EACnB,kBAAkB;AACpB;;AAEA,qCAAqC;AACrC;EACE,gCAAgC;EAChC,mCAAmC;EACnC,kBAAkB;EAClB,sBAAsB;EACtB,gBAAgB;EAChB,YAAY;EACZ,YAAY;EACZ,qBAAqB;EACrB,kBAAkB;EAClB,eAAe;EACf,eAAe;EACf,wBAAwB;EACxB,0CAA0C;EAC1C,WAAW;AACb;;;AAGA;EACE,wBAAwB;AAC1B;;;AAGA;EACE,gCAAgC;EAChC,eAAe;EACf,wBAAwB;AAC1B;;AAEA;EACE,eAAe;IACb,SAAS;;AAEb;;AAEA;EACE,gCAAgC;EAChC,eAAe;EACf,wBAAwB;EACxB,eAAe;IACb,UAAU;IACV,WAAW;IACX,kBAAkB;IAClB,2BAA2B;AAC/B","sourcesContent":["\n\nbody {\n  background-color: #F0F0F0;\n  font: 1rem/1.4 -apple-system, BlinkMacSystemFont,\n    Segoe UI, Roboto, Oxygen,\n    Ubuntu, Cantarell, Fira Sans,\n    Droid Sans, Helvetica Neue, sans-serif;\n}\n\nheader {\n  position: relative;\n  z-index: 2;\n  left: 0px;\n  text-align: left;\n  padding: 0.5em;\n  background-color: rgba(255, 255, 255, 0.90);\n  margin-bottom: 0.5em;\n  border-radius: 2px;\n  text-align: center;\n}\n\n#overlay {\n  height:100%;\n  text-align: center;\n}\n\ndetails summary {\n  font-size: 1.0em;\n  font-weight: bold;\n}\n\ndetails[open] summary {\n  font-size: 1.4em;\n  font-weight: bold;\n}\n\nheader h1 {\n  margin-top: 0px;\n}\n\ncanvas {\n  position: absolute;\n  z-index: 0;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  margin: 0;\n  touch-action: none;\n}\n\n.back {\n  float: right;\n  text-decoration: none;\n}\n\n.back:hover {\n  text-decoration: underline;\n}\n\n.back::before {\n  display: inline-block;\n  content: attr(data-index) '<';\n  font-weight: bold;\n  white-space: nowrap;\n  margin-right: 0.2em;\n  margin-left: 0.2em;\n}\n\n/* Used for the 'barebones' samples */\n.barebones-button {\n  font-family: \"Karla\", sans-serif;\n  border: rgb(80, 168, 252) 2px solid;\n  border-radius: 2px;\n  box-sizing: border-box;\n  background: none;\n  height: 55px;\n  width: 300px;\n  display: inline-block;\n  position: relative;\n  cursor: pointer;\n  font-size: 18px;\n  color: rgb(80, 168, 252);\n  background-color: rgba(255, 255, 255, 0.7);\n  margin: 5px;\n}\n\n\n#fakeGeoLabel {\n  color: rgb(80, 168, 252);\n}\n\n\n.cs_info {\n  font-family: \"Karla\", sans-serif;\n  font-size: 16px;\n  color: rgb(80, 168, 252);\n}\n\n#addInfo {\n  position: fixed; \n    bottom:0%;\n\n}\n\n#pointVis {\n  font-family: \"Karla\", sans-serif;\n  font-size: 30px;\n  color: rgb(80, 168, 252);\n  position: fixed; \n    bottom:80%;\n    width: 100%;\n    text-align: center;\n    background-color: #ffffff73;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --grey: #f5f6f4;\n  --dark_grey: #625f63;\n  --pink: #ef2d56;\n  --dark_green: #048a81;\n  --brown: #f19953;\n}\n\n\nbody {\n  background-color: var(--grey);\n  height: 100%;\n  width: 100%;\n}\n\n\n#home {\n  height:90vh;\n  width: 100%;\n}\n\n.container {\n  height: 90%;\n  width: 100%;\n  display: flex;\n  flex-flow: column;\n  \n}\n\n#homeContainer {\n  align-items: center;\n  justify-content: flex-start;\n\n}\n\n#walkContainer {\n  display: flex;\n  flex-flow: column;\n  justify-content: flex-end;\n\n}\n\n#modal {\n  background-color: var(--grey);\n  display: flex;\n  flex-flow: column;\n  margin: 5%;\n  padding: 3%;\n  position: relative;\n}\n\n#close {\n  position:absolute;\n  top:0;\n  right:0;\n  margin: 7px;\n  font-size: 20px;\n}\n\n\n#btnModel {\n  background-color: var(--dark_grey);\n  width:100%;\n  margin-top: 30px;\n}\n\n.loader {\n  padding: 0;\n  margin: 30px;\n}\n\n\n#sceneView {\n  height:100%;\n  widtH: 100%;\n}\n\n#settingsContainer {\n  padding: 0 30px;\n  box-sizing: border-box;\n  background-color: var(--grey);\n  justify-content: flex-start;\n\n\n}\n\n#sliderDistance {\n  display:flex;\n  flex-direction: row;\n  margin: 0 0 1.5rem 0;\n}\n#distLabel {\n  margin: 0 5% 0 0\n}\n\n#distSlider {\n  width: 60%;\n\n}\n\n#logo {\n  margin: 30% 0;\n}\n/* Thick red border */\nhr.logoLine {\n  border: 3px solid var(--pink);\n  width: 100%;\n  margin: 0;\n}\n\n#xrButton {\n  min-width: 200px;\n  max-width: 50%; \n  height: 50px;\n  background-color: var(--dark_grey);\n  margin: 0;\n}\n\n\n#footer {\n  background-color: var(--grey);\n  height: 10%;\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-evenly;\n}\n\n.footerItem {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  align-content: center;\n  justify-items: center;\n}\n\n.icon {\n  height:70%;\n  width:70%;\n\n}\n\nheader h1 {\n  margin-top: 0px;\n}\n\ncanvas {\n  position: absolute;\n  z-index: 0;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  margin: 0;\n  touch-action: none;\n}\n\n\n\n#fakeGeoContainer {\n  display: flex;\n  flex-direction: row;\n}\n\n", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,oBAAoB;EACpB,eAAe;EACf,qBAAqB;EACrB,gBAAgB;AAClB;;;AAGA;EACE,6BAA6B;EAC7B,YAAY;EACZ,WAAW;AACb;;;AAGA;EACE,WAAW;EACX,WAAW;AACb;;AAEA;EACE,WAAW;EACX,WAAW;EACX,aAAa;EACb,iBAAiB;;AAEnB;;AAEA;EACE,mBAAmB;EACnB,2BAA2B;;AAE7B;;AAEA;EACE,aAAa;EACb,iBAAiB;EACjB,yBAAyB;;AAE3B;;AAEA;EACE,6BAA6B;EAC7B,aAAa;EACb,iBAAiB;EACjB,UAAU;EACV,WAAW;EACX,kBAAkB;AACpB;;AAEA;EACE,iBAAiB;EACjB,KAAK;EACL,OAAO;EACP,WAAW;EACX,eAAe;AACjB;;;AAGA;EACE,kCAAkC;EAClC,UAAU;EACV,gBAAgB;AAClB;;AAEA;EACE,UAAU;EACV,YAAY;AACd;;;AAGA;EACE,WAAW;EACX,WAAW;AACb;;AAEA;EACE,eAAe;EACf,sBAAsB;EACtB,6BAA6B;EAC7B,2BAA2B;;;AAG7B;;AAEA;EACE,YAAY;EACZ,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE;AACF;;AAEA;EACE,UAAU;;AAEZ;;AAEA;EACE,aAAa;AACf;AACA,qBAAqB;AACrB;EACE,6BAA6B;EAC7B,WAAW;EACX,SAAS;AACX;;AAEA;EACE,gBAAgB;EAChB,cAAc;EACd,YAAY;EACZ,kCAAkC;EAClC,SAAS;AACX;;;AAGA;EACE,6BAA6B;EAC7B,WAAW;EACX,WAAW;EACX,aAAa;EACb,mBAAmB;EACnB,6BAA6B;AAC/B;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,qBAAqB;EACrB,qBAAqB;AACvB;;AAEA;EACE,UAAU;EACV,SAAS;;AAEX;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,kBAAkB;EAClB,UAAU;EACV,WAAW;EACX,YAAY;EACZ,OAAO;EACP,MAAM;EACN,QAAQ;EACR,SAAS;EACT,SAAS;EACT,kBAAkB;AACpB;;;;AAIA;EACE,aAAa;EACb,mBAAmB;AACrB","sourcesContent":[":root {\n  --grey: #f5f6f4;\n  --dark_grey: #625f63;\n  --pink: #ef2d56;\n  --dark_green: #048a81;\n  --brown: #f19953;\n}\n\n\nbody {\n  background-color: var(--grey);\n  height: 100%;\n  width: 100%;\n}\n\n\n#home {\n  height:90vh;\n  width: 100%;\n}\n\n.container {\n  height: 90%;\n  width: 100%;\n  display: flex;\n  flex-flow: column;\n  \n}\n\n#homeContainer {\n  align-items: center;\n  justify-content: flex-start;\n\n}\n\n#walkContainer {\n  display: flex;\n  flex-flow: column;\n  justify-content: flex-end;\n\n}\n\n#modal {\n  background-color: var(--grey);\n  display: flex;\n  flex-flow: column;\n  margin: 5%;\n  padding: 3%;\n  position: relative;\n}\n\n#close {\n  position:absolute;\n  top:0;\n  right:0;\n  margin: 7px;\n  font-size: 20px;\n}\n\n\n#btnModel {\n  background-color: var(--dark_grey);\n  width:100%;\n  margin-top: 30px;\n}\n\n.loader {\n  padding: 0;\n  margin: 30px;\n}\n\n\n#sceneView {\n  height:100%;\n  widtH: 100%;\n}\n\n#settingsContainer {\n  padding: 0 30px;\n  box-sizing: border-box;\n  background-color: var(--grey);\n  justify-content: flex-start;\n\n\n}\n\n#sliderDistance {\n  display:flex;\n  flex-direction: row;\n  margin: 0 0 1.5rem 0;\n}\n#distLabel {\n  margin: 0 5% 0 0\n}\n\n#distSlider {\n  width: 60%;\n\n}\n\n#logo {\n  margin: 30% 0;\n}\n/* Thick red border */\nhr.logoLine {\n  border: 3px solid var(--pink);\n  width: 100%;\n  margin: 0;\n}\n\n#xrButton {\n  min-width: 200px;\n  max-width: 50%; \n  height: 50px;\n  background-color: var(--dark_grey);\n  margin: 0;\n}\n\n\n#footer {\n  background-color: var(--grey);\n  height: 10%;\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-evenly;\n}\n\n.footerItem {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  align-content: center;\n  justify-items: center;\n}\n\n.icon {\n  height:70%;\n  width:70%;\n\n}\n\nheader h1 {\n  margin-top: 0px;\n}\n\ncanvas {\n  position: absolute;\n  z-index: 0;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  margin: 0;\n  touch-action: none;\n}\n\n\n\n#fakeGeoContainer {\n  display: flex;\n  flex-direction: row;\n}\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -53906,7 +53906,7 @@ class ARHandler {
         // for hit testing with detected surfaces
         this.xrHitTestSource = null;
         // button to start XR experience
-        this.xrButton = document.getElementById('xr-button');
+        this.xrButton = document.getElementById('xrButton');
         this.orientLocalVis = document.getElementById('orientLocalVis');
         this.orientGlobalVis = document.getElementById('orientGlobalVis');
         this.diffOrientVis = document.getElementById('diffOrientVis');
@@ -53921,7 +53921,6 @@ class ARHandler {
                     navigator.xr.isSessionSupported('immersive-ar').then((supported) => {
                         if (supported) {
                             this.xrButton.innerHTML = 'Enter AR';
-                            this.xrButton.addEventListener('click', this.enterAr);
                             resolve();
                         }
                         else {
@@ -53951,10 +53950,11 @@ class ARHandler {
         };
         this.enterAr = () => {
             if (!this.xrSession) {
+                this.app.geoalignment.updateGeolocation();
                 navigator.xr.requestSession('immersive-ar', {
                     optionalFeatures: ['dom-overlay'],
                     requiredFeatures: ['local', 'hit-test'],
-                    domOverlay: { root: document.getElementById('overlay') }
+                    domOverlay: { root: document.getElementById('home') }
                 }).then(this.onSessionStarted, this.onRequestSessionError);
             }
             else {
@@ -54085,18 +54085,127 @@ __webpack_require__.r(__webpack_exports__);
 
 class Application {
     constructor() {
+        // Buttons Footer
+        this.homeButton = document.getElementById('homeButton');
+        this.mapButton = document.getElementById('mapButton');
+        this.walkButton = document.getElementById('walkButton');
+        this.settingsButton = document.getElementById('settingsButton');
+        this.activeButton = null;
+        // Main containers corresponding to the footer buttons
+        this.homeContainer = document.getElementById('homeContainer');
+        this.mapContainer = document.getElementById('mapContainer');
+        this.walkContainer = document.getElementById('walkContainer');
+        this.settingsContainer = document.getElementById('settingsContainer');
+        this.activeContainer = null;
+        // Home Container elements
+        this.xrButton = document.getElementById('xrButton');
+        // Walk Container elements
+        this.modal = document.getElementById('modal');
+        this.btnModel = document.getElementById('btnModel');
+        // Settings Container elements
+        this.btnFakeGeo = document.getElementById("fakeGeo");
+        this.btnDevMode = document.getElementById("devMode");
+        // Data
         this.pointData = [];
+        this.activePoint = null;
+        this.colors = {
+            grey: "#f5f6f4",
+            dark_grey: "#625f63",
+            pink: "#ef2d56",
+            dark_green: "#048a81",
+            brown: "#f19953"
+        };
+        this.webSceneId = "ba2e8db9e06d46acad6bd7f1a741d400";
         // TODO: Print error to GUI in case the promises don't get resolved
         this.init = () => {
+            this.activeContainer = this.homeContainer;
+            this.activeButton = this.homeButton;
+            this.activeButton.style.color = this.colors.pink;
             Promise.all([
                 this.readPointData(),
                 this.threeScene.loadLocalModels(),
                 this.ARHandler.checkXR()
             ]).then(() => {
-                document.getElementById('fakeGeoContainer').style.visibility = "visible";
-                document.getElementById('requestGeo').style.visibility = "visible";
+                this.geoalignment.permissionGeo((response) => {
+                    if (response) {
+                        this.geoalignment.permissionCompass((response) => {
+                            if (response) {
+                                this.initHome();
+                            }
+                        });
+                    }
+                });
             }).catch(() => {
                 console.log("Damn");
+            });
+            var that = this;
+            this.settingsButton.addEventListener('click', function () {
+                that.activeButton.style.color = "";
+                that.activeContainer.style.display = "none";
+                that.settingsContainer.style.display = "flex";
+                that.activeContainer = that.settingsContainer;
+                that.activeButton = that.settingsButton;
+                that.activeButton.style.color = that.colors.pink;
+            });
+            this.mapButton.addEventListener('click', function () {
+                that.activeButton.style.color = "";
+                that.activeContainer.style.display = "none";
+                that.mapContainer.style.display = "flex";
+                that.activeContainer = that.mapContainer;
+                that.activeButton = that.mapButton;
+                that.activeButton.style.color = that.colors.pink;
+            });
+            this.walkButton.addEventListener('click', function () {
+                that.activeButton.style.color = "";
+                that.activeContainer.style.display = "none";
+                that.walkContainer.style.display = "flex";
+                that.activeContainer = that.walkContainer;
+                that.activeButton = that.walkButton;
+                that.activeButton.style.color = that.colors.pink;
+                if (!that.ARHandler.xrSession) {
+                    that.ARHandler.enterAr();
+                }
+            });
+            this.homeButton.addEventListener('click', function () {
+                that.activeButton.style.color = "";
+                that.activeContainer.style.display = "none";
+                that.homeContainer.style.display = "flex";
+                that.activeContainer = that.homeContainer;
+                that.activeButton = that.homeButton;
+                that.activeButton.style.color = that.colors.pink;
+                if (that.ARHandler.xrSession) {
+                    that.ARHandler.enterAr();
+                }
+            });
+            this.btnFakeGeo.addEventListener('change', function () {
+                that.ARHandler.xrSession.end();
+            });
+            this.btnDevMode.addEventListener('change', function () {
+                if (that.btnDevMode.checked) {
+                    document.getElementById('addInfo').style.display = "block";
+                }
+                else {
+                    document.getElementById('addInfo').style.display = "none";
+                }
+            });
+            document.getElementById('close').addEventListener('click', function () {
+                that.modal.style.display = "none";
+                that.activePoint = null;
+                that.threeScene.removeModel();
+                document.getElementById('loaderBars').classList.remove("is-active");
+            });
+            this.btnModel.addEventListener('click', function () {
+                if (that.threeScene.landmarkModel == null) {
+                    document.getElementById('loaderBars').classList.add("is-active");
+                    that.threeScene.showModel(that.activePoint, function () {
+                        document.getElementById('loaderBars').classList.remove("is-active");
+                    });
+                    that.btnModel.innerHTML = "Hide 3D Model";
+                }
+                else {
+                    that.threeScene.removeModel();
+                    that.btnModel.innerHTML = "Show 3D Model";
+                }
             });
         };
         this.readPointData = () => {
@@ -54112,6 +54221,26 @@ class Application {
                     reject();
                 });
             });
+        };
+        this.initHome = () => {
+            this.connectionAGO.initMap(this.webSceneId);
+            document.getElementById('xrButton').style.visibility = "visible"; // Only show it after geolocation
+            var that = this;
+            this.xrButton.addEventListener('click', function () {
+                that.activeButton.style.color = "";
+                that.activeContainer.style.display = "none";
+                that.walkContainer.style.display = "flex";
+                that.activeContainer = that.walkContainer;
+                that.activeButton = that.walkButton;
+                that.activeButton.style.color = that.colors.pink;
+                that.ARHandler.enterAr();
+            });
+        };
+        this.showModal = (i) => {
+            this.activePoint = i;
+            document.getElementById('landmarkInfo').innerHTML = "<b>" + this.pointData[i].name + "</b><br> Distance to this landmark: " + this.pointData[i].distance.toFixed(0) + "m";
+            this.btnModel.innerHTML = "Show 3D Model";
+            this.modal.style.display = "block";
         };
         this.ARHandler = new _ARHandler_js__WEBPACK_IMPORTED_MODULE_0__.ARHandler(this);
         this.connectionAGO = new _ConnectionAGO_js__WEBPACK_IMPORTED_MODULE_1__.ConnectionAGO(this);
@@ -54166,7 +54295,6 @@ class ConnectionAGO {
         this.gltfLoader = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_0__.GLTFLoader();
         this.loadGLTF = (modelName) => {
             var url = "https://egregis.maps.arcgis.com/sharing/rest/content/items/362ddc1a09b84ef784f6bad9001480e0/resources/styles/gltf/resource/" + modelName + ".glb?f=json";
-            var that = this;
             return new Promise((resolve, reject) => {
                 this.gltfLoader.load(url, gltf => {
                     resolve(gltf.scene);
@@ -54207,6 +54335,28 @@ class ConnectionAGO {
                 };
             });
         };
+        this.initMap = (id) => {
+            // this will lazy load the ArcGIS API
+            // and then use Dojo's loader to require the classes
+            (0,esri_loader__WEBPACK_IMPORTED_MODULE_1__.loadModules)(['esri/views/SceneView', 'esri/WebScene'])
+                .then(([SceneView, WebScene]) => {
+                // load scene with portal ID
+                this.scene = new WebScene({
+                    portalItem: {
+                        id: id
+                    },
+                });
+                // create a view
+                this.view = new SceneView({
+                    container: "sceneView",
+                    map: this.scene,
+                });
+            })
+                .catch(err => {
+                // handle any errors
+                console.error(err);
+            });
+        };
         this.app = app;
     }
 }
@@ -54232,40 +54382,27 @@ class Geoalignment {
         this.orientGlobal = null; // Stores the current orientation of the phone in the global coordinate system (degree)
         this.position = [0, 0, 0];
         // to display debug information
-        this.btnFakeGeo = document.getElementById("fakeGeo"); // Button to ask for geolocation permission
-        this.btnPermissionGeo = document.getElementById("requestGeo"); // Button to ask for geolocation permission
-        this.btnPermissionCompass = document.getElementById("requestCompass"); // Button to ask for compass permission
+        this.btnFakeGeo = document.getElementById("fakeGeo");
         // Find all the DOM elements 
-        this.pointVis = document.getElementById('pointVis');
+        //pointVis: HTMLElement = document.getElementById('pointVis');
         this.geoLocVis = document.getElementById('geoLocVis');
         this.orientLocalVis = document.getElementById('orientLocalVis');
         this.orientGlobalVis = document.getElementById('orientGlobalVis');
         this.diffOrientVis = document.getElementById('diffOrientVis');
-        this.permissionGeo = () => {
+        this.permissionGeo = (callback) => {
             if (!navigator.geolocation) {
                 alert("Geolocation not supported.");
-                this.btnPermissionGeo.innerHTML = "No Permission!";
             }
             else {
-                this.btnPermissionGeo.innerHTML = "Loading...";
-                this.btnPermissionGeo.disabled = true;
-                this.btnFakeGeo.disabled = true;
-                this.btnPermissionGeo.innerHTML = "Permission granted";
-                this.btnPermissionCompass.style.visibility = "visible";
                 //(navigator as any).geolocation.getCurrentPosition(handlerGeo);
                 navigator.geolocation.watchPosition(this.handlerGeo, this.errorGeo);
+                callback(true);
             }
         };
         this.handlerGeo = (pos) => {
             // Reduce computational effort, only update when necessary
             if (this.helper.distance(this.position[1], this.position[0], pos.coords.latitude, pos.coords.longitude, "K") > 0.001) {
-                var element = document.getElementById("fakeGeo");
-                if (element.checked) {
-                    this.position = [8.542248, 47.371773, 0];
-                }
-                else {
-                    this.position = [pos.coords.longitude, pos.coords.latitude, pos.coords.accuracy];
-                }
+                this.position = [pos.coords.longitude, pos.coords.latitude, pos.coords.accuracy];
                 // Write geolocation to screen
                 this.geoLocVis.innerHTML = "Geolocation: " + this.position[0].toFixed(2).toString() + ", " + this.position[1].toFixed(2).toString() + ", acc: " + this.position[2].toFixed(1).toString() + "m";
                 this.updateGeolocation();
@@ -54276,10 +54413,18 @@ class Geoalignment {
         };
         this.updateGeolocation = () => {
             for (var i in this.app.pointData) {
-                this.app.pointData[i].updateDist(this.position);
+                this.app.pointData[i].updateDist(this.getPosition());
             }
         };
-        this.permissionCompass = () => {
+        this.getPosition = () => {
+            if (this.btnFakeGeo.checked) {
+                return [8.542248, 47.371773, 0];
+            }
+            else {
+                return this.position;
+            }
+        };
+        this.permissionCompass = (callback) => {
             // in iOS 13 we need to ask for permission to get the compass info, in android not
             if (this.helper.iOS()) {
                 // Not sure what this is for, maybe case of iOS but lower than verison 13?
@@ -54288,43 +54433,42 @@ class Geoalignment {
                     DeviceMotionEvent.requestPermission()
                         .then(response => {
                         if (response == "granted") {
-                            this.checkHandlerCompass();
+                            this.checkHandlerCompass(callback);
                         }
                     })
                         .catch(console.error);
                 }
                 else {
                     console.log("DeviceMotionEvent is not defined");
-                    this.checkHandlerCompass();
+                    this.checkHandlerCompass(callback);
                 }
             }
             // Case android, go directly to the handler
             else {
-                this.checkHandlerCompass();
+                this.checkHandlerCompass(callback);
             }
         };
-        this.checkHandlerCompass = () => {
-            this.btnPermissionCompass.innerHTML = "Permission granted";
-            this.btnPermissionCompass.disabled = true;
-            document.getElementById("header").style.display = "none";
-            document.getElementById("header").style.display = "none";
-            document.getElementById('xr-button').style.visibility = "visible"; // Only show it after geolocation
+        this.checkHandlerCompass = (callback) => {
             // Check if device can provide absolute orientation data
             if (window.DeviceOrientationAbsoluteEvent) {
                 console.log("Using window.DeviceOrientationAbsoluteEvent");
                 window.addEventListener("DeviceOrientationAbsoluteEvent", this.handlerCompass);
+                callback(true);
             } // If not, check if the device sends any orientation data
             else if ('ondeviceorientationabsolute' in window) {
                 // We can listen for the new deviceorientationabsolute event.
                 console.log("Using ondeviceorientationabsolute");
                 window.addEventListener("deviceorientationabsolute", this.handlerCompass, true);
+                callback(true);
             }
             else if (window.DeviceOrientationEvent) {
                 alert("Only relative orientation existing");
                 window.addEventListener("deviceorientation", this.handlerCompass);
+                callback(true);
             } // Send an alert if the device isn't compatible
             else {
                 alert("Sorry, try again on a compatible mobile device!");
+                callback(false);
             }
         };
         // Get event data
@@ -54346,13 +54490,13 @@ class Geoalignment {
             // Reduce computational effort, only update when necessary
             if (Math.abs(heading - this.orientGlobal) > 0.1) {
                 if (acc == null) {
-                    this.orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed([0]).toString();
+                    this.orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed(0).toString();
                 }
                 else if (acc == -1) {
                     this.orientGlobalVis.innerHTML = "Global orientation: Not calibrated - not usable";
                 }
                 else {
-                    this.orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed([0]).toString() + " +/- " + acc.toFixed(0).toString();
+                    this.orientGlobalVis.innerHTML = "Global orientation: " + heading.toFixed(0).toString() + " +/- " + acc.toFixed(0).toString();
                 }
                 // Update local compass info
                 this.orientGlobal = heading;
@@ -54366,14 +54510,16 @@ class Geoalignment {
                             diff = Math.abs(this.orientGlobal - this.app.pointData[i].bearing);
                         }
                     }
-                    if ((this.pointVis.innerHTML != "Loading...") && (this.pointVis.innerHTML.slice(0, 5) != "Model")) {
-                        if (diff < 10) {
-                            this.pointVis.innerHTML = this.app.pointData[clostestOrient].name + " (" + this.app.pointData[clostestOrient].distance.toFixed(0) + "m)";
-                        }
-                        else {
-                            this.pointVis.innerHTML = "";
-                        }
+                    /*
+                    if ((this.pointVis.innerHTML != "Loading...") && (this.pointVis.innerHTML.slice(0,5) != "Model")) {
+                      if (diff < 10) {
+                     
+                        this.pointVis.innerHTML = this.app.pointData[clostestOrient].name + " (" + this.app.pointData[clostestOrient].distance.toFixed(0) + "m)";
+                      } else {
+                        this.pointVis.innerHTML = "";
+                      }
                     }
+                    */
                 }
             }
         };
@@ -54381,8 +54527,6 @@ class Geoalignment {
         };
         this.app = app;
         this.helper = new _Helper_js__WEBPACK_IMPORTED_MODULE_0__.Helper();
-        this.btnPermissionGeo.addEventListener("click", this.permissionGeo);
-        this.btnPermissionCompass.addEventListener("click", this.permissionCompass);
     }
 }
 
@@ -54502,7 +54646,23 @@ class Helper {
         };
         //TODO: Implement this for typescript!
         this.iOS = () => {
-            return false;
+            var types = [
+                'iPad Simulator',
+                'iPhone Simulator',
+                'iPod Simulator',
+                'iPad',
+                'iPhone',
+                'iPod'
+            ];
+            var isIOS = false;
+            for (var i in types) {
+                if (types[i] == navigator.platform) {
+                    isIOS = true;
+                }
+            }
+            return isIOS
+                // iPad on iOS 13 detection
+                || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
         };
         this.app = app;
     }
@@ -54533,7 +54693,6 @@ class ThreeScene {
         this.spotlight = null;
         this.turning = false;
         this.first = true;
-        this.arrows = [];
         this.gltfLoader = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_1__.GLTFLoader();
         this.initScene = (session) => {
             this.canvas = document.createElement('canvas');
@@ -54599,7 +54758,7 @@ class ThreeScene {
             //scene.add(new THREE.ArrowHelper(raycaster.ray.direction, raycaster.ray.origin, 300, 0xff0000) );
             // calculate objects intersecting the picking ray
             const intersects = this.raycaster.intersectObjects(this.scene.children, true);
-            const pointVis = document.getElementById('pointVis');
+            //const pointVis = document.getElementById('pointVis');
             if (intersects.length > 0) {
                 //var successBool = window.navigator.vibrate(200);
                 try {
@@ -54609,39 +54768,48 @@ class ThreeScene {
                     var position = intersects[0].object.position;
                     for (var i in this.app.pointData) {
                         if (this.app.pointData[i].id == modelName) {
-                            var text = "Model " + this.app.pointData[i].name + " (" + this.app.pointData[i].distance.toFixed(0) + "m)";
+                            this.app.modal.style.display = "none";
+                            // TODO: Check if 3D model exists!
+                            this.removeModel();
+                            this.app.showModal(i);
+                            /*
+                            var text = "Model " + this.app.pointData[i].name + " (" + this.app.pointData[i].distance.toFixed(0) + "m)"
                             if (this.landmarkModel != null && this.landmarkModel.name == modelName + "_model") {
                                 var model3D = this.scene.getObjectByName(this.landmarkModel.name);
                                 this.scene.remove(model3D);
                                 this.scene.remove(this.spotlight);
-                                this.landmarkModel = null;
+                                this.landmarkModel= null;
                                 //objectSelected = null;
-                                pointVis.innerHTML = "";
+                                //pointVis.innerHTML = "";
                                 return;
                             }
                             else {
-                                pointVis.innerHTML = "Loading...";
+                                //pointVis.innerHTML = "Loading..."
                                 if (this.landmarkModel != null) {
                                     var model3D = this.scene.getObjectByName(this.landmarkModel.name);
                                     this.scene.remove(model3D);
                                     this.scene.remove(this.spotlight);
                                 }
+    
                                 this.app.connectionAGO.loadGLTF(modelName).then((model) => {
                                     this.landmarkModel = model;
-                                    var bearing = this.app.pointData.find((e) => { return e.id == modelName; }).bearing;
+                                    var bearing: number = this.app.pointData.find((e) => {return e.id==modelName}).bearing;
                                     var pos = this.helper.polarToCart2D(bearing, 3, 0);
                                     this.landmarkModel.position.set(pos.x, pos.y, pos.z);
                                     this.landmarkModel.name = modelName + "_model";
                                     this.scene.add(this.landmarkModel);
                                     //objectSelected = this.landmarkModel;
                                     //this.turning = true;
-                                    pointVis.innerHTML = text;
-                                    this.spotlight = new three__WEBPACK_IMPORTED_MODULE_0__.PointLight(0xffffff, 5, 100); // soft white light
+                                    //pointVis.innerHTML = text;
+    
+                                    this.spotlight = new THREE.PointLight(0xffffff, 5, 100); // soft white light
                                     pos = this.helper.polarToCart2D(bearing, 1, 10);
                                     this.spotlight.position.set(pos.x, pos.y, pos.z);
                                     this.scene.add(this.spotlight);
+                                    
                                 });
                             }
+                          */
                         }
                     }
                 }
@@ -54666,6 +54834,33 @@ class ThreeScene {
                 }
                 */
             }
+        };
+        this.removeModel = () => {
+            if (this.landmarkModel != null) {
+                var model3D = this.scene.getObjectByName(this.landmarkModel.name);
+                this.scene.remove(model3D);
+                this.scene.remove(this.spotlight);
+                this.landmarkModel = null;
+            }
+        };
+        this.showModel = (i, callback) => {
+            var modelName = this.app.pointData[i].id;
+            this.app.connectionAGO.loadGLTF(modelName).then((model) => {
+                this.landmarkModel = model;
+                var bearing = this.app.pointData.find((e) => { return e.id == modelName; }).bearing;
+                var pos = this.helper.polarToCart2D(bearing, 3, 0);
+                this.landmarkModel.position.set(pos.x, pos.y, pos.z);
+                this.landmarkModel.name = modelName + "_model";
+                this.scene.add(this.landmarkModel);
+                //objectSelected = this.landmarkModel;
+                //this.turning = true;
+                //pointVis.innerHTML = text;
+                this.spotlight = new three__WEBPACK_IMPORTED_MODULE_0__.PointLight(0xffffff, 5, 100); // soft white light
+                pos = this.helper.polarToCart2D(bearing, 1, 10);
+                this.spotlight.position.set(pos.x, pos.y, pos.z);
+                this.scene.add(this.spotlight);
+                callback();
+            });
         };
         this.onSelectStart = (event) => {
             //how to get the 2d touch position on screen area?
@@ -54732,18 +54927,6 @@ class ThreeScene {
                             console.error(error);
                             reject();
                         });
-                    }),
-                    new Promise((resolve, reject) => {
-                        this.gltfLoader.load('models/jumpboost_arrow.glb', (gltf) => {
-                            this.arrowJump = gltf.scene;
-                            this.arrowJump.scale.set(1.5, 1.5, 1.5);
-                            this.arrowJump.castShadow = true;
-                            this.arrowJump.receiveShadow = true;
-                            resolve();
-                        }, () => { }, (error) => {
-                            console.error(error);
-                            reject();
-                        });
                     })
                 ])
                     .then(() => { res(); })
@@ -54769,28 +54952,70 @@ class ThreeScene {
                 this.scene.add(this.arrowW);
                 // Add another arrow for each point
                 for (var i in this.app.pointData) {
-                    //this.arrows.push(this.arrowJump.clone());
                     let bearing = this.app.pointData[i].bearing;
                     let distance = this.app.pointData[i].distance;
-                    const geometry = new three__WEBPACK_IMPORTED_MODULE_0__.SphereGeometry(10, 24, 12);
-                    const sphere = new three__WEBPACK_IMPORTED_MODULE_0__.Mesh(geometry, new three__WEBPACK_IMPORTED_MODULE_0__.MeshPhongMaterial({ color: 0xeb4034 }));
-                    var pos = this.helper.polarToCart2D(bearing, Math.atan(distance / 300) * 200, 40);
-                    sphere.position.set(pos.x, pos.y, pos.z);
+                    const root = new three__WEBPACK_IMPORTED_MODULE_0__.Object3D();
+                    const geometrySphere = new three__WEBPACK_IMPORTED_MODULE_0__.SphereGeometry(10, 24, 12);
+                    const sphere = new three__WEBPACK_IMPORTED_MODULE_0__.Mesh(geometrySphere, new three__WEBPACK_IMPORTED_MODULE_0__.MeshPhongMaterial({ color: 0xeb4034 }));
+                    root.add(sphere);
+                    const geometryCone = new three__WEBPACK_IMPORTED_MODULE_0__.ConeGeometry(3, 6, 32);
+                    const cone = new three__WEBPACK_IMPORTED_MODULE_0__.Mesh(geometryCone, new three__WEBPACK_IMPORTED_MODULE_0__.MeshPhongMaterial({ color: 0xeb4034 }));
+                    var flip = new three__WEBPACK_IMPORTED_MODULE_0__.Matrix4().makeScale(1, -1, 1);
+                    cone.applyMatrix4(flip);
+                    root.add(cone);
+                    cone.position.y = -13;
+                    var pos = this.helper.polarToCart2D(bearing, Math.atan(distance / 600) * 100, 50);
+                    root.position.set(pos.x, pos.y, pos.z);
                     sphere.userData = { "name": this.app.pointData[i].id };
                     sphere.name = this.app.pointData[i].id;
-                    this.scene.add(sphere);
-                    /*
-                    this.arrows.push(this.arrowJump.clone());
-                    let bearing = this.app.pointData[i].bearing;
-                    this.arrows[i].userData = { "name": this.app.pointData[i].id };
-                    this.arrows[i].name = this.app.pointData[i].id;
-                    pos = this.helper.polarToCart2D(bearing, 3, 2);
-                    this.arrows[i].setRotationFromAxisAngle(new THREE.Vector3(0, 1, 0), this.helper.toRadians(360 - bearing))
-                    this.arrows[i].position.set(pos.x, pos.y, pos.z);
-                    this.scene.add(this.arrows[i]);
-                    */
+                    this.scene.add(root);
+                    const canvas = this.makeLabelCanvas(150, 32, this.app.pointData[i].name);
+                    const texture = new three__WEBPACK_IMPORTED_MODULE_0__.CanvasTexture(canvas);
+                    // because our canvas is likely not a power of 2
+                    // in both dimensions set the filtering appropriately.
+                    texture.minFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
+                    texture.wrapS = three__WEBPACK_IMPORTED_MODULE_0__.ClampToEdgeWrapping;
+                    texture.wrapT = three__WEBPACK_IMPORTED_MODULE_0__.ClampToEdgeWrapping;
+                    const labelMaterial = new three__WEBPACK_IMPORTED_MODULE_0__.SpriteMaterial({
+                        map: texture,
+                        transparent: true,
+                    });
+                    const labelBaseScale = 0.1;
+                    const label = new three__WEBPACK_IMPORTED_MODULE_0__.Sprite(labelMaterial);
+                    var pos = this.helper.polarToCart2D(bearing, Math.atan(distance / 600) * 100 - 11, 50);
+                    label.position.set(pos.x, pos.y, pos.z);
+                    label.scale.x = canvas.width * labelBaseScale;
+                    label.scale.y = canvas.height * labelBaseScale;
+                    this.scene.add(label);
                 }
             }
+        };
+        this.makeLabelCanvas = (baseWidth, size, name) => {
+            const borderSize = 2;
+            const ctx = document.createElement('canvas').getContext('2d');
+            const font = `${size}px bold sans-serif`;
+            ctx.font = font;
+            // measure how long the name will be
+            const textWidth = ctx.measureText(name).width;
+            const doubleBorderSize = borderSize * 2;
+            const width = baseWidth + doubleBorderSize;
+            const height = size + doubleBorderSize;
+            ctx.canvas.width = width;
+            ctx.canvas.height = height;
+            // need to set font again after resizing canvas
+            ctx.font = font;
+            ctx.textBaseline = 'middle';
+            ctx.textAlign = 'center';
+            ctx.fillStyle = "rgba(255, 255, 255, 0.0)";
+            ;
+            ctx.fillRect(0, 0, width, height);
+            // scale to fit but don't stretch
+            const scaleFactor = Math.min(1, baseWidth / textWidth);
+            ctx.translate(width / 2, height / 2);
+            ctx.scale(scaleFactor, 1);
+            ctx.fillStyle = 'black';
+            ctx.fillText(name, 0, 0);
+            return ctx.canvas;
         };
         this.loadModel = (url) => {
             return new Promise(resolve => {
