@@ -1,3 +1,22 @@
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+ 
+Developed at Esri R&D Zurich in the scope of an internship project. 
+
+Author: Daniel Laumer 
+Date: 20.July 2021
+Project: Civic AR, an augmented reality mobile application for urban environments
+Questions at: dlaumer@esri.com or daniel.laumer@gmail.com
+
+-->
+
 <!doctype html>
 <html>
   <head>
@@ -6,42 +25,49 @@
     <meta name='mobile-web-app-capable' content='yes'>
     <meta name='apple-mobile-web-app-capable' content='yes'>
 
-    <title>WebXR</title>
+    <title>Civic AR</title>
     <!--<link rel="stylesheet" href="https://js.arcgis.com/4.8/esri/css/main.css">  --> <!-- API for the map and map elements -->
      <!--<script src="https://js.arcgis.com/4.8/"></script>  --> <!-- API for the map and map elements -->
-    
-      
  
     <link rel="stylesheet" href="https://js.arcgis.com/4.19/esri/themes/light/main.css">
 
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/@esri/calcite-components/dist/calcite/calcite.css" />
     <script type="module" src="https://unpkg.com/@esri/calcite-components/dist/calcite/calcite.esm.js"></script>
-
     <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.2.5/css/calcite-web.min.css">
 
   </head>
   <body>
-    <div id="home">
-      <!-- Main Container-->
+    <!-- Splash Screen Container-->
+    <div id="splash" >
+      <div class="logo">
+        <span style="font-size:40pt">Civic AR</span>
+        <hr class="logoLine">
+      </div>
+    </div>
+    <div id="home" style = "display:none">
+      <!-- Home Container-->
       <div id = homeContainer class="container">
-        <div id="logo">
+        <div class="logo">
           <span style="font-size:40pt">Civic AR</span>
           <hr class="logoLine">
         </div>
 
-        <button id="xrButton" class="btn font-size--1" style="visibility:hidden" disabled>XR not found</button>
+        <button id="xrButton" class="btn font-size--1" disabled>XR not found</button>
       </div>
 
+      <!-- Map Container-->
       <div id=mapContainer class=container style="display:none">
         <div id = sceneView></div>
       </div>
 
+      <!-- Walk mode (AR) Container-->
       <div id = walkContainer class="container" style = "display:none">
 
         <div id="addInfo" style="display:none">
-          <div id="geoLocVis" class="cs_info">Geolocation</div>
-          <div id="orientLocalVis" class="cs_info">Local orientation</div>
+          <div id="geoLocVis" class="cs_info">Global Position</div>
           <div id="orientGlobalVis" class="cs_info">Global orientation</div>
+          <div id="localLocVis" class="cs_info">Local Position</div>
+          <div id="orientLocalVis" class="cs_info">Local orientation</div>
           <div id="diffOrientVis" class="cs_info">Difference</div>
         </div>
 
@@ -86,7 +112,7 @@
           </label>
       </div>
 
-
+    <!-- Footer Container (main buttons)-->
       <div id=footer>
         <div id = "homeButton" class="footerItem"><calcite-icon class="icon" icon="home" scale="l"></calcite-icon></div>
         <div id = "mapButton" class="footerItem"><calcite-icon class="icon" icon="featureLayer" scale="l"></calcite-icon></div>
