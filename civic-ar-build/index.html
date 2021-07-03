@@ -43,7 +43,7 @@ Questions at: dlaumer@esri.com or daniel.laumer@gmail.com
         <span style="font-size:40pt">Civic AR</span>
         <hr class="logoLine">
       </div>
-      <button id="startButton" class="btn font-size--1">Start App</button>
+      <button id="startButton" class="btn font-size--1 button">Start App</button>
       <div id=loaderBarsStart class="loader padding-leader-3 padding-trailer-3">
         <div class="loader-bars"></div>
       </div>
@@ -57,7 +57,7 @@ Questions at: dlaumer@esri.com or daniel.laumer@gmail.com
           <hr class="logoLine">
         </div>
 
-        <button id="xrButton" class="btn font-size--1" disabled>XR not found</button>
+        <button id="xrButton" class="btn font-size--1 button" disabled>XR not found</button>
       </div>
 
       <!-- Map Container-->
@@ -68,7 +68,16 @@ Questions at: dlaumer@esri.com or daniel.laumer@gmail.com
       <!-- Walk mode (AR) Container-->
       <div id = walkContainer class="container" >
 
-        <div id=modal style="display:none">
+        <div id=notification class="modal" style="display:none">
+          <span id=notificationInfo>
+            You are close to the landmark...
+          </span>
+          <button id="btnNotiYes" class="btn font-size--1 button">Yes</button>
+          <button id="btnNotiNo" class="btn font-size--1 button">No</button>
+
+        </div>
+
+        <div id=modal class="modal" style="display:none">
           <span id=close>&times;</span>
           <span id=landmarkInfo>
             <b>Info Landmark</b><br>This is some information
@@ -76,7 +85,7 @@ Questions at: dlaumer@esri.com or daniel.laumer@gmail.com
           <div id=loaderBars class="loader padding-leader-3 padding-trailer-3">
             <div class="loader-bars"></div>
           </div>
-          <button id="btnModel" class="btn font-size--1">Show 3D model
+          <button id="btnModel" class="btn font-size--1 button">Show 3D model
             
           </button>
         </div>
@@ -95,9 +104,10 @@ Questions at: dlaumer@esri.com or daniel.laumer@gmail.com
       <!-- Settings Container-->
       <div id = settingsContainer class="container" style = "display:none">
         <span style="font-size:40pt; margin: 10% 0">Settings</span>
-
+          
+        <label id = distLabel>Show balloons in distance: </label>
           <form class="calcite-slider" id="sliderDistance">
-            <label id = distLabel>Distance:  <spani id=distValue>1000m</span> </label>
+              <span id=distValue>1000m</span> 
               <input id=distSlider type="range" min="100" max="3000" value="1000" step="100" aria-valuemin="100" aria-valuemax="3000" aria-valuenow="1000">
           </form>
           <label class="toggle-switch modifier-class">

@@ -43,10 +43,10 @@ var orientLocal = null;     // Stores the current orientation of the phone in th
 var orientGlobal = null;    // Stores the current orientation of the phone in the global coordinate system (degree)
 
 // Load 3D models
-let arrowN = new Gltf2Node({ url: 'media/Arrow.gltf' });
-let arrowE = new Gltf2Node({ url: 'media/Arrow_blue.gltf' });
-let arrowS = new Gltf2Node({ url: 'media/Arrow_blue.gltf' });
-let arrowW = new Gltf2Node({ url: 'media/Arrow_blue.gltf' });
+let arrowN = new Gltf2Node({ url: 'media/Arrow.glb' });
+let arrowE = new Gltf2Node({ url: 'media/Arrow_blue.glb' });
+let arrowS = new Gltf2Node({ url: 'media/Arrow_blue.glb' });
+let arrowW = new Gltf2Node({ url: 'media/Arrow_blue.glb' });
 let firstTime = true;
 let firstTimeCompass = true;
 // Data for the different points, which are pointed to in the AR session 
@@ -230,8 +230,8 @@ function onXRFrame(t, frame) {
         vector.applyQuaternion(orient);             // Rotate this vector accodrding to the orientation of the device
         let vec = vector.projectOnPlane(new THREE.Vector3(0, 1, 0)) // Project the result onto the xz-plane
         let orientDeg = Math.atan2(vec.z, vec.x) * 180 / Math.PI;   // Calculate the angle of the 
-        let orientLocal_new = 90 - orientDeg;
-        //orientLocal_new = 360 - orientLocal_new;
+        //let orientLocal_new = 90 - orientDeg;
+        let orientLocal_new = orientDeg;
         if (orientLocal_new < 0) { orientLocal_new = orientLocal_new + 360 }
         let difference = orientGlobal - orientLocal_new;
     
