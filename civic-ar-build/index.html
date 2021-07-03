@@ -43,10 +43,15 @@ Questions at: dlaumer@esri.com or daniel.laumer@gmail.com
         <span style="font-size:40pt">Civic AR</span>
         <hr class="logoLine">
       </div>
+      <button id="startButton" class="btn font-size--1">Start App</button>
+      <div id=loaderBarsStart class="loader padding-leader-3 padding-trailer-3">
+        <div class="loader-bars"></div>
+      </div>
     </div>
+
     <div id="home" style = "display:none">
       <!-- Home Container-->
-      <div id = homeContainer class="container">
+      <div id = homeContainer class="container" style = "display:none">
         <div class="logo">
           <span style="font-size:40pt">Civic AR</span>
           <hr class="logoLine">
@@ -61,16 +66,7 @@ Questions at: dlaumer@esri.com or daniel.laumer@gmail.com
       </div>
 
       <!-- Walk mode (AR) Container-->
-      <div id = walkContainer class="container" style = "display:none">
-
-        <div id="addInfo" style="display:none">
-          <div id="geoLocVis" class="cs_info">Global Position</div>
-          <div id="orientGlobalVis" class="cs_info">Global orientation</div>
-          <div id="localLocVis" class="cs_info">Local Position</div>
-          <div id="orientLocalVis" class="cs_info">Local orientation</div>
-          <div id="diffOrientVis" class="cs_info">Difference</div>
-        </div>
-
+      <div id = walkContainer class="container" >
 
         <div id=modal style="display:none">
           <span id=close>&times;</span>
@@ -84,6 +80,16 @@ Questions at: dlaumer@esri.com or daniel.laumer@gmail.com
             
           </button>
         </div>
+
+        <div id="devModeInfo" style="display:none">
+          <div id="geoLocVis" class="cs_info">Global Position</div>
+          <div id="geoLocVisProj" class="cs_info">Global Position</div>
+          <div id="orientGlobalVis" class="cs_info">Global orientation</div>
+          <div id="localLocVis" class="cs_info">Local Position</div>
+          <div id="orientLocalVis" class="cs_info">Local orientation</div>
+          <div id="diffOrientVis" class="cs_info">Difference</div>
+          <div id="log" class="cs_info"></div>
+        </div>
       </div>
 
       <!-- Settings Container-->
@@ -91,9 +97,8 @@ Questions at: dlaumer@esri.com or daniel.laumer@gmail.com
         <span style="font-size:40pt; margin: 10% 0">Settings</span>
 
           <form class="calcite-slider" id="sliderDistance">
-            <label id = distLabel>Distance:  <spani id=distValue>50km</span> </label>
-
-              <input id=distSlider type="range" min="0" max="100" value="50" step="1" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <label id = distLabel>Distance:  <spani id=distValue>1000m</span> </label>
+              <input id=distSlider type="range" min="100" max="3000" value="1000" step="100" aria-valuemin="100" aria-valuemax="3000" aria-valuenow="1000">
           </form>
           <label class="toggle-switch modifier-class">
             <input type="checkbox" class="toggle-switch-input" id="notifications">

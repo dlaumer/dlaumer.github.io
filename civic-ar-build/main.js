@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n \nDeveloped at Esri R&D Zurich in the scope of an internship project. \n\nAuthor: Daniel Laumer \nDate: 20.July 2021\nProject: Civic AR, an augmented reality mobile application for urban environments\nQuestions at: dlaumer@esri.com or daniel.laumer@gmail.com\n*/\n\n:root {\n  --grey: #f5f6f4;\n  --dark_grey: #625f63;\n  --pink: #ef2d56;\n  --dark_green: #048a81;\n  --brown: #f19953;\n}\n\n\nbody {\n  background-color: var(--grey);\n  height: 100%;\n  width: 100%;\n}\n\n\n#home {\n  height:90vh;\n  width: 100%;\n}\n\n\n#splash {\n  height:100vh;\n  width: 100%;\n  display: flex;\n  flex-flow: column;\n  justify-content: center;\n  align-items: center;\n\n}\n\n.container {\n  height: 90%;\n  width: 100%;\n  display: flex;\n  flex-flow: column;\n}\n\n#addInfo {\n  background-color: var(--grey);\n  opacity: 0.5;\n}\n\n#homeContainer {\n  align-items: center;\n  justify-content: flex-start;\n\n}\n\n#walkContainer {\n  display: flex;\n  flex-flow: column;\n  justify-content: flex-end;\n\n}\n\n#modal {\n  background-color: var(--grey);\n  display: flex;\n  flex-flow: column;\n  margin: 5%;\n  padding: 3%;\n  position: relative;\n}\n\n#close {\n  position:absolute;\n  top:0;\n  right:0;\n  margin: 7px;\n  font-size: 20px;\n}\n\n\n#btnModel {\n  background-color: var(--dark_grey);\n  width:100%;\n  margin-top: 30px;\n}\n\n.loader {\n  padding: 0;\n  margin: 30px;\n}\n\n\n#sceneView {\n  height:100%;\n  widtH: 100%;\n}\n\n#settingsContainer {\n  padding: 0 30px;\n  box-sizing: border-box;\n  background-color: var(--grey);\n  justify-content: flex-start;\n\n\n}\n\n#sliderDistance {\n  display:flex;\n  flex-direction: row;\n  margin: 0 0 1.5rem 0;\n}\n#distLabel {\n  margin: 0 5% 0 0\n}\n\n#distSlider {\n  width: 60%;\n\n}\n\n.logo {\n  margin: 30% 0;\n}\n/* Thick red border */\nhr.logoLine {\n  border: 3px solid var(--pink);\n  width: 100%;\n  margin: 0;\n}\n\n#xrButton {\n  min-width: 200px;\n  max-width: 50%; \n  height: 50px;\n  background-color: var(--dark_grey);\n  margin: 0;\n}\n\n\n#footer {\n  background-color: var(--grey);\n  height: 10%;\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-evenly;\n}\n\n.footerItem {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  align-content: center;\n  justify-items: center;\n}\n\n.icon {\n  height:70%;\n  width:70%;\n\n}\n\nheader h1 {\n  margin-top: 0px;\n}\n\ncanvas {\n  position: absolute;\n  z-index: 0;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  margin: 0;\n  touch-action: none;\n}\n\n\n\n#fakeGeoContainer {\n  display: flex;\n  flex-direction: row;\n}\n\n", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;CAgBC;;AAED;EACE,eAAe;EACf,oBAAoB;EACpB,eAAe;EACf,qBAAqB;EACrB,gBAAgB;AAClB;;;AAGA;EACE,6BAA6B;EAC7B,YAAY;EACZ,WAAW;AACb;;;AAGA;EACE,WAAW;EACX,WAAW;AACb;;;AAGA;EACE,YAAY;EACZ,WAAW;EACX,aAAa;EACb,iBAAiB;EACjB,uBAAuB;EACvB,mBAAmB;;AAErB;;AAEA;EACE,WAAW;EACX,WAAW;EACX,aAAa;EACb,iBAAiB;AACnB;;AAEA;EACE,6BAA6B;EAC7B,YAAY;AACd;;AAEA;EACE,mBAAmB;EACnB,2BAA2B;;AAE7B;;AAEA;EACE,aAAa;EACb,iBAAiB;EACjB,yBAAyB;;AAE3B;;AAEA;EACE,6BAA6B;EAC7B,aAAa;EACb,iBAAiB;EACjB,UAAU;EACV,WAAW;EACX,kBAAkB;AACpB;;AAEA;EACE,iBAAiB;EACjB,KAAK;EACL,OAAO;EACP,WAAW;EACX,eAAe;AACjB;;;AAGA;EACE,kCAAkC;EAClC,UAAU;EACV,gBAAgB;AAClB;;AAEA;EACE,UAAU;EACV,YAAY;AACd;;;AAGA;EACE,WAAW;EACX,WAAW;AACb;;AAEA;EACE,eAAe;EACf,sBAAsB;EACtB,6BAA6B;EAC7B,2BAA2B;;;AAG7B;;AAEA;EACE,YAAY;EACZ,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE;AACF;;AAEA;EACE,UAAU;;AAEZ;;AAEA;EACE,aAAa;AACf;AACA,qBAAqB;AACrB;EACE,6BAA6B;EAC7B,WAAW;EACX,SAAS;AACX;;AAEA;EACE,gBAAgB;EAChB,cAAc;EACd,YAAY;EACZ,kCAAkC;EAClC,SAAS;AACX;;;AAGA;EACE,6BAA6B;EAC7B,WAAW;EACX,WAAW;EACX,aAAa;EACb,mBAAmB;EACnB,6BAA6B;AAC/B;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,qBAAqB;EACrB,qBAAqB;AACvB;;AAEA;EACE,UAAU;EACV,SAAS;;AAEX;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,kBAAkB;EAClB,UAAU;EACV,WAAW;EACX,YAAY;EACZ,OAAO;EACP,MAAM;EACN,QAAQ;EACR,SAAS;EACT,SAAS;EACT,kBAAkB;AACpB;;;;AAIA;EACE,aAAa;EACb,mBAAmB;AACrB","sourcesContent":["/*\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n \nDeveloped at Esri R&D Zurich in the scope of an internship project. \n\nAuthor: Daniel Laumer \nDate: 20.July 2021\nProject: Civic AR, an augmented reality mobile application for urban environments\nQuestions at: dlaumer@esri.com or daniel.laumer@gmail.com\n*/\n\n:root {\n  --grey: #f5f6f4;\n  --dark_grey: #625f63;\n  --pink: #ef2d56;\n  --dark_green: #048a81;\n  --brown: #f19953;\n}\n\n\nbody {\n  background-color: var(--grey);\n  height: 100%;\n  width: 100%;\n}\n\n\n#home {\n  height:90vh;\n  width: 100%;\n}\n\n\n#splash {\n  height:100vh;\n  width: 100%;\n  display: flex;\n  flex-flow: column;\n  justify-content: center;\n  align-items: center;\n\n}\n\n.container {\n  height: 90%;\n  width: 100%;\n  display: flex;\n  flex-flow: column;\n}\n\n#addInfo {\n  background-color: var(--grey);\n  opacity: 0.5;\n}\n\n#homeContainer {\n  align-items: center;\n  justify-content: flex-start;\n\n}\n\n#walkContainer {\n  display: flex;\n  flex-flow: column;\n  justify-content: flex-end;\n\n}\n\n#modal {\n  background-color: var(--grey);\n  display: flex;\n  flex-flow: column;\n  margin: 5%;\n  padding: 3%;\n  position: relative;\n}\n\n#close {\n  position:absolute;\n  top:0;\n  right:0;\n  margin: 7px;\n  font-size: 20px;\n}\n\n\n#btnModel {\n  background-color: var(--dark_grey);\n  width:100%;\n  margin-top: 30px;\n}\n\n.loader {\n  padding: 0;\n  margin: 30px;\n}\n\n\n#sceneView {\n  height:100%;\n  widtH: 100%;\n}\n\n#settingsContainer {\n  padding: 0 30px;\n  box-sizing: border-box;\n  background-color: var(--grey);\n  justify-content: flex-start;\n\n\n}\n\n#sliderDistance {\n  display:flex;\n  flex-direction: row;\n  margin: 0 0 1.5rem 0;\n}\n#distLabel {\n  margin: 0 5% 0 0\n}\n\n#distSlider {\n  width: 60%;\n\n}\n\n.logo {\n  margin: 30% 0;\n}\n/* Thick red border */\nhr.logoLine {\n  border: 3px solid var(--pink);\n  width: 100%;\n  margin: 0;\n}\n\n#xrButton {\n  min-width: 200px;\n  max-width: 50%; \n  height: 50px;\n  background-color: var(--dark_grey);\n  margin: 0;\n}\n\n\n#footer {\n  background-color: var(--grey);\n  height: 10%;\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-evenly;\n}\n\n.footerItem {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  align-content: center;\n  justify-items: center;\n}\n\n.icon {\n  height:70%;\n  width:70%;\n\n}\n\nheader h1 {\n  margin-top: 0px;\n}\n\ncanvas {\n  position: absolute;\n  z-index: 0;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  margin: 0;\n  touch-action: none;\n}\n\n\n\n#fakeGeoContainer {\n  display: flex;\n  flex-direction: row;\n}\n\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n \nDeveloped at Esri R&D Zurich in the scope of an internship project. \n\nAuthor: Daniel Laumer \nDate: 20.July 2021\nProject: Civic AR, an augmented reality mobile application for urban environments\nQuestions at: dlaumer@esri.com or daniel.laumer@gmail.com\n*/\n\n:root {\n  --grey: #f5f6f4;\n  --dark_grey: #625f63;\n  --pink: #ef2d56;\n  --dark_green: #048a81;\n  --brown: #f19953;\n}\n\n\nbody {\n  background-color: var(--grey);\n  height: 100%;\n  width: 100%;\n}\n\n\n#home {\n  height:100vh;\n  width: 100%;\n}\n\n\n#splash {\n  height:100%;\n  width: 100%;\n  display: flex;\n  flex-flow: column;\n  align-items: center;\n\n}\n\n.container {\n  height: 94%;\n  width: 100%;\n  display: flex;\n  flex-flow: column;\n}\n\n#devModeInfo {\n  background-color: var(--grey);\n  opacity: 0.5;\n}\n\n#log {\n  height: 50px;\n  overflow: scroll;\n  border: 1px solid \"black\";\n\n}\n\n#homeContainer {\n  align-items: center;\n  justify-content: flex-start;\n  background-color: var(--grey);\n}\n\n#walkContainer {\n  display: flex;\n  flex-flow: column;\n  justify-content: flex-end;\n\n}\n\n#modal {\n  background-color: var(--grey);\n  display: flex;\n  flex-flow: column;\n  margin: 5%;\n  padding: 3%;\n  position: relative;\n}\n\n#close {\n  position:absolute;\n  top:0;\n  right:0;\n  margin: 7px;\n  font-size: 20px;\n}\n\n\n#btnModel {\n  background-color: var(--dark_grey);\n  width:100%;\n  margin-top: 30px;\n}\n\n.loader {\n  padding: 0;\n  margin: 30px;\n}\n\n\n#sceneView {\n  height:100%;\n  widtH: 100%;\n}\n\n#settingsContainer {\n  padding: 0 30px;\n  box-sizing: border-box;\n  background-color: var(--grey);\n  justify-content: flex-start;\n\n\n}\n\n#sliderDistance {\n  display:flex;\n  flex-direction: row;\n  margin: 0 0 1.5rem 0;\n}\n#distLabel {\n  margin: 0 5% 0 0\n}\n\n#distSlider {\n  width: 50%;\n\n}\n\n.logo {\n  margin: 30% 0;\n}\n/* Thick red border */\nhr.logoLine {\n  border: 3px solid var(--pink);\n  width: 100%;\n  margin: 0;\n}\n\n#xrButton {\n  min-width: 200px;\n  max-width: 50%; \n  height: 50px;\n  background-color: var(--dark_grey);\n  margin: 0;\n}\n\n#startButton {\n  min-width: 200px;\n  max-width: 50%; \n  height: 50px;\n  background-color: var(--dark_grey);\n  margin: 0;\n}\n\n\n\n#footer {\n  background-color: var(--grey);\n  height: 6%;\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-evenly;\n}\n\n.footerItem {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  align-content: center;\n  justify-items: center;\n}\n\n.icon {\n  height:70%;\n  width:70%;\n\n}\n\nheader h1 {\n  margin-top: 0px;\n}\n\ncanvas {\n  position: absolute;\n  z-index: 0;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  margin: 0;\n  touch-action: none;\n}\n\n\n\n#fakeGeoContainer {\n  display: flex;\n  flex-direction: row;\n}\n\n", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;CAgBC;;AAED;EACE,eAAe;EACf,oBAAoB;EACpB,eAAe;EACf,qBAAqB;EACrB,gBAAgB;AAClB;;;AAGA;EACE,6BAA6B;EAC7B,YAAY;EACZ,WAAW;AACb;;;AAGA;EACE,YAAY;EACZ,WAAW;AACb;;;AAGA;EACE,WAAW;EACX,WAAW;EACX,aAAa;EACb,iBAAiB;EACjB,mBAAmB;;AAErB;;AAEA;EACE,WAAW;EACX,WAAW;EACX,aAAa;EACb,iBAAiB;AACnB;;AAEA;EACE,6BAA6B;EAC7B,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,gBAAgB;EAChB,yBAAyB;;AAE3B;;AAEA;EACE,mBAAmB;EACnB,2BAA2B;EAC3B,6BAA6B;AAC/B;;AAEA;EACE,aAAa;EACb,iBAAiB;EACjB,yBAAyB;;AAE3B;;AAEA;EACE,6BAA6B;EAC7B,aAAa;EACb,iBAAiB;EACjB,UAAU;EACV,WAAW;EACX,kBAAkB;AACpB;;AAEA;EACE,iBAAiB;EACjB,KAAK;EACL,OAAO;EACP,WAAW;EACX,eAAe;AACjB;;;AAGA;EACE,kCAAkC;EAClC,UAAU;EACV,gBAAgB;AAClB;;AAEA;EACE,UAAU;EACV,YAAY;AACd;;;AAGA;EACE,WAAW;EACX,WAAW;AACb;;AAEA;EACE,eAAe;EACf,sBAAsB;EACtB,6BAA6B;EAC7B,2BAA2B;;;AAG7B;;AAEA;EACE,YAAY;EACZ,mBAAmB;EACnB,oBAAoB;AACtB;AACA;EACE;AACF;;AAEA;EACE,UAAU;;AAEZ;;AAEA;EACE,aAAa;AACf;AACA,qBAAqB;AACrB;EACE,6BAA6B;EAC7B,WAAW;EACX,SAAS;AACX;;AAEA;EACE,gBAAgB;EAChB,cAAc;EACd,YAAY;EACZ,kCAAkC;EAClC,SAAS;AACX;;AAEA;EACE,gBAAgB;EAChB,cAAc;EACd,YAAY;EACZ,kCAAkC;EAClC,SAAS;AACX;;;;AAIA;EACE,6BAA6B;EAC7B,UAAU;EACV,WAAW;EACX,aAAa;EACb,mBAAmB;EACnB,6BAA6B;AAC/B;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,qBAAqB;EACrB,qBAAqB;AACvB;;AAEA;EACE,UAAU;EACV,SAAS;;AAEX;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,kBAAkB;EAClB,UAAU;EACV,WAAW;EACX,YAAY;EACZ,OAAO;EACP,MAAM;EACN,QAAQ;EACR,SAAS;EACT,SAAS;EACT,kBAAkB;AACpB;;;;AAIA;EACE,aAAa;EACb,mBAAmB;AACrB","sourcesContent":["/*\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n \nDeveloped at Esri R&D Zurich in the scope of an internship project. \n\nAuthor: Daniel Laumer \nDate: 20.July 2021\nProject: Civic AR, an augmented reality mobile application for urban environments\nQuestions at: dlaumer@esri.com or daniel.laumer@gmail.com\n*/\n\n:root {\n  --grey: #f5f6f4;\n  --dark_grey: #625f63;\n  --pink: #ef2d56;\n  --dark_green: #048a81;\n  --brown: #f19953;\n}\n\n\nbody {\n  background-color: var(--grey);\n  height: 100%;\n  width: 100%;\n}\n\n\n#home {\n  height:100vh;\n  width: 100%;\n}\n\n\n#splash {\n  height:100%;\n  width: 100%;\n  display: flex;\n  flex-flow: column;\n  align-items: center;\n\n}\n\n.container {\n  height: 94%;\n  width: 100%;\n  display: flex;\n  flex-flow: column;\n}\n\n#devModeInfo {\n  background-color: var(--grey);\n  opacity: 0.5;\n}\n\n#log {\n  height: 50px;\n  overflow: scroll;\n  border: 1px solid \"black\";\n\n}\n\n#homeContainer {\n  align-items: center;\n  justify-content: flex-start;\n  background-color: var(--grey);\n}\n\n#walkContainer {\n  display: flex;\n  flex-flow: column;\n  justify-content: flex-end;\n\n}\n\n#modal {\n  background-color: var(--grey);\n  display: flex;\n  flex-flow: column;\n  margin: 5%;\n  padding: 3%;\n  position: relative;\n}\n\n#close {\n  position:absolute;\n  top:0;\n  right:0;\n  margin: 7px;\n  font-size: 20px;\n}\n\n\n#btnModel {\n  background-color: var(--dark_grey);\n  width:100%;\n  margin-top: 30px;\n}\n\n.loader {\n  padding: 0;\n  margin: 30px;\n}\n\n\n#sceneView {\n  height:100%;\n  widtH: 100%;\n}\n\n#settingsContainer {\n  padding: 0 30px;\n  box-sizing: border-box;\n  background-color: var(--grey);\n  justify-content: flex-start;\n\n\n}\n\n#sliderDistance {\n  display:flex;\n  flex-direction: row;\n  margin: 0 0 1.5rem 0;\n}\n#distLabel {\n  margin: 0 5% 0 0\n}\n\n#distSlider {\n  width: 50%;\n\n}\n\n.logo {\n  margin: 30% 0;\n}\n/* Thick red border */\nhr.logoLine {\n  border: 3px solid var(--pink);\n  width: 100%;\n  margin: 0;\n}\n\n#xrButton {\n  min-width: 200px;\n  max-width: 50%; \n  height: 50px;\n  background-color: var(--dark_grey);\n  margin: 0;\n}\n\n#startButton {\n  min-width: 200px;\n  max-width: 50%; \n  height: 50px;\n  background-color: var(--dark_grey);\n  margin: 0;\n}\n\n\n\n#footer {\n  background-color: var(--grey);\n  height: 6%;\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-evenly;\n}\n\n.footerItem {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  align-content: center;\n  justify-items: center;\n}\n\n.icon {\n  height:70%;\n  width:70%;\n\n}\n\nheader h1 {\n  margin-top: 0px;\n}\n\ncanvas {\n  position: absolute;\n  z-index: 0;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  margin: 0;\n  touch-action: none;\n}\n\n\n\n#fakeGeoContainer {\n  display: flex;\n  flex-direction: row;\n}\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -63000,6 +63000,7 @@ class ARHandler {
     constructor(app) {
         this.orientLocal = null; // Stores the current orientation of the phone in the local coordinate system (degree). The global one is stored in Geoalignment.ts
         this.positionLocal = null;
+        this.previousPositionLocal = [0, 0, 0];
         // to control the xr session
         this.xrSession = null;
         // reference space used within an application https://developer.mozilla.org/en-US/docs/Web/API/XRSession/requestReferenceSpace
@@ -63026,7 +63027,7 @@ class ARHandler {
                     navigator.xr.addEventListener('devicechange', this.checkSupportedState);
                     navigator.xr.isSessionSupported('immersive-ar').then((supported) => {
                         if (supported) {
-                            this.xrButton.innerHTML = 'Enter AR';
+                            this.xrButton.innerHTML = 'Exit App';
                             resolve();
                         }
                         else {
@@ -63046,7 +63047,7 @@ class ARHandler {
         this.checkSupportedState = () => {
             navigator.xr.isSessionSupported('immersive-ar').then((supported) => {
                 if (supported) {
-                    this.xrButton.innerHTML = 'Enter AR';
+                    this.xrButton.innerHTML = 'Exit App';
                     this.xrButton.addEventListener('click', this.enterAr);
                 }
                 else {
@@ -63078,7 +63079,7 @@ class ARHandler {
             // initialize three.js scene
             this.app.threeScene.initScene(session);
             // Place all the objects
-            this.app.threeScene.placeObject();
+            this.app.threeScene.placeBalloons2();
             // Not sure if I need this next one, was giving problems with ts so I commented it and it still works
             //session.updateRenderState({ baseLayer: new XRWebGLLayer(session, gl) });
             // This reference space is only needed if we need to detect the flooe and stuff
@@ -63104,6 +63105,7 @@ class ARHandler {
             if (this.xrHitTestSource)
                 this.xrHitTestSource.cancel(); // Cancel hit testing
             this.xrHitTestSource = null;
+            this.helper.toggleFullScreen();
         };
         // Update function, is called for every frame!
         this.onXRFrame = (t, frame) => {
@@ -63141,6 +63143,12 @@ class ARHandler {
                 this.app.threeScene.camera.getWorldPosition(vecCameraPos);
                 this.localLocVis.innerHTML = "Local Position: " + vecCameraPos.x.toFixed(2).toString() + ", " + vecCameraPos.y.toFixed(2).toString() + ", " + vecCameraPos.z.toFixed(2).toString();
                 this.positionLocal = [vecCameraPos.x, vecCameraPos.y, vecCameraPos.z];
+                this.app.threeScene.updateCompassArrows(this.app.btnDevMode.checked);
+                if (this.helper.distanceCart(this.positionLocal, this.previousPositionLocal) > 1) {
+                    this.app.threeScene.placeBalloons2();
+                    this.previousPositionLocal = this.positionLocal;
+                    this.helper.log("Balloons updated!");
+                }
                 // Only use the next part for floor detecion
                 /*
                 if (xrHitTestSource) {
@@ -63242,10 +63250,12 @@ class Application {
         this.activeContainer = null;
         // Home Container elements
         this.xrButton = document.getElementById('xrButton');
+        this.startButton = document.getElementById('startButton');
         // Walk Container elements
         this.modal = document.getElementById('modal');
         this.btnModel = document.getElementById('btnModel');
         // Settings Container elements
+        this.distSlider = document.getElementById("distSlider");
         this.btnFakeGeo = document.getElementById("fakeGeo");
         this.btnDevMode = document.getElementById("devMode");
         // Data
@@ -63264,10 +63274,6 @@ class Application {
         this.webSceneId = "f1efb6c07eb44a3bbb1adc0b584017ed"; // Temporal, hardcoded webscene
         // TODO: Print error to GUI in case the promises don't get resolved
         this.init = () => {
-            // set the active container to the "home" one
-            this.activeContainer = this.homeContainer;
-            this.activeButton = this.homeButton;
-            this.activeButton.style.color = this.colors.pink;
             // Get read the data, check if AR is possible on this device and get all the permissions 
             Promise.all([
                 this.connectionAGO.init(this.webSceneId),
@@ -63316,10 +63322,6 @@ class Application {
                 that.activeContainer = that.walkContainer;
                 that.activeButton = that.walkButton;
                 that.activeButton.style.color = that.colors.pink;
-                // if the xr sessions is not yet active, start it
-                if (!that.ARHandler.xrSession) {
-                    that.ARHandler.enterAr();
-                }
             });
             // Footer button for the home screen
             this.homeButton.addEventListener('click', function () {
@@ -63329,33 +63331,36 @@ class Application {
                 that.activeContainer = that.homeContainer;
                 that.activeButton = that.homeButton;
                 that.activeButton.style.color = that.colors.pink;
-                // if the xr session is already active, end it (the enterAR function is like a toggle)
-                if (that.ARHandler.xrSession) {
-                    that.ARHandler.enterAr();
-                }
             });
             // The main button to start the AR experience
             this.xrButton.addEventListener('click', function () {
-                that.activeButton.style.color = "";
-                that.activeContainer.style.display = "none";
-                that.walkContainer.style.display = "flex";
-                that.activeContainer = that.walkContainer;
-                that.activeButton = that.walkButton;
-                that.activeButton.style.color = that.colors.pink;
+                that.splash.style.display = "flex"; // Remove splash screen
+                that.home.style.display = "none"; // Show home screen
                 that.ARHandler.enterAr();
             });
             // Settings buttons (switches)
             // Fake the geolocation in order to be in the middle of the city
+            this.distSlider.addEventListener('input', function (event) {
+                document.getElementById('distValue').innerHTML = event.target.value.toString() + "m";
+                if (parseInt(event.target.value) == 3000) {
+                    document.getElementById('distValue').innerHTML = "Inf";
+                }
+            });
+            this.distSlider.addEventListener('change', function (event) {
+                that.threeScene.placeBalloons2();
+            });
             this.btnFakeGeo.addEventListener('change', function () {
                 that.ARHandler.xrSession.end();
             });
             // Turn on Developer mode, just gives more information about the coordinate systems and nort/west/south/east
             this.btnDevMode.addEventListener('change', function () {
                 if (that.btnDevMode.checked) {
-                    document.getElementById('addInfo').style.display = "block";
+                    document.getElementById('devModeInfo').style.display = "block";
+                    that.threeScene.handleCompassArrows(true);
                 }
                 else {
-                    document.getElementById('addInfo').style.display = "none";
+                    document.getElementById('devModeInfo').style.display = "none";
+                    that.threeScene.handleCompassArrows(false);
                 }
             });
             // Close the modal
@@ -63397,8 +63402,19 @@ class Application {
             */
         // If everything is loaded correctly, start the app
         this.initHome = () => {
+            if (this.activeButton) {
+                this.activeButton.style.color = "";
+                this.activeContainer.style.display = "none";
+            }
+            this.walkContainer.style.display = "flex";
+            // set the active container to the "home" one
+            this.activeContainer = this.walkContainer;
+            this.activeButton = this.walkButton;
+            this.activeButton.style.color = this.colors.pink;
             this.splash.style.display = "none"; // Remove splash screen
             this.home.style.display = "block"; // Show home screen
+            document.getElementById('loaderBarsStart').classList.remove("is-active");
+            this.ARHandler.enterAr();
             this.connectionAGO.initMap(this.webSceneId); // Start the webscene in the background        
         };
         // When one baloon is clicked, show the modal on the bottom of the screen
@@ -63425,6 +63441,11 @@ class Application {
         this.threeScene = new _ThreeScene_js__WEBPACK_IMPORTED_MODULE_4__.ThreeScene(this);
         this.helper = new _Helper_js__WEBPACK_IMPORTED_MODULE_3__.Helper(this);
         this.geoalignment = new _Geoalignment_js__WEBPACK_IMPORTED_MODULE_2__.Geoalignment(this);
+        var that = this;
+        this.startButton.addEventListener('click', function () {
+            that.init();
+            document.getElementById('loaderBarsStart').classList.add("is-active");
+        });
     }
 }
 
@@ -63657,6 +63678,7 @@ class Geoalignment {
         this.btnFakeGeo = document.getElementById("fakeGeo"); // Switch in settings which changes the geo location to on in the middle of the city
         // HTML elements to write developer info to, only shown when in developer mode
         this.geoLocVis = document.getElementById('geoLocVis');
+        this.geoLocVisProj = document.getElementById('geoLocVisProj');
         this.orientLocalVis = document.getElementById('orientLocalVis');
         this.orientGlobalVis = document.getElementById('orientGlobalVis');
         this.diffOrientVis = document.getElementById('diffOrientVis');
@@ -63692,8 +63714,8 @@ class Geoalignment {
                 // Write geolocation to dev info
                 proj4__WEBPACK_IMPORTED_MODULE_1__.default.defs('CH1904P', "+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs ");
                 this.positionProj = (0,proj4__WEBPACK_IMPORTED_MODULE_1__.default)("CH1904P", [this.positionGlobal[0], this.positionGlobal[1]]);
-                //this.geoLocVis.innerHTML = "Global Position: " + this.positionGlobal[0].toFixed(2).toString() + ", " + this.positionGlobal[1].toFixed(2).toString() + ", acc: " + this.positionGlobal[2].toFixed(1).toString() + "m";
-                this.geoLocVis.innerHTML = "Global Position: " + this.positionProj[0].toFixed(2).toString() + ", " + this.positionProj[1].toFixed(2).toString() + ", acc: " + this.positionGlobal[2].toFixed(1).toString() + "m";
+                this.geoLocVis.innerHTML = "Global Position: " + this.positionGlobal[0].toFixed(6).toString() + ", " + this.positionGlobal[1].toFixed(6).toString() + ", acc: " + this.positionGlobal[2].toFixed(1).toString() + "m";
+                this.geoLocVisProj.innerHTML = "Global Position: " + this.positionProj[0].toFixed(2).toString() + ", " + this.positionProj[1].toFixed(2).toString() + ", acc: " + this.positionGlobal[2].toFixed(1).toString() + "m";
                 this.updateGeolocation(); // Recalculate the distances and bearings to the different landmarks
             }
         };
@@ -63706,7 +63728,7 @@ class Geoalignment {
             for (var i in this.app.pointData) {
                 this.app.pointData[i].updateDist(this.getPosition());
             }
-            console.log("Distances updated!");
+            this.helper.log("Distances updated!");
         };
         // Read the position from outside of the class, also lets you fake the location
         this.getPosition = () => {
@@ -63734,7 +63756,7 @@ class Geoalignment {
                         .catch(console.error);
                 }
                 else {
-                    console.log("DeviceMotionEvent is not defined");
+                    this.helper.log("DeviceMotionEvent is not defined");
                     this.checkHandlerCompass(callback); // Handle the info nevertheless (?)
                 }
             }
@@ -63750,14 +63772,14 @@ class Geoalignment {
             // we just try all of them
             // This is used in the case of iOS (I think) TODO!
             if (window.DeviceOrientationAbsoluteEvent) {
-                console.log("Using window.DeviceOrientationAbsoluteEvent");
+                this.helper.log("Using window.DeviceOrientationAbsoluteEvent");
                 window.addEventListener("DeviceOrientationAbsoluteEvent", this.handlerCompass);
                 callback(true);
             }
             // Since android changed to provide relative data with the "standard" listener, there is this non-standard one which also does not work for all devices
             else if ('ondeviceorientationabsolute' in window) {
                 // We can listen for the new deviceorientationabsolute event.
-                console.log("Using ondeviceorientationabsolute");
+                this.helper.log("Using ondeviceorientationabsolute");
                 window.addEventListener("deviceorientationabsolute", this.handlerCompass, true);
                 callback(true);
             }
@@ -63880,6 +63902,23 @@ Additionally there is a small helper class called PointData, which stores all th
 //import { ThreeScene } from "./ThreeScene";
 class Helper {
     constructor(app) {
+        this.logDiv = document.getElementById('log');
+        this.log = (message) => {
+            this.logDiv.innerHTML = message + "<br>" + this.logDiv.innerHTML;
+            console.log(message);
+        };
+        this.toggleFullScreen = () => {
+            var doc = window.document;
+            var docEl = doc.documentElement;
+            var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+            var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+            if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+                requestFullScreen.call(docEl);
+            }
+            else {
+                cancelFullScreen.call(doc);
+            }
+        };
         // Put an object in front of you, where you are looking right now
         this.placeInFront = (obj, camera, scene) => {
             // Place the object three meters away from you
@@ -63958,6 +63997,9 @@ class Helper {
                 dist = dist * 0.8684;
             } // case ?
             return dist * 1000;
+        };
+        this.distanceCart = (pos1, pos2) => {
+            return Math.sqrt(Math.pow(pos1[0] - pos2[0], 2) + Math.pow(pos1[1] - pos2[1], 2) + Math.pow(pos1[2] - pos2[2], 2));
         };
         // Converts from degrees to radians.
         this.toRadians = (degrees) => {
@@ -64108,6 +64150,8 @@ class ThreeScene {
         this.spotlight = null; // The landmark gets a special spotlight
         this.turning = false; // Is the landmark object turning right now?
         this.first = true; // Is it the first time turning the object
+        this.balloons = [];
+        this.labels = [];
         this.gltfLoader = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_1__.GLTFLoader(); // Function/Class to load gtlfs
         // Initialize the scene
         this.initScene = (session) => {
@@ -64225,20 +64269,19 @@ class ThreeScene {
             this.app.connectionAGO.loadGLTF(this.app.pointData[id].url3DModel).then((model) => {
                 this.landmarkModel = model;
                 var bearing = this.app.pointData[id].bearing;
-                // TODO: also add current position! 
                 var pos = this.helper.polarToCart2D(bearing - this.helper.toDegrees(this.scene.rotation.y), 3, 0);
                 this.landmarkModel.position.set(this.app.ARHandler.positionLocal[0] + pos.x, this.app.ARHandler.positionLocal[1] + pos.y, this.app.ARHandler.positionLocal[2] + pos.z);
                 this.helper.rotateAboutPoint(this.landmarkModel, [0, 0, 0], new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), -this.scene.rotation.y, false);
                 this.scene.add(this.landmarkModel);
                 // Also add spotlight 10m above the model
                 this.spotlight = new three__WEBPACK_IMPORTED_MODULE_0__.Object3D;
-                var sportlight1 = new three__WEBPACK_IMPORTED_MODULE_0__.SpotLight(0xffffff, 3, 100); // soft white light
+                var sportlight1 = new three__WEBPACK_IMPORTED_MODULE_0__.SpotLight(0xffffff, 3, 100, Math.PI / 4); // soft white light
                 pos = this.helper.polarToCart2D(bearing - this.helper.toDegrees(this.scene.rotation.y), 1, 1);
                 sportlight1.position.set(this.app.ARHandler.positionLocal[0] + pos.x, this.app.ARHandler.positionLocal[1] + pos.y, this.app.ARHandler.positionLocal[2] + pos.z);
                 this.helper.rotateAboutPoint(sportlight1, [0, 0, 0], new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), -this.scene.rotation.y, false);
                 this.spotlight.add(sportlight1);
                 sportlight1.target = this.landmarkModel;
-                var sportlight2 = new three__WEBPACK_IMPORTED_MODULE_0__.SpotLight(0xffffff, 3, 100); // soft white light
+                var sportlight2 = new three__WEBPACK_IMPORTED_MODULE_0__.SpotLight(0xffffff, 3, 100, Math.PI / 4); // soft white light
                 pos = this.helper.polarToCart2D(bearing - this.helper.toDegrees(this.scene.rotation.y), 5, 1);
                 sportlight2.position.set(this.app.ARHandler.positionLocal[0] + pos.x, this.app.ARHandler.positionLocal[1] + pos.y, this.app.ARHandler.positionLocal[2] + pos.z);
                 this.helper.rotateAboutPoint(sportlight2, [0, 0, 0], new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), -this.scene.rotation.y, false);
@@ -64335,48 +64378,67 @@ class ThreeScene {
             });
         };
         // Place the initial objects in the scene
-        this.placeObject = () => {
-            // In case we could load the model
-            if (this.arrowN) {
-                // Add the arrows for the compass direction, just used for dev info
-                var pos = this.helper.polarToCart2D(0, 3, 2); // Position north, 3m away and 2m up
-                this.arrowN.position.set(pos.x, pos.y, pos.z);
-                this.scene.add(this.arrowN);
-                pos = this.helper.polarToCart2D(90, 3, 2); // Position east, 3m away and 2m up
-                this.arrowE.setRotationFromAxisAngle(new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), this.helper.toRadians(270));
-                this.arrowE.position.set(pos.x, pos.y, pos.z);
-                this.scene.add(this.arrowE);
-                this.arrowS.setRotationFromAxisAngle(new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), this.helper.toRadians(180));
-                pos = this.helper.polarToCart2D(180, 3, 2); // Position south, 3m away and 2m up
-                this.arrowS.position.set(pos.x, pos.y, pos.z);
-                this.scene.add(this.arrowS);
-                this.arrowW.setRotationFromAxisAngle(new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), this.helper.toRadians(90));
-                pos = this.helper.polarToCart2D(270, 3, 2); // Position west, 3m away and 2m up
-                this.arrowW.position.set(pos.x, pos.y, pos.z);
-                this.scene.add(this.arrowW);
-                this.gltfLoader.load('models/balloon.glb', (gltf) => {
-                    var root = gltf.scene;
-                    // Add a baloon for each landmark
-                    for (var i in this.app.pointData) {
-                        let bearing = this.app.pointData[i].bearing;
-                        let distance = this.app.pointData[i].distance;
-                        /*
-                        // Build a baloon
-                        const root = new THREE.Object3D();
-                        // First a sphere
-                        const geometrySphere = new THREE.SphereGeometry(10, 24, 12);
-                        const sphere = new THREE.Mesh(geometrySphere, new THREE.MeshPhongMaterial({ color: this.app.colors[this.app.pointData[i].category] }));
-                        root.add(sphere);
-                        // Then a flipped cone
-                        const geometryCone = new THREE.ConeGeometry(3, 6, 32);
-                        const cone = new THREE.Mesh(geometryCone, new THREE.MeshPhongMaterial({ color: this.app.colors[this.app.pointData[i].category] }));
-                        var flip = new THREE.Matrix4().makeScale(1, -1, 1);
-                        cone.applyMatrix4(flip);
-                        root.add(cone);
-                        cone.position.y = -13;
-                        var pos = this.helper.polarToCart2D(bearing, 50 + Math.atan(distance / 1000) * 300, 50)
-                
-                        */
+        this.placeBalloons = () => {
+            this.gltfLoader.load('models/balloon.glb', (gltf) => {
+                var root = gltf.scene;
+                // Add a baloon for each landmark
+                for (var i in this.app.pointData) {
+                    let bearing = this.app.pointData[i].bearing;
+                    let distance = this.app.pointData[i].distance;
+                    var balloon = root.clone().children[0];
+                    balloon.castShadow = true;
+                    balloon.receiveShadow = true;
+                    balloon.scale.set(10, 10, 10);
+                    balloon.material = new three__WEBPACK_IMPORTED_MODULE_0__.MeshPhongMaterial({ color: this.app.colors[this.app.pointData[i].category], opacity: this.helper.mapTransparency(distance), transparent: true });
+                    var pos = this.helper.polarToCart2D(bearing, this.helper.mapDistance(distance), this.helper.mapHeight(distance));
+                    balloon.position.set(pos.x, pos.y, pos.z);
+                    ; // Add attribute info
+                    balloon.userData = { "name": i.toString() };
+                    balloon.name = i.toString();
+                    this.scene.add(balloon);
+                    // In case it is closer then 300m, also give label to the baloons
+                    if (distance < 300) {
+                        const canvas = this.makeLabelCanvas(100, 32, this.app.pointData[i].name);
+                        const texture = new three__WEBPACK_IMPORTED_MODULE_0__.CanvasTexture(canvas);
+                        // because our canvas is likely not a power of 2
+                        // in both dimensions set the filtering appropriately.
+                        texture.minFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
+                        texture.wrapS = three__WEBPACK_IMPORTED_MODULE_0__.ClampToEdgeWrapping;
+                        texture.wrapT = three__WEBPACK_IMPORTED_MODULE_0__.ClampToEdgeWrapping;
+                        const labelMaterial = new three__WEBPACK_IMPORTED_MODULE_0__.SpriteMaterial({
+                            map: texture,
+                            transparent: true,
+                        });
+                        const labelBaseScale = 0.1;
+                        const label = new three__WEBPACK_IMPORTED_MODULE_0__.Sprite(labelMaterial);
+                        var pos = this.helper.polarToCart2D(bearing, this.helper.mapDistance(distance), this.helper.mapHeight(distance) - 25);
+                        label.position.set(pos.x, pos.y, pos.z);
+                        label.scale.x = canvas.width * labelBaseScale;
+                        label.scale.y = canvas.height * labelBaseScale;
+                        label.name = i.toString() + "_label";
+                        this.scene.add(label);
+                    }
+                }
+            });
+        };
+        this.placeBalloons2 = () => {
+            for (var j in this.balloons) {
+                this.scene.remove(this.balloons[j]);
+            }
+            for (var j in this.labels) {
+                this.scene.remove(this.labels[j]);
+            }
+            var maxDistance = parseInt(document.getElementById('distSlider').value);
+            if (maxDistance == 3000) {
+                maxDistance = Number.POSITIVE_INFINITY;
+            }
+            this.gltfLoader.load('models/balloon.glb', (gltf) => {
+                var root = gltf.scene;
+                // Add a baloon for each landmark
+                for (var i in this.app.pointData) {
+                    let bearing = this.app.pointData[i].bearing;
+                    let distance = this.app.pointData[i].distance;
+                    if (distance < maxDistance) {
                         var balloon = root.clone().children[0];
                         balloon.castShadow = true;
                         balloon.receiveShadow = true;
@@ -64385,11 +64447,12 @@ class ThreeScene {
                         var pos = this.helper.polarToCart2D(bearing, this.helper.mapDistance(distance), this.helper.mapHeight(distance));
                         balloon.position.set(pos.x, pos.y, pos.z);
                         ; // Add attribute info
-                        balloon.userData = { "name": this.app.pointData[i].id };
-                        balloon.name = this.app.pointData[i].id.toString();
+                        balloon.userData = { "name": i.toString() };
+                        balloon.name = i.toString();
                         this.scene.add(balloon);
+                        this.balloons.push(balloon);
                         // In case it is closer then 300m, also give label to the baloons
-                        if (this.app.pointData[i].distance < 300) {
+                        if (distance < 300) {
                             const canvas = this.makeLabelCanvas(100, 32, this.app.pointData[i].name);
                             const texture = new three__WEBPACK_IMPORTED_MODULE_0__.CanvasTexture(canvas);
                             // because our canvas is likely not a power of 2
@@ -64403,14 +64466,95 @@ class ThreeScene {
                             });
                             const labelBaseScale = 0.1;
                             const label = new three__WEBPACK_IMPORTED_MODULE_0__.Sprite(labelMaterial);
-                            var pos = this.helper.polarToCart2D(bearing, this.helper.mapDistance(distance) - 12, this.helper.mapHeight(distance));
+                            var pos = this.helper.polarToCart2D(bearing, this.helper.mapDistance(distance), this.helper.mapHeight(distance) - 25);
                             label.position.set(pos.x, pos.y, pos.z);
                             label.scale.x = canvas.width * labelBaseScale;
                             label.scale.y = canvas.height * labelBaseScale;
+                            label.name = i.toString() + "_label";
                             this.scene.add(label);
+                            this.labels.push(label);
                         }
                     }
-                });
+                }
+            });
+        };
+        this.updateBalloons = () => {
+            for (var i in this.app.pointData) {
+                let bearing = this.app.pointData[i].bearing;
+                let distance = this.app.pointData[i].distance;
+                var balloon = this.scene.getObjectByName(i.toString());
+                var pos = this.helper.polarToCart2D(bearing - this.helper.toDegrees(this.scene.rotation.y), this.helper.mapDistance(distance), this.helper.mapHeight(distance));
+                balloon.position.set(this.app.ARHandler.positionLocal[0] + pos.x, this.app.ARHandler.positionLocal[1] + pos.y, this.app.ARHandler.positionLocal[2] + pos.z);
+                this.helper.rotateAboutPoint(balloon, [0, 0, 0], new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), -this.scene.rotation.y, false);
+                var label = this.scene.getObjectByName(i.toString() + "_label");
+                if (label != null) {
+                    if (distance > 300) {
+                        this.scene.remove(label);
+                    }
+                    else {
+                        var pos = this.helper.polarToCart2D(bearing - this.helper.toDegrees(this.scene.rotation.y), this.helper.mapDistance(distance) - 12, this.helper.mapHeight(distance));
+                        label.position.set(this.app.ARHandler.positionLocal[0] + pos.x, this.app.ARHandler.positionLocal[1] + pos.y, this.app.ARHandler.positionLocal[2] + pos.z);
+                        this.helper.rotateAboutPoint(label, [0, 0, 0], new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), -this.scene.rotation.y, false);
+                    }
+                }
+                else {
+                    if (distance < 300) {
+                        const canvas = this.makeLabelCanvas(100, 32, this.app.pointData[i].name);
+                        const texture = new three__WEBPACK_IMPORTED_MODULE_0__.CanvasTexture(canvas);
+                        // because our canvas is likely not a power of 2
+                        // in both dimensions set the filtering appropriately.
+                        texture.minFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
+                        texture.wrapS = three__WEBPACK_IMPORTED_MODULE_0__.ClampToEdgeWrapping;
+                        texture.wrapT = three__WEBPACK_IMPORTED_MODULE_0__.ClampToEdgeWrapping;
+                        const labelMaterial = new three__WEBPACK_IMPORTED_MODULE_0__.SpriteMaterial({
+                            map: texture,
+                            transparent: true,
+                        });
+                        const labelBaseScale = 0.1;
+                        const label = new three__WEBPACK_IMPORTED_MODULE_0__.Sprite(labelMaterial);
+                        var pos = this.helper.polarToCart2D(bearing - this.helper.toDegrees(this.scene.rotation.y), this.helper.mapDistance(distance), this.helper.mapHeight(distance) - 25);
+                        label.position.set(this.app.ARHandler.positionLocal[0] + pos.x, this.app.ARHandler.positionLocal[1] + pos.y, this.app.ARHandler.positionLocal[2] + pos.z);
+                        this.helper.rotateAboutPoint(label, [0, 0, 0], new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), -this.scene.rotation.y, false);
+                        label.scale.x = canvas.width * labelBaseScale;
+                        label.scale.y = canvas.height * labelBaseScale;
+                        balloon.name = i.toString() + "_label";
+                        this.scene.add(label);
+                    }
+                }
+            }
+        };
+        this.handleCompassArrows = (devMode) => {
+            if (devMode) {
+                this.scene.add(this.arrowN);
+                this.scene.add(this.arrowE);
+                this.scene.add(this.arrowS);
+                this.scene.add(this.arrowW);
+            }
+            else {
+                this.scene.remove(this.arrowN);
+                this.scene.remove(this.arrowE);
+                this.scene.remove(this.arrowS);
+                this.scene.remove(this.arrowW);
+            }
+        };
+        this.updateCompassArrows = (devMode) => {
+            if (devMode) {
+                var pos = this.helper.polarToCart2D(0 - this.helper.toDegrees(this.scene.rotation.y), 3, 2); // Position north, 3m away and 2m up
+                this.arrowN.position.set(this.app.ARHandler.positionLocal[0] + pos.x, this.app.ARHandler.positionLocal[1] + pos.y, this.app.ARHandler.positionLocal[2] + pos.z);
+                this.helper.rotateAboutPoint(this.arrowN, [0, 0, 0], new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), -this.scene.rotation.y, false);
+                this.arrowN.setRotationFromAxisAngle(new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), this.helper.toRadians(0));
+                var pos = this.helper.polarToCart2D(90 - this.helper.toDegrees(this.scene.rotation.y), 3, 2); // Position east, 3m away and 2m up
+                this.arrowE.position.set(this.app.ARHandler.positionLocal[0] + pos.x, this.app.ARHandler.positionLocal[1] + pos.y, this.app.ARHandler.positionLocal[2] + pos.z);
+                this.helper.rotateAboutPoint(this.arrowE, [0, 0, 0], new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), -this.scene.rotation.y, false);
+                this.arrowE.setRotationFromAxisAngle(new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), this.helper.toRadians(260));
+                var pos = this.helper.polarToCart2D(180 - this.helper.toDegrees(this.scene.rotation.y), 3, 2); // Position south, 3m away and 2m up
+                this.arrowS.position.set(this.app.ARHandler.positionLocal[0] + pos.x, this.app.ARHandler.positionLocal[1] + pos.y, this.app.ARHandler.positionLocal[2] + pos.z);
+                this.helper.rotateAboutPoint(this.arrowS, [0, 0, 0], new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), -this.scene.rotation.y, false);
+                this.arrowS.setRotationFromAxisAngle(new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), this.helper.toRadians(180));
+                var pos = this.helper.polarToCart2D(270 - this.helper.toDegrees(this.scene.rotation.y), 3, 2); // Position west, 3m away and 2m up
+                this.arrowW.position.set(this.app.ARHandler.positionLocal[0] + pos.x, this.app.ARHandler.positionLocal[1] + pos.y, this.app.ARHandler.positionLocal[2] + pos.z);
+                this.helper.rotateAboutPoint(this.arrowW, [0, 0, 0], new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), -this.scene.rotation.y, false);
+                this.arrowW.setRotationFromAxisAngle(new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), this.helper.toRadians(90));
             }
         };
         // Copied from the internet
@@ -64421,6 +64565,7 @@ class ThreeScene {
             ctx.font = font;
             // measure how long the name will be
             const textWidth = ctx.measureText(name).width;
+            baseWidth = ctx.measureText(name).width;
             const doubleBorderSize = borderSize * 2;
             const width = baseWidth + doubleBorderSize;
             const height = size + doubleBorderSize;
@@ -64430,14 +64575,14 @@ class ThreeScene {
             ctx.font = font;
             ctx.textBaseline = 'middle';
             ctx.textAlign = 'center';
-            ctx.fillStyle = "rgba(255, 255, 255, 0.0)";
+            ctx.fillStyle = "rgba(98, 95, 99, 0.7)";
             ;
             ctx.fillRect(0, 0, width, height);
             // scale to fit but don't stretch
             const scaleFactor = Math.min(1, baseWidth / textWidth);
             ctx.translate(width / 2, height / 2);
             ctx.scale(scaleFactor, 1);
-            ctx.fillStyle = 'black';
+            ctx.fillStyle = 'white';
             ctx.fillText(name, 0, 0);
             return ctx.canvas;
         };
@@ -64885,8 +65030,7 @@ birds eyes view
 */
  // TODO: Loading of css is too slow
 
-var app = new _js_Application_js__WEBPACK_IMPORTED_MODULE_1__.Application();
-app.init();
+new _js_Application_js__WEBPACK_IMPORTED_MODULE_1__.Application();
 
 })();
 
