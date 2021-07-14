@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n \nDeveloped at Esri R&D Zurich in the scope of an internship project. \n\nAuthor: Daniel Laumer \nDate: 20.July 2021\nProject: Civic AR, an augmented reality mobile application for urban environments\nQuestions at: dlaumer@esri.com or daniel.laumer@gmail.com\n*/\n\n:root {\n  --grey: #f5f6f4;\n  --dark_grey: #625f63;\n  --dark_grey2:#8e8c8f;\n  --pink: #ef2d56;\n  --dark_green: #048a81;\n  --brown: #f19953;\n}\n\n\nbody {\n  background-color: var(--grey);\n  height: 100%;\n  width: 100%;\n}\n\n\n#home {\n  height:100vh;\n  width: 100%;\n}\n\n\n#splash {\n  height:100%;\n  width: 100%;\n  display: flex;\n  flex-flow: column;\n  align-items: center;\n\n}\n\n#landscapeError {\n  background-color: var(--grey);\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  z-index:99;\n}\n\n.container {\n  height: 94%;\n  width: 100%;\n  display: flex;\n  flex-flow: column;\n}\n\n#devModeInfo {\n  background-color: var(--grey);\n  opacity: 0.5;\n}\n\n#log {\n  height: 50px;\n  overflow: scroll;\n  border: 1px solid \"black\";\n\n}\n\n#homeContainer {\n  align-items: center;\n  justify-content: flex-start;\n  background-color: var(--grey);\n}\n\n#walkContainer {\n  display: flex;\n  flex-flow: column;\n  justify-content: flex-end;\n\n}\n\n.modal {\n  background-color: var(--grey);\n  display: flex;\n  flex-flow: column;\n  margin: 5%;\n  padding: 3%;\n  position: relative;\n}\n\n#close {\n  position:absolute;\n  top:0;\n  right:0;\n  margin: -5px 5px; \n  font-size: 25pt;\n}\n\n.button {\n  background-color: var(--dark_grey);\n}\n.button:hover {\n  background-color: var(--dark_grey2);\n}\n\n#btnModel {\n  width:100%;\n  margin-top: 30px;\n}\n\n.loader {\n  padding: 20px;\n  margin: 30px;\n  z-index: 100;\n}\n\n.loader-bars:before, .loader-bars:after, .loader-bars {\n  background: var(--pink);\n}\n\n@keyframes load{\n  0%, 80%, 100% {\n    opacity: .75;\n    box-shadow: 0 0 var(--pink);\n    height: 2rem;\n}\n\n40% {\n    opacity: 1;\n    box-shadow: 0 -0.5rem var(--pink);\n    height: 2.5rem;\n}\n}\n\n@-webkit-keyframes load{\n  0%, 80%, 100% {\n    opacity: .75;\n    box-shadow: 0 0 var(--pink);\n    height: 2rem;\n}\n\n40% {\n    opacity: 1;\n    box-shadow: 0 -0.5rem var(--pink);\n    height: 2.5rem;\n}\n  }\n\n#sceneView {\n  height:100%;\n  widtH: 100%;\n}\n\n#settingsContainer {\n  padding: 0 30px;\n  box-sizing: border-box;\n  background-color: var(--grey);\n  justify-content: flex-start;\n\n\n}\n\n#sliderDistance {\n  display:flex;\n  flex-direction: row;\n  margin: 0.5rem 0 1.5rem 0;\n}\n#distLabel {\n  width: 100%;\n  margin: 0 5% 0 0\n}\n\n#distSlider {\n  width: 80%;\n  margin: 0 0 0 1rem;\n}\n\n.logo {\n  margin: 30% 0;\n}\n/* Thick red border */\nhr.logoLine {\n  border: 3px solid var(--pink);\n  width: 100%;\n  margin: 0;\n}\n\n#xrButton {\n  min-width: 200px;\n  max-width: 50%; \n  height: 50px;\n  margin: 0;\n}\n\n#startButton {\n  min-width: 200px;\n  max-width: 50%; \n  height: 50px;\n  margin: 0;\n}\n\n#btnNotiYes #btnNotiNo {\n  width: 40%;\n}\n\n\n\n#footer {\n  background-color: var(--grey);\n  height: 6%;\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-evenly;\n}\n\n.footerItem {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  align-content: center;\n  justify-items: center;\n}\n\n.icon {\n  height:70%;\n  width:70%;\n\n}\n\nheader h1 {\n  margin-top: 0px;\n}\n\ncanvas {\n  position: absolute;\n  z-index: 0;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  margin: 0;\n  touch-action: none;\n}\n\n\n\n#fakeGeoContainer {\n  display: flex;\n  flex-direction: row;\n}\n\n", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;CAgBC;;AAED;EACE,eAAe;EACf,oBAAoB;EACpB,oBAAoB;EACpB,eAAe;EACf,qBAAqB;EACrB,gBAAgB;AAClB;;;AAGA;EACE,6BAA6B;EAC7B,YAAY;EACZ,WAAW;AACb;;;AAGA;EACE,YAAY;EACZ,WAAW;AACb;;;AAGA;EACE,WAAW;EACX,WAAW;EACX,aAAa;EACb,iBAAiB;EACjB,mBAAmB;;AAErB;;AAEA;EACE,6BAA6B;EAC7B,eAAe;EACf,MAAM;EACN,OAAO;EACP,WAAW;EACX,YAAY;EACZ,UAAU;AACZ;;AAEA;EACE,WAAW;EACX,WAAW;EACX,aAAa;EACb,iBAAiB;AACnB;;AAEA;EACE,6BAA6B;EAC7B,YAAY;AACd;;AAEA;EACE,YAAY;EACZ,gBAAgB;EAChB,yBAAyB;;AAE3B;;AAEA;EACE,mBAAmB;EACnB,2BAA2B;EAC3B,6BAA6B;AAC/B;;AAEA;EACE,aAAa;EACb,iBAAiB;EACjB,yBAAyB;;AAE3B;;AAEA;EACE,6BAA6B;EAC7B,aAAa;EACb,iBAAiB;EACjB,UAAU;EACV,WAAW;EACX,kBAAkB;AACpB;;AAEA;EACE,iBAAiB;EACjB,KAAK;EACL,OAAO;EACP,gBAAgB;EAChB,eAAe;AACjB;;AAEA;EACE,kCAAkC;AACpC;AACA;EACE,mCAAmC;AACrC;;AAEA;EACE,UAAU;EACV,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,YAAY;EACZ,YAAY;AACd;;AAEA;EACE,uBAAuB;AACzB;;AAEA;EACE;IACE,YAAY;IACZ,2BAA2B;IAC3B,YAAY;AAChB;;AAEA;IACI,UAAU;IACV,iCAAiC;IACjC,cAAc;AAClB;AACA;;AAEA;EACE;IACE,YAAY;IACZ,2BAA2B;IAC3B,YAAY;AAChB;;AAEA;IACI,UAAU;IACV,iCAAiC;IACjC,cAAc;AAClB;EACE;;AAEF;EACE,WAAW;EACX,WAAW;AACb;;AAEA;EACE,eAAe;EACf,sBAAsB;EACtB,6BAA6B;EAC7B,2BAA2B;;;AAG7B;;AAEA;EACE,YAAY;EACZ,mBAAmB;EACnB,yBAAyB;AAC3B;AACA;EACE,WAAW;EACX;AACF;;AAEA;EACE,UAAU;EACV,kBAAkB;AACpB;;AAEA;EACE,aAAa;AACf;AACA,qBAAqB;AACrB;EACE,6BAA6B;EAC7B,WAAW;EACX,SAAS;AACX;;AAEA;EACE,gBAAgB;EAChB,cAAc;EACd,YAAY;EACZ,SAAS;AACX;;AAEA;EACE,gBAAgB;EAChB,cAAc;EACd,YAAY;EACZ,SAAS;AACX;;AAEA;EACE,UAAU;AACZ;;;;AAIA;EACE,6BAA6B;EAC7B,UAAU;EACV,WAAW;EACX,aAAa;EACb,mBAAmB;EACnB,6BAA6B;AAC/B;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,qBAAqB;EACrB,qBAAqB;AACvB;;AAEA;EACE,UAAU;EACV,SAAS;;AAEX;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,kBAAkB;EAClB,UAAU;EACV,WAAW;EACX,YAAY;EACZ,OAAO;EACP,MAAM;EACN,QAAQ;EACR,SAAS;EACT,SAAS;EACT,kBAAkB;AACpB;;;;AAIA;EACE,aAAa;EACb,mBAAmB;AACrB","sourcesContent":["/*\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n \nDeveloped at Esri R&D Zurich in the scope of an internship project. \n\nAuthor: Daniel Laumer \nDate: 20.July 2021\nProject: Civic AR, an augmented reality mobile application for urban environments\nQuestions at: dlaumer@esri.com or daniel.laumer@gmail.com\n*/\n\n:root {\n  --grey: #f5f6f4;\n  --dark_grey: #625f63;\n  --dark_grey2:#8e8c8f;\n  --pink: #ef2d56;\n  --dark_green: #048a81;\n  --brown: #f19953;\n}\n\n\nbody {\n  background-color: var(--grey);\n  height: 100%;\n  width: 100%;\n}\n\n\n#home {\n  height:100vh;\n  width: 100%;\n}\n\n\n#splash {\n  height:100%;\n  width: 100%;\n  display: flex;\n  flex-flow: column;\n  align-items: center;\n\n}\n\n#landscapeError {\n  background-color: var(--grey);\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  z-index:99;\n}\n\n.container {\n  height: 94%;\n  width: 100%;\n  display: flex;\n  flex-flow: column;\n}\n\n#devModeInfo {\n  background-color: var(--grey);\n  opacity: 0.5;\n}\n\n#log {\n  height: 50px;\n  overflow: scroll;\n  border: 1px solid \"black\";\n\n}\n\n#homeContainer {\n  align-items: center;\n  justify-content: flex-start;\n  background-color: var(--grey);\n}\n\n#walkContainer {\n  display: flex;\n  flex-flow: column;\n  justify-content: flex-end;\n\n}\n\n.modal {\n  background-color: var(--grey);\n  display: flex;\n  flex-flow: column;\n  margin: 5%;\n  padding: 3%;\n  position: relative;\n}\n\n#close {\n  position:absolute;\n  top:0;\n  right:0;\n  margin: -5px 5px; \n  font-size: 25pt;\n}\n\n.button {\n  background-color: var(--dark_grey);\n}\n.button:hover {\n  background-color: var(--dark_grey2);\n}\n\n#btnModel {\n  width:100%;\n  margin-top: 30px;\n}\n\n.loader {\n  padding: 20px;\n  margin: 30px;\n  z-index: 100;\n}\n\n.loader-bars:before, .loader-bars:after, .loader-bars {\n  background: var(--pink);\n}\n\n@keyframes load{\n  0%, 80%, 100% {\n    opacity: .75;\n    box-shadow: 0 0 var(--pink);\n    height: 2rem;\n}\n\n40% {\n    opacity: 1;\n    box-shadow: 0 -0.5rem var(--pink);\n    height: 2.5rem;\n}\n}\n\n@-webkit-keyframes load{\n  0%, 80%, 100% {\n    opacity: .75;\n    box-shadow: 0 0 var(--pink);\n    height: 2rem;\n}\n\n40% {\n    opacity: 1;\n    box-shadow: 0 -0.5rem var(--pink);\n    height: 2.5rem;\n}\n  }\n\n#sceneView {\n  height:100%;\n  widtH: 100%;\n}\n\n#settingsContainer {\n  padding: 0 30px;\n  box-sizing: border-box;\n  background-color: var(--grey);\n  justify-content: flex-start;\n\n\n}\n\n#sliderDistance {\n  display:flex;\n  flex-direction: row;\n  margin: 0.5rem 0 1.5rem 0;\n}\n#distLabel {\n  width: 100%;\n  margin: 0 5% 0 0\n}\n\n#distSlider {\n  width: 80%;\n  margin: 0 0 0 1rem;\n}\n\n.logo {\n  margin: 30% 0;\n}\n/* Thick red border */\nhr.logoLine {\n  border: 3px solid var(--pink);\n  width: 100%;\n  margin: 0;\n}\n\n#xrButton {\n  min-width: 200px;\n  max-width: 50%; \n  height: 50px;\n  margin: 0;\n}\n\n#startButton {\n  min-width: 200px;\n  max-width: 50%; \n  height: 50px;\n  margin: 0;\n}\n\n#btnNotiYes #btnNotiNo {\n  width: 40%;\n}\n\n\n\n#footer {\n  background-color: var(--grey);\n  height: 6%;\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-evenly;\n}\n\n.footerItem {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  align-content: center;\n  justify-items: center;\n}\n\n.icon {\n  height:70%;\n  width:70%;\n\n}\n\nheader h1 {\n  margin-top: 0px;\n}\n\ncanvas {\n  position: absolute;\n  z-index: 0;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  margin: 0;\n  touch-action: none;\n}\n\n\n\n#fakeGeoContainer {\n  display: flex;\n  flex-direction: row;\n}\n\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n \nDeveloped at Esri R&D Zurich in the scope of an internship project. \n\nAuthor: Daniel Laumer \nDate: 20.July 2021\nProject: Civic AR, an augmented reality mobile application for urban environments\nQuestions at: dlaumer@esri.com or daniel.laumer@gmail.com\n*/\n\n:root {\n  --grey: #f5f6f4;\n  --dark_grey: #625f63;\n  --dark_grey2:#8e8c8f;\n  --pink: #ef2d56;\n  --dark_green: #048a81;\n  --brown: #f19953;\n  --church: #048a81;\n  --monument: #f19953;\n  --architecture: #2D93AD;\n  --other: #ef2d56;\n}\n\nlabel {\n  position: relative;\n  display: block;\n  margin: 0 0 1rem 0;\n  display: flex;\n}\n\nbody {\n  background-color: var(--grey);\n  height: 100%;\n  width: 100%;\n}\n\n\n#home {\n  height:100vh;\n  width: 100%;\n}\n\n\n#splash {\n  height:100%;\n  width: 100%;\n  display: flex;\n  flex-flow: column;\n  align-items: center;\n\n}\n\n#landscapeError {\n  background-color: var(--grey);\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  z-index:99;\n}\n\n.container {\n  height: 94%;\n  width: 100%;\n  display: flex;\n  flex-flow: column;\n}\n\n#devModeInfo {\n  background-color: var(--grey);\n  opacity: 0.5;\n}\n\n#log {\n  height: 50px;\n  overflow: scroll;\n  border: 1px solid \"black\";\n\n}\n\n#homeContainer {\n  align-items: center;\n  justify-content: flex-start;\n  background-color: var(--grey);\n}\n\n#walkContainer {\n  display: flex;\n  flex-flow: column;\n  justify-content: flex-end;\n\n}\n\n.modal {\n  background-color: var(--grey);\n  display: flex;\n  flex-flow: column;\n  margin: 5%;\n  padding: 3%;\n  position: relative;\n}\n\n#close {\n  position:absolute;\n  top:0;\n  right:0;\n  margin: -5px 5px; \n  font-size: 25pt;\n}\n\n.button {\n  background-color: var(--dark_grey);\n  border: none;\n}\n.button:hover {\n  background-color: var(--dark_grey2);\n}\n\n#btnModel {\n  width:100%;\n  margin-top: 30px;\n}\n\n.loader {\n  padding: 20px;\n  margin: 30px;\n  z-index: 100;\n}\n\n.loader-bars:before, .loader-bars:after, .loader-bars {\n  background: var(--pink);\n}\n\n@keyframes load{\n  0%, 80%, 100% {\n    opacity: .75;\n    box-shadow: 0 0 var(--pink);\n    height: 2rem;\n}\n\n40% {\n    opacity: 1;\n    box-shadow: 0 -0.5rem var(--pink);\n    height: 2.5rem;\n}\n}\n\n@-webkit-keyframes load{\n  0%, 80%, 100% {\n    opacity: .75;\n    box-shadow: 0 0 var(--pink);\n    height: 2rem;\n}\n\n40% {\n    opacity: 1;\n    box-shadow: 0 -0.5rem var(--pink);\n    height: 2.5rem;\n}\n  }\n\n#sceneView {\n  height:100%;\n  widtH: 100%;\n}\n\n#settingsContainer {\n  padding: 0 30px;\n  box-sizing: border-box;\n  background-color: var(--grey);\n  justify-content: flex-start;\n\n\n}\n\n#sliderDistance {\n  display:flex;\n  flex-direction: row;\n  margin: 0.5rem 0 0.5rem 0;\n}\n\n.infoLabel {\n  width: 100%;\n  margin: 10% 5% 5% 0;\n  font-weight: bold;\n}\n\n#distSlider {\n  width: 80%;\n  margin: 0 0 0 1rem;\n}\n\n.colorbox {\n  width: 3vh;\n  height: 3vh;\n  margin: 0 10px;\n}\n\n#colorChurch {\n  background-color: var(--church);\n}\n#colorMonument {\n  background-color: var(--monument);\n}\n#colorOther {\n  background-color: var(--other);\n}\n\n.logo {\n  margin: 30% 0;\n}\n/* Thick red border */\nhr.logoLine {\n  border: 3px solid var(--pink);\n  width: 100%;\n  margin: 0;\n}\n\n#xrButton {\n  min-width: 200px;\n  max-width: 50%; \n  height: 50px;\n  margin: 0;\n}\n\n#startButton {\n  min-width: 200px;\n  max-width: 50%; \n  height: 50px;\n  margin: 0;\n}\n\n#btnNotiYes #btnNotiNo {\n  width: 40%;\n}\n\n\n\n#footer {\n  background-color: var(--grey);\n  height: 6%;\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-evenly;\n}\n\n.footerItem {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  align-content: center;\n  justify-items: center;\n}\n\n.icon {\n  height:70%;\n  width:70%;\n\n}\n\nheader h1 {\n  margin-top: 0px;\n}\n\ncanvas {\n  position: absolute;\n  z-index: 0;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  margin: 0;\n  touch-action: none;\n}\n\n\n\n#fakeGeoContainer {\n  display: flex;\n  flex-direction: row;\n}\n\n", "",{"version":3,"sources":["webpack://./src/css/main.css"],"names":[],"mappings":"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","sourcesContent":["/*\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n \nDeveloped at Esri R&D Zurich in the scope of an internship project. \n\nAuthor: Daniel Laumer \nDate: 20.July 2021\nProject: Civic AR, an augmented reality mobile application for urban environments\nQuestions at: dlaumer@esri.com or daniel.laumer@gmail.com\n*/\n\n:root {\n  --grey: #f5f6f4;\n  --dark_grey: #625f63;\n  --dark_grey2:#8e8c8f;\n  --pink: #ef2d56;\n  --dark_green: #048a81;\n  --brown: #f19953;\n  --church: #048a81;\n  --monument: #f19953;\n  --architecture: #2D93AD;\n  --other: #ef2d56;\n}\n\nlabel {\n  position: relative;\n  display: block;\n  margin: 0 0 1rem 0;\n  display: flex;\n}\n\nbody {\n  background-color: var(--grey);\n  height: 100%;\n  width: 100%;\n}\n\n\n#home {\n  height:100vh;\n  width: 100%;\n}\n\n\n#splash {\n  height:100%;\n  width: 100%;\n  display: flex;\n  flex-flow: column;\n  align-items: center;\n\n}\n\n#landscapeError {\n  background-color: var(--grey);\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  z-index:99;\n}\n\n.container {\n  height: 94%;\n  width: 100%;\n  display: flex;\n  flex-flow: column;\n}\n\n#devModeInfo {\n  background-color: var(--grey);\n  opacity: 0.5;\n}\n\n#log {\n  height: 50px;\n  overflow: scroll;\n  border: 1px solid \"black\";\n\n}\n\n#homeContainer {\n  align-items: center;\n  justify-content: flex-start;\n  background-color: var(--grey);\n}\n\n#walkContainer {\n  display: flex;\n  flex-flow: column;\n  justify-content: flex-end;\n\n}\n\n.modal {\n  background-color: var(--grey);\n  display: flex;\n  flex-flow: column;\n  margin: 5%;\n  padding: 3%;\n  position: relative;\n}\n\n#close {\n  position:absolute;\n  top:0;\n  right:0;\n  margin: -5px 5px; \n  font-size: 25pt;\n}\n\n.button {\n  background-color: var(--dark_grey);\n  border: none;\n}\n.button:hover {\n  background-color: var(--dark_grey2);\n}\n\n#btnModel {\n  width:100%;\n  margin-top: 30px;\n}\n\n.loader {\n  padding: 20px;\n  margin: 30px;\n  z-index: 100;\n}\n\n.loader-bars:before, .loader-bars:after, .loader-bars {\n  background: var(--pink);\n}\n\n@keyframes load{\n  0%, 80%, 100% {\n    opacity: .75;\n    box-shadow: 0 0 var(--pink);\n    height: 2rem;\n}\n\n40% {\n    opacity: 1;\n    box-shadow: 0 -0.5rem var(--pink);\n    height: 2.5rem;\n}\n}\n\n@-webkit-keyframes load{\n  0%, 80%, 100% {\n    opacity: .75;\n    box-shadow: 0 0 var(--pink);\n    height: 2rem;\n}\n\n40% {\n    opacity: 1;\n    box-shadow: 0 -0.5rem var(--pink);\n    height: 2.5rem;\n}\n  }\n\n#sceneView {\n  height:100%;\n  widtH: 100%;\n}\n\n#settingsContainer {\n  padding: 0 30px;\n  box-sizing: border-box;\n  background-color: var(--grey);\n  justify-content: flex-start;\n\n\n}\n\n#sliderDistance {\n  display:flex;\n  flex-direction: row;\n  margin: 0.5rem 0 0.5rem 0;\n}\n\n.infoLabel {\n  width: 100%;\n  margin: 10% 5% 5% 0;\n  font-weight: bold;\n}\n\n#distSlider {\n  width: 80%;\n  margin: 0 0 0 1rem;\n}\n\n.colorbox {\n  width: 3vh;\n  height: 3vh;\n  margin: 0 10px;\n}\n\n#colorChurch {\n  background-color: var(--church);\n}\n#colorMonument {\n  background-color: var(--monument);\n}\n#colorOther {\n  background-color: var(--other);\n}\n\n.logo {\n  margin: 30% 0;\n}\n/* Thick red border */\nhr.logoLine {\n  border: 3px solid var(--pink);\n  width: 100%;\n  margin: 0;\n}\n\n#xrButton {\n  min-width: 200px;\n  max-width: 50%; \n  height: 50px;\n  margin: 0;\n}\n\n#startButton {\n  min-width: 200px;\n  max-width: 50%; \n  height: 50px;\n  margin: 0;\n}\n\n#btnNotiYes #btnNotiNo {\n  width: 40%;\n}\n\n\n\n#footer {\n  background-color: var(--grey);\n  height: 6%;\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-evenly;\n}\n\n.footerItem {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  align-content: center;\n  justify-items: center;\n}\n\n.icon {\n  height:70%;\n  width:70%;\n\n}\n\nheader h1 {\n  margin-top: 0px;\n}\n\ncanvas {\n  position: absolute;\n  z-index: 0;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  margin: 0;\n  touch-action: none;\n}\n\n\n\n#fakeGeoContainer {\n  display: flex;\n  flex-direction: row;\n}\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -63046,7 +63046,6 @@ class ARHandler {
             navigator.xr.isSessionSupported('immersive-ar').then((supported) => {
                 if (supported) {
                     this.xrButton.innerHTML = 'Exit App';
-                    this.xrButton.addEventListener('click', this.enterAr);
                 }
                 else {
                     this.xrButton.innerHTML = 'AR not found';
@@ -63077,7 +63076,7 @@ class ARHandler {
             // initialize three.js scene
             this.app.threeScene.initScene(session);
             // Place all the objects
-            this.app.threeScene.placeBalloons2();
+            this.app.threeScene.placeBalloons();
             // Not sure if I need this next one, was giving problems with ts so I commented it and it still works
             //session.updateRenderState({ baseLayer: new XRWebGLLayer(session, gl) });
             // This reference space is only needed if we need to detect the flooe and stuff
@@ -63140,8 +63139,8 @@ class ARHandler {
                 this.localLocVis.innerHTML = "Local Position: " + vecCameraPos.x.toFixed(2).toString() + ", " + vecCameraPos.y.toFixed(2).toString() + ", " + vecCameraPos.z.toFixed(2).toString();
                 this.positionLocal = [vecCameraPos.x, vecCameraPos.y, vecCameraPos.z];
                 this.app.threeScene.updateCompassArrows(this.app.btnDevMode.checked);
-                if (this.helper.distanceCart(this.positionLocal, this.previousPositionLocal) > 1) {
-                    this.app.threeScene.placeBalloons2();
+                if (this.helper.distanceCart(this.positionLocal, this.previousPositionLocal) > 10) {
+                    this.app.threeScene.placeBalloons();
                     this.previousPositionLocal = this.positionLocal;
                     this.helper.log("Balloons updated!");
                 }
@@ -63321,8 +63320,8 @@ class Application {
             });
             // The main button to start the AR experience
             this.xrButton.addEventListener('click', function () {
-                that.splash.style.display = "flex"; // Remove splash screen
-                that.home.style.display = "none"; // Show home screen
+                that.splash.style.display = "flex";
+                that.home.style.display = "none";
                 that.ARHandler.enterAr();
             });
             // Settings buttons (switches)
@@ -63334,10 +63333,11 @@ class Application {
                 }
             });
             this.distSlider.addEventListener('change', function (event) {
-                that.threeScene.placeBalloons2();
+                that.threeScene.placeBalloons();
             });
             this.btnFakeGeo.addEventListener('change', function () {
-                that.ARHandler.xrSession.end();
+                that.geoalignment.updateGeolocation();
+                that.threeScene.placeBalloons();
             });
             // Turn on Developer mode, just gives more information about the coordinate systems and nort/west/south/east
             this.btnDevMode.addEventListener('change', function () {
@@ -63368,6 +63368,12 @@ class Application {
                     that.btnModel.innerHTML = "Show 3D Model";
                 }
             });
+            document.querySelectorAll('.checkbox').forEach(item => {
+                item.addEventListener('change', () => {
+                    this.threeScene.placeBalloons();
+                });
+            });
+            document.addEventListener("visibilitychange", that.ARHandler.enterAr);
         };
         /*
             // Reads the landmark info from AGO
@@ -63402,7 +63408,7 @@ class Application {
             this.home.style.display = "block"; // Show home screen
             document.getElementById('loaderBarsStart').classList.remove("is-active");
             this.ARHandler.enterAr();
-            this.connectionAGO.initMap(this.webSceneId); // Start the webscene in the background        
+            this.connectionAGO.initMap(this.webSceneId); // Start the webscene in the background   
         };
         // When one baloon is clicked, show the modal on the bottom of the screen
         this.showModal = (id) => {
@@ -63567,8 +63573,9 @@ class ConnectionAGO {
         this.initMap = (id) => {
             // this will lazy load the ArcGIS API
             // and then use Dojo's loader to require the classes
-            (0,esri_loader__WEBPACK_IMPORTED_MODULE_1__.loadModules)(["esri/widgets/Track", 'esri/views/SceneView', 'esri/WebScene'])
-                .then(([Track, SceneView, WebScene]) => {
+            (0,esri_loader__WEBPACK_IMPORTED_MODULE_1__.loadModules)(["esri/widgets/Track", 'esri/views/SceneView', 'esri/WebScene', "esri/widgets/Legend",
+            ])
+                .then(([Track, SceneView, WebScene, Legend]) => {
                 // load scene with portal ID
                 this.scene = new WebScene({
                     portalItem: {
@@ -63580,25 +63587,36 @@ class ConnectionAGO {
                     container: "sceneView",
                     map: this.scene,
                 });
-                var track = new Track({
+                this.track = new Track({
                     view: this.view,
-                    goToLocationEnabled: false // disable this since we want to control what happens after our location is acquired
+                    goToLocationEnabled: true // disable this since we want to control what happens after our location is acquired
                 });
-                this.view.ui.add(track, "top-right");
-                // This part loads the attributes of all features from the layer inside of the scene
-                var that = this; // so solve the issue that "this" is the view inside the function
-                this.view.when(function () {
-                    console.log(that.scene);
-                    var layer = that.scene.layers.find(function (layer) { return layer.title === "landmarksZurich"; });
-                    var query = layer.createQuery();
-                    layer
-                        .queryFeatures(query)
-                        .then((results) => {
-                        if (results.features.length > 0) {
-                            console.log(results.features);
-                        }
-                    });
+                this.view.ui.add(this.track, "top-right");
+                let legend = new Legend({
+                    view: this.view,
                 });
+                this.view.ui.add(legend, "bottom-right");
+                /*
+                               
+                                
+                                // This part loads the attributes of all features from the layer inside of the scene
+                                var that = this; // so solve the issue that "this" is the view inside the function
+                                this.view.when(function () {
+                                    console.log(that.scene);
+                                    var layer = (<any>that.scene.layers).find(function (layer) { return layer.title === "landmarksZurich"; })
+                
+                                    var query = layer.createQuery();
+                
+                                    layer
+                                        .queryFeatures(query)
+                                        .then((results) => {
+                                            if (results.features.length > 0) {
+                                                console.log(results.features);
+                                            }
+                                        });
+                
+                                });
+                                */
             })
                 .catch(err => {
                 // handle any errors with loading the arcgis api packages
@@ -63653,7 +63671,7 @@ handles the permission of the orientation (compass) and the geo location. Then t
 which fire every time the orientation or location changes.
 */
 
-//import {geolocate} from "mock-geolocation"; // used to fake the geolocation
+//import * as geolocate from "mock-geolocation"; // used to fake the geolocation
 
 if (typeof window !== 'undefined') {
     window.proj4 = window.proj4 || proj4__WEBPACK_IMPORTED_MODULE_1__.default;
@@ -63665,8 +63683,8 @@ class Geoalignment {
         this.positionGlobal = [0, 0, 0]; // Stores the current geo location
         this.positionProj = [0, 0];
         this.btnFakeGeo = document.getElementById("fakeGeo"); // Switch in settings which changes the geo location to on in the middle of the city
-        this.notifications = document.getElementById("notifications"); // Switch in settings which changes the geo location to on in the middle of the city
-        this.notification = document.getElementById("notification"); // Switch in settings which changes the geo location to on in the middle of the city
+        this.notifications = document.getElementById("notifications"); // Switch in settings which changes if there should be notifications 
+        this.notification = document.getElementById("notification"); // The div which holds the notification
         // HTML elements to write developer info to, only shown when in developer mode
         this.geoLocVis = document.getElementById('geoLocVis');
         this.geoLocVisProj = document.getElementById('geoLocVisProj');
@@ -63702,16 +63720,7 @@ class Geoalignment {
             }
             else {
                 //(navigator as any).geolocation.getCurrentPosition(handlerGeo);  // Only get one location
-                //geolocate.use();
                 navigator.geolocation.watchPosition(this.handlerGeo, this.errorGeo); // Keep track of the locatiom (fires when the locaton changes)
-                /*
-                geolocate.send({
-                  latitude: 50,
-                  longitude: 10,
-                  accuracy: 5,
-                  timestamp: 3000
-                });
-                */
                 // Call back to say everthing worked
                 callback(true);
             }
@@ -63735,6 +63744,14 @@ class Geoalignment {
         };
         // Update the distances and bearings for each landmark point
         this.updateGeolocation = () => {
+            /*
+            geolocate.change({
+              latitude: 50,
+              longitude: 10,
+              accuracy: 5,
+              timestamp: 3000
+            });
+            */
             for (var i in this.app.pointData) {
                 this.app.pointData[i].updateDist(this.getPosition());
                 if (this.notifications.checked && this.app.activeContainer == this.app.walkContainer) {
@@ -63757,6 +63774,7 @@ class Geoalignment {
         };
         // Read the position from outside of the class, also lets you fake the location
         this.getPosition = () => {
+            console.log(this.positionGlobal);
             if (this.btnFakeGeo.checked) {
                 return [8.542248, 47.371773, 0];
             }
@@ -63878,6 +63896,7 @@ class Geoalignment {
         };
         this.app = app;
         this.helper = new _Helper_js__WEBPACK_IMPORTED_MODULE_0__.Helper();
+        //geolocate.use();
     }
 }
 
@@ -64180,6 +64199,12 @@ class ThreeScene {
         this.balloons = [];
         this.labels = [];
         this.gltfLoader = new three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_1__.GLTFLoader(); // Function/Class to load gtlfs
+        this.checkboxes = {
+            "Architecture": document.getElementById("checkboxArchitecture"),
+            "Church": document.getElementById("checkboxChurch"),
+            "Monument": document.getElementById("checkboxMonument"),
+            "Other": document.getElementById("checkboxOther")
+        };
         // Initialize the scene
         this.initScene = (session) => {
             // Create the elements to draw on
@@ -64421,7 +64446,7 @@ class ThreeScene {
                 this.gltfLoader.load(url, resolve);
             });
         };
-        this.placeBalloons2 = () => {
+        this.placeBalloons = () => {
             for (var j in this.balloons) {
                 this.scene.remove(this.balloons[j]);
             }
@@ -64439,40 +64464,42 @@ class ThreeScene {
                     let bearing = this.app.pointData[i].bearing;
                     let distance = this.app.pointData[i].distance;
                     if (distance < maxDistance) {
-                        var balloon = root.clone().children[0];
-                        balloon.castShadow = true;
-                        balloon.receiveShadow = true;
-                        balloon.scale.set(10, 10, 10);
-                        balloon.material = new three__WEBPACK_IMPORTED_MODULE_0__.MeshPhongMaterial({ color: this.app.colors[this.app.pointData[i].category], opacity: this.helper.mapTransparency(distance), transparent: true });
-                        var pos = this.helper.polarToCart2D(bearing, this.helper.mapDistance(distance), this.helper.mapHeight(distance));
-                        balloon.position.set(pos.x, pos.y, pos.z);
-                        ; // Add attribute info
-                        balloon.userData = { "name": i.toString() };
-                        balloon.name = i.toString();
-                        this.scene.add(balloon);
-                        this.balloons.push(balloon);
-                        // In case it is closer then 300m, also give label to the baloons
-                        if (distance < 300) {
-                            const canvas = this.makeLabelCanvas(100, 32, this.app.pointData[i].name);
-                            const texture = new three__WEBPACK_IMPORTED_MODULE_0__.CanvasTexture(canvas);
-                            // because our canvas is likely not a power of 2
-                            // in both dimensions set the filtering appropriately.
-                            texture.minFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
-                            texture.wrapS = three__WEBPACK_IMPORTED_MODULE_0__.ClampToEdgeWrapping;
-                            texture.wrapT = three__WEBPACK_IMPORTED_MODULE_0__.ClampToEdgeWrapping;
-                            const labelMaterial = new three__WEBPACK_IMPORTED_MODULE_0__.SpriteMaterial({
-                                map: texture,
-                                transparent: true,
-                            });
-                            const labelBaseScale = 0.1;
-                            const label = new three__WEBPACK_IMPORTED_MODULE_0__.Sprite(labelMaterial);
-                            var pos = this.helper.polarToCart2D(bearing, this.helper.mapDistance(distance), this.helper.mapHeight(distance) - 25);
-                            label.position.set(pos.x, pos.y, pos.z);
-                            label.scale.x = canvas.width * labelBaseScale;
-                            label.scale.y = canvas.height * labelBaseScale;
-                            label.name = i.toString() + "_label";
-                            this.scene.add(label);
-                            this.labels.push(label);
+                        if (this.checkboxes[this.app.pointData[i].category].checked) {
+                            var balloon = root.clone().children[0];
+                            balloon.castShadow = true;
+                            balloon.receiveShadow = true;
+                            balloon.scale.set(10, 10, 10);
+                            balloon.material = new three__WEBPACK_IMPORTED_MODULE_0__.MeshPhongMaterial({ color: this.app.colors[this.app.pointData[i].category], opacity: this.helper.mapTransparency(distance), transparent: true });
+                            var pos = this.helper.polarToCart2D(bearing, this.helper.mapDistance(distance), this.helper.mapHeight(distance));
+                            balloon.position.set(pos.x, pos.y, pos.z);
+                            ; // Add attribute info
+                            balloon.userData = { "name": i.toString() };
+                            balloon.name = i.toString();
+                            this.scene.add(balloon);
+                            this.balloons.push(balloon);
+                            // In case it is closer then 300m, also give label to the baloons
+                            if (distance < 300) {
+                                const canvas = this.makeLabelCanvas(100, 32, this.app.pointData[i].name);
+                                const texture = new three__WEBPACK_IMPORTED_MODULE_0__.CanvasTexture(canvas);
+                                // because our canvas is likely not a power of 2
+                                // in both dimensions set the filtering appropriately.
+                                texture.minFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
+                                texture.wrapS = three__WEBPACK_IMPORTED_MODULE_0__.ClampToEdgeWrapping;
+                                texture.wrapT = three__WEBPACK_IMPORTED_MODULE_0__.ClampToEdgeWrapping;
+                                const labelMaterial = new three__WEBPACK_IMPORTED_MODULE_0__.SpriteMaterial({
+                                    map: texture,
+                                    transparent: true,
+                                });
+                                const labelBaseScale = 0.1;
+                                const label = new three__WEBPACK_IMPORTED_MODULE_0__.Sprite(labelMaterial);
+                                var pos = this.helper.polarToCart2D(bearing, this.helper.mapDistance(distance), this.helper.mapHeight(distance) - 25);
+                                label.position.set(pos.x, pos.y, pos.z);
+                                label.scale.x = canvas.width * labelBaseScale;
+                                label.scale.y = canvas.height * labelBaseScale;
+                                label.name = i.toString() + "_label";
+                                this.scene.add(label);
+                                this.labels.push(label);
+                            }
                         }
                     }
                 }

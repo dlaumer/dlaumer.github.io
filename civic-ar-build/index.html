@@ -105,11 +105,19 @@ Questions at: dlaumer@esri.com or daniel.laumer@gmail.com
       <div id = settingsContainer class="container" style = "display:none">
         <span style="font-size:40pt; margin: 10% 0">Settings</span>
           
-        <label id = distLabel>Show balloons in distance: </label>
+        <label class = infoLabel>Rendering distance</label>
           <form class="calcite-slider" id="sliderDistance">
               <span id=distValue>1000m</span> 
               <input id=distSlider type="range" min="100" max="3000" value="1000" step="100" aria-valuemin="100" aria-valuemax="3000" aria-valuenow="1000">
           </form>
+
+          <label class = infoLabel>Categories</label>
+          <label><input id="checkboxArchitecture" class = "checkbox" type="checkbox" checked><div id = "colorArchitecture" class="colorbox" style = "background-color: var(--architecture);"></div>Architecture</label>
+          <label><input id="checkboxChurch" class = "checkbox" type="checkbox" checked><div id = "colorChurch" class="colorbox"></div>Churches</label>
+          <label><input id="checkboxMonument" class = "checkbox" type="checkbox" checked><div id = "colorMonument" class="colorbox"></div>Monuments</label>
+          <label><input id="checkboxOther" class = "checkbox" type="checkbox" checked><div id = "colorOther" class="colorbox"></div>Other</label>
+
+          <label class = infoLabel>General </label>
           <label class="toggle-switch modifier-class">
             <input type="checkbox" class="toggle-switch-input" id="notifications">
             <span class="toggle-switch-track margin-right-1"></span>
