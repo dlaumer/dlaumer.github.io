@@ -63267,7 +63267,6 @@ class Application {
         };
         //webSceneId: string = "ba2e8db9e06d46acad6bd7f1a741d400";    // Temporal, hardcoded webscene
         this.webSceneId = "f1efb6c07eb44a3bbb1adc0b584017ed"; // Temporal, hardcoded webscene
-        // TODO: Print error to GUI in case the promises don't get resolved
         this.init = () => {
             // Get read the data, check if AR is possible on this device and get all the permissions 
             Promise.all([
@@ -63813,7 +63812,7 @@ class Geoalignment {
             // Check if device can provide absolute orientation data
             // There is no real standard between the devices and OS. There are three different listeners, 
             // we just try all of them
-            // This is used in the case of iOS (I think) TODO!
+            // This is used in the case of iOS
             if (window.DeviceOrientationAbsoluteEvent) {
                 this.helper.log("Using window.DeviceOrientationAbsoluteEvent");
                 window.addEventListener("DeviceOrientationAbsoluteEvent", this.handlerCompass);
@@ -63827,7 +63826,6 @@ class Geoalignment {
                 callback(true);
             }
             // This is the standard one which mostly only provides relativ values, at least for android
-            // TODO: Check this and give an alert!
             else if (window.DeviceOrientationEvent) {
                 alert("Only relative orientation existing");
                 window.addEventListener("deviceorientation", this.handlerCompass);
