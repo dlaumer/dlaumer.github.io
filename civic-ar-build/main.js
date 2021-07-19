@@ -62977,23 +62977,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Helper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Helper.js */ "./src/js/Helper.js");
 /* harmony import */ var three__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
-/* Copyright 2017 Esri
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
- 
-Developed at Esri R&D Zurich in the scope of an internship project.
+/*
+--------------
+ARHandler.ts
+--------------
+This class handles all the things related to WebXR (or WebAR in this case). The first part is to check
+if the device can do WebXR. Then it handled the starting and ending of the sessions. Also there is an
+update function which fires for every frame, there all the rendering and interaction is performed.
 
-Author: Daniel Laumer
-Date: 20.July 2021
-Project: Civic AR, an augmented reality mobile application for urban environments
-Questions at: dlaumer@esri.com or daniel.laumer@gmail.com
- */
+*/
 
 
 class ARHandler {
@@ -63189,23 +63181,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Geoalignment_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Geoalignment.js */ "./src/js/Geoalignment.js");
 /* harmony import */ var _Helper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Helper.js */ "./src/js/Helper.js");
 /* harmony import */ var _ThreeScene_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ThreeScene.js */ "./src/js/ThreeScene.js");
-/* Copyright 2017 Esri
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
- 
-Developed at Esri R&D Zurich in the scope of an internship project.
-
-Author: Daniel Laumer
-Date: 20.July 2021
-Project: Civic AR, an augmented reality mobile application for urban environments
-Questions at: dlaumer@esri.com or daniel.laumer@gmail.com
-*/
 /*
 --------------
 Application.ts
@@ -63226,7 +63201,6 @@ ThreeScene: Deals with the display and interaction with the virtual objects
 
 
 
-//import { ArrowHelper } from "three";
 class Application {
     constructor() {
         // Buttons Footer
@@ -63374,24 +63348,6 @@ class Application {
             });
             document.addEventListener("visibilitychange", that.ARHandler.enterAr);
         };
-        /*
-            // Reads the landmark info from AGO
-            readPointData = () => {
-                return new Promise<void>((resolve, reject) => {
-                    this.connectionAGO.readJSON().then((jsonData: any) => {
-                        for (var i in jsonData) {
-                            // Re-order the information by making instance of the class PointData
-                            this.pointData.push(new PointData(jsonData[i].attributes.identifier, jsonData[i].attributes.titleTeaser, jsonData[i].attributes.textTeaser, jsonData[i].attributes.category, jsonData[i].geometry.y, jsonData[i].geometry.x));
-                        }
-                        resolve();
-                    })
-                        .catch(() => {
-                            console.error("Point Data could not be processed");
-                            reject();
-                        })
-                });
-            }
-            */
         // If everything is loaded correctly, start the app
         this.initHome = () => {
             if (this.activeButton) {
@@ -63461,23 +63417,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var esri_loader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! esri-loader */ "../../../node_modules/esri-loader/dist/umd/esri-loader.js");
 /* harmony import */ var esri_loader__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(esri_loader__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Helper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Helper.js */ "./src/js/Helper.js");
-/* Copyright 2017 Esri
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
- 
-Developed at Esri R&D Zurich in the scope of an internship project.
-
-Author: Daniel Laumer
-Date: 20.July 2021
-Project: Civic AR, an augmented reality mobile application for urban environments
-Questions at: dlaumer@esri.com or daniel.laumer@gmail.com
- */
 /*
 --------------
 ConnectionAGO.ts
@@ -63595,27 +63534,6 @@ class ConnectionAGO {
                     view: this.view,
                 });
                 this.view.ui.add(legend, "bottom-right");
-                /*
-                               
-                                
-                                // This part loads the attributes of all features from the layer inside of the scene
-                                var that = this; // so solve the issue that "this" is the view inside the function
-                                this.view.when(function () {
-                                    console.log(that.scene);
-                                    var layer = (<any>that.scene.layers).find(function (layer) { return layer.title === "landmarksZurich"; })
-                
-                                    var query = layer.createQuery();
-                
-                                    layer
-                                        .queryFeatures(query)
-                                        .then((results) => {
-                                            if (results.features.length > 0) {
-                                                console.log(results.features);
-                                            }
-                                        });
-                
-                                });
-                                */
             })
                 .catch(err => {
                 // handle any errors with loading the arcgis api packages
@@ -63644,23 +63562,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Helper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Helper.js */ "./src/js/Helper.js");
 /* harmony import */ var proj4__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! proj4 */ "./node_modules/proj4/lib/index.js");
-/* Copyright 2017 Esri
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
- 
-Developed at Esri R&D Zurich in the scope of an internship project.
-
-Author: Daniel Laumer
-Date: 20.July 2021
-Project: Civic AR, an augmented reality mobile application for urban environments
-Questions at: dlaumer@esri.com or daniel.laumer@gmail.com
- */
 /*
 --------------
 Geoalignment.ts
@@ -63670,7 +63571,7 @@ handles the permission of the orientation (compass) and the geo location. Then t
 which fire every time the orientation or location changes.
 */
 
-//import * as geolocate from "mock-geolocation"; // used to fake the geolocation
+//import * as geolocate from "mock-geolocation"; // used to fake the geolocation, not working yet
 
 if (typeof window !== 'undefined') {
     window.proj4 = window.proj4 || proj4__WEBPACK_IMPORTED_MODULE_1__.default;
@@ -63718,7 +63619,6 @@ class Geoalignment {
                 callback(false);
             }
             else {
-                //(navigator as any).geolocation.getCurrentPosition(handlerGeo);  // Only get one location
                 navigator.geolocation.watchPosition(this.handlerGeo, this.errorGeo); // Keep track of the locatiom (fires when the locaton changes)
                 // Call back to say everthing worked
                 callback(true);
@@ -63743,6 +63643,7 @@ class Geoalignment {
         };
         // Update the distances and bearings for each landmark point
         this.updateGeolocation = () => {
+            // used to fake the geolocation, not working yet
             /*
             geolocate.change({
               latitude: 50,
@@ -63773,7 +63674,6 @@ class Geoalignment {
         };
         // Read the position from outside of the class, also lets you fake the location
         this.getPosition = () => {
-            console.log(this.positionGlobal);
             if (this.btnFakeGeo.checked) {
                 return [8.542248, 47.371773, 0];
             }
@@ -63869,32 +63769,11 @@ class Geoalignment {
                 }
                 // Update local compass info (class variable)
                 this.orientGlobal = heading;
-                // This part is to detect if we look close to to one of the landmarks
-                /*
-                if (this.app.pointData != null) {
-                  let diff: number = 400;
-                  for (var i in this.app.pointData) {
-                    // TODO: overlauf nach 360!!!
-                    if (Math.abs(this.orientGlobal - this.app.pointData[i].bearing) < diff) {
-                      diff = Math.abs(this.orientGlobal - this.app.pointData[i].bearing);
-                    }
-                  }
-                  
-                  if ((this.pointVis.innerHTML != "Loading...") && (this.pointVis.innerHTML.slice(0,5) != "Model")) {
-                    if (diff < 10) {
-                   
-                      this.pointVis.innerHTML = this.app.pointData[clostestOrient].name + " (" + this.app.pointData[clostestOrient].distance.toFixed(0) + "m)";
-                    } else {
-                      this.pointVis.innerHTML = "";
-                    }
-                  }
-                }
-                */
             }
         };
         this.app = app;
         this.helper = new _Helper_js__WEBPACK_IMPORTED_MODULE_0__.Helper();
-        //geolocate.use();
+        //geolocate.use();  // used to fake the geolocation, not working yet
     }
 }
 
@@ -63914,23 +63793,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "PointData": () => (/* binding */ PointData)
 /* harmony export */ });
 /* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
-/* Copyright 2017 Esri
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
- 
-Developed at Esri R&D Zurich in the scope of an internship project.
-
-Author: Daniel Laumer
-Date: 20.July 2021
-Project: Civic AR, an augmented reality mobile application for urban environments
-Questions at: dlaumer@esri.com or daniel.laumer@gmail.com
- */
 /*
 --------------
 Helper.ts
@@ -63988,8 +63850,6 @@ class Helper {
                 obj.parent.worldToLocal(obj.position); // undo world coordinates compensation
             }
             obj.rotateOnAxis(axis, theta); // rotate the OBJECT
-        };
-        this.rotateLabel = (label) => {
         };
         // Take the three angles from the orientation and just take the horizontal part (copied from https://stackoverflow.com/questions/18112729/calculate-compass-heading-from-deviceorientation-event-api)
         this.compassHeading = (alpha, beta, gamma) => {
@@ -64158,23 +64018,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
 /* harmony import */ var three_examples_jsm_loaders_GLTFLoader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! three/examples/jsm/loaders/GLTFLoader */ "./node_modules/three/examples/jsm/loaders/GLTFLoader.js");
 /* harmony import */ var _Helper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Helper.js */ "./src/js/Helper.js");
-/* Copyright 2017 Esri
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
- 
-Developed at Esri R&D Zurich in the scope of an internship project.
-
-Author: Daniel Laumer
-Date: 20.July 2021
-Project: Civic AR, an augmented reality mobile application for urban environments
-Questions at: dlaumer@esri.com or daniel.laumer@gmail.com
- */
 /*
 --------------
 ThreeScene.ts
@@ -64212,12 +64055,6 @@ class ThreeScene {
             this.scene = new three__WEBPACK_IMPORTED_MODULE_0__.Scene();
             this.camera = new three__WEBPACK_IMPORTED_MODULE_0__.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
             this.camera.matrixAutoUpdate = false; // the camera matrix gets updated in Geoalignment.ts with the movement of the phone
-            /*
-            var light = new THREE.PointLight(0xffffff, 2, 100); // soft white light
-            light.position.z = 1;
-            light.position.y = 5;
-            this.scene.add(light);
-            */
             // Add a light, in this case one light from above and one from the bottom
             const skyColor = 0xffffff; // white
             const groundColor = 0x4d4d4d; // grey
@@ -64242,7 +64079,7 @@ class ThreeScene {
             this.renderer.xr.setReferenceSpaceType('local');
             this.renderer.xr.setSession(session);
             /*
-            // simple sprite to indicate detected surfaces
+            // simple sprite to indicate detected surfaces, not used right now
             this.reticle = new THREE.Mesh(
                 new THREE.RingBufferGeometry(0.15, 0.2, 32).rotateX(-Math.PI / 2),
                 new THREE.MeshPhongMaterial({ color: 0x0fff00 })
@@ -64265,7 +64102,7 @@ class ThreeScene {
                 this.previousTouch = null;
             });
             document.addEventListener('touchmove', (event) => {
-                this.checkTurning2(event);
+                this.checkTurning(event);
             });
             this.scene.add(this.controller);
         };
@@ -64363,34 +64200,10 @@ class ThreeScene {
                 }
             }
         };
-        // Is called from the onXRFrame method on ARHandler.ts
+        // Is called from the touchmove event listener
         // used to check if the swipe action is still going
-        // if yes, keep turning the model according to the controller rotation
-        this.checkTurning = () => {
-            if (this.turning) {
-                var diff = this.controller.rotation.y - this.rotationY;
-                // In case this is the first call after the start of the turn: store the initial rotation
-                if (this.first) {
-                    this.rotationY = this.controller.rotation.y;
-                    diff = 0;
-                    this.first = false;
-                }
-                // check the difference
-                else {
-                    diff = this.controller.rotation.y - this.rotationY;
-                }
-                // let the model rotate with double speed
-                if (!isNaN(diff)) {
-                    this.landmarkModel.rotation.y -= diff * 2;
-                }
-                // store the current rotation for the next frame
-                this.rotationY = this.controller.rotation.y;
-            }
-        };
-        // Is called from the onXRFrame method on ARHandler.ts
-        // used to check if the swipe action is still going
-        // if yes, keep turning the model according to the controller rotation
-        this.checkTurning2 = (event) => {
+        // if yes, keep turning the model according to the move of the finger on the screen
+        this.checkTurning = (event) => {
             if (this.turning) {
                 if (this.previousTouch != null) {
                     var diff = event.touches[0].pageX - this.previousTouch;
@@ -64444,6 +64257,7 @@ class ThreeScene {
                 this.gltfLoader.load(url, resolve);
             });
         };
+        // Put the balloons into the scene, also used to update in case the user moves
         this.placeBalloons = () => {
             for (var j in this.balloons) {
                 this.scene.remove(this.balloons[j]);
@@ -64503,6 +64317,7 @@ class ThreeScene {
                 }
             });
         };
+        // if one balloon is clicked, make the others transparent
         this.makeBalloonsTransparent = (id) => {
             for (var j in this.balloons) {
                 if (this.balloons[j].name != id) {
@@ -64515,6 +64330,7 @@ class ThreeScene {
                 }
             }
         };
+        // reverse the effect of the function makeBalloonsTransparent(), normal transparency
         this.makeBalloonsNormal = () => {
             for (var j in this.balloons) {
                 let distance = this.app.pointData[this.balloons[j].name].distance;
@@ -64524,51 +64340,7 @@ class ThreeScene {
                 this.labels[j].material.opacity = 1;
             }
         };
-        this.updateBalloons = () => {
-            for (var i in this.app.pointData) {
-                let bearing = this.app.pointData[i].bearing;
-                let distance = this.app.pointData[i].distance;
-                var balloon = this.scene.getObjectByName(i.toString());
-                var pos = this.helper.polarToCart2D(bearing - this.helper.toDegrees(this.scene.rotation.y), this.helper.mapDistance(distance), this.helper.mapHeight(distance));
-                balloon.position.set(this.app.ARHandler.positionLocal[0] + pos.x, this.app.ARHandler.positionLocal[1] + pos.y, this.app.ARHandler.positionLocal[2] + pos.z);
-                this.helper.rotateAboutPoint(balloon, [0, 0, 0], new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), -this.scene.rotation.y, false);
-                var label = this.scene.getObjectByName(i.toString() + "_label");
-                if (label != null) {
-                    if (distance > 300) {
-                        this.scene.remove(label);
-                    }
-                    else {
-                        var pos = this.helper.polarToCart2D(bearing - this.helper.toDegrees(this.scene.rotation.y), this.helper.mapDistance(distance) - 12, this.helper.mapHeight(distance));
-                        label.position.set(this.app.ARHandler.positionLocal[0] + pos.x, this.app.ARHandler.positionLocal[1] + pos.y, this.app.ARHandler.positionLocal[2] + pos.z);
-                        this.helper.rotateAboutPoint(label, [0, 0, 0], new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), -this.scene.rotation.y, false);
-                    }
-                }
-                else {
-                    if (distance < 300) {
-                        const canvas = this.makeLabelCanvas(100, 32, this.app.pointData[i].name);
-                        const texture = new three__WEBPACK_IMPORTED_MODULE_0__.CanvasTexture(canvas);
-                        // because our canvas is likely not a power of 2
-                        // in both dimensions set the filtering appropriately.
-                        texture.minFilter = three__WEBPACK_IMPORTED_MODULE_0__.LinearFilter;
-                        texture.wrapS = three__WEBPACK_IMPORTED_MODULE_0__.ClampToEdgeWrapping;
-                        texture.wrapT = three__WEBPACK_IMPORTED_MODULE_0__.ClampToEdgeWrapping;
-                        const labelMaterial = new three__WEBPACK_IMPORTED_MODULE_0__.SpriteMaterial({
-                            map: texture,
-                            transparent: true,
-                        });
-                        const labelBaseScale = 0.1;
-                        const label = new three__WEBPACK_IMPORTED_MODULE_0__.Sprite(labelMaterial);
-                        var pos = this.helper.polarToCart2D(bearing - this.helper.toDegrees(this.scene.rotation.y), this.helper.mapDistance(distance), this.helper.mapHeight(distance) - 25);
-                        label.position.set(this.app.ARHandler.positionLocal[0] + pos.x, this.app.ARHandler.positionLocal[1] + pos.y, this.app.ARHandler.positionLocal[2] + pos.z);
-                        this.helper.rotateAboutPoint(label, [0, 0, 0], new three__WEBPACK_IMPORTED_MODULE_0__.Vector3(0, 1, 0), -this.scene.rotation.y, false);
-                        label.scale.x = canvas.width * labelBaseScale;
-                        label.scale.y = canvas.height * labelBaseScale;
-                        balloon.name = i.toString() + "_label";
-                        this.scene.add(label);
-                    }
-                }
-            }
-        };
+        // Add or remove the compass arrows for developer mode
         this.handleCompassArrows = (devMode) => {
             if (devMode) {
                 this.scene.add(this.arrowN);
@@ -64583,6 +64355,7 @@ class ThreeScene {
                 this.scene.remove(this.arrowW);
             }
         };
+        // Let the compass arrows always be on top of the users head
         this.updateCompassArrows = (devMode) => {
             if (devMode) {
                 var pos = this.helper.polarToCart2D(0 - this.helper.toDegrees(this.scene.rotation.y), 3, 2); // Position north, 3m away and 2m up
@@ -65039,23 +64812,6 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/main.css */ "./src/css/main.css");
 /* harmony import */ var _js_Application_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/Application.js */ "./src/js/Application.js");
-/* Copyright 2017 Esri
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
- 
-Developed at Esri R&D Zurich in the scope of an internship project.
-
-Author: Daniel Laumer
-Date: 20.July 2021
-Project: Civic AR, an augmented reality mobile application for urban environments
-Questions at: dlaumer@esri.com or daniel.laumer@gmail.com
- */
 /*
 --------------
 index.ts
@@ -65074,7 +64830,7 @@ the real world space. There is also a 3D map which let's the user explore the 3D
 birds eyes view
 
 */
- // TODO: Loading of css is too slow
+ // Note: Loading of css is a bit slow, maybe find some improvement at some point?
 
 new _js_Application_js__WEBPACK_IMPORTED_MODULE_1__.Application();
 
